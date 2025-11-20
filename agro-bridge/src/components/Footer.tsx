@@ -35,8 +35,7 @@ export default function Footer() {
   
   return (
     <footer className="relative dark:bg-zinc-900 [font-family:var(--font-open-sans)]">
-      <div className="grid gap-8 
-        px-(--section-px) sm:px-(--section-px-sm) lg:px-(--section-px-lg) 
+      <div className="grid gap-8 px-(--section-px) sm:px-(--section-px-sm) lg:px-(--section-px-lg) 
         border-3 border-[#E5E7EB] rounded-lg 
         w-full max-w-7xl mx-auto h-full"
       >
@@ -197,7 +196,7 @@ export default function Footer() {
         </div>          
 
         {/* Footer 2 */}
-        <div className="flex flex-col items-center justify-between gap-2 py-2 pb-6 lg:flex-row text-(--text-colour)">
+        <div className="flex flex-col items-center justify-between gap-2 py-2 lg:flex-row text-(--text-colour)">
           <p className="flex items-center gap-1 text-xs lg:text-sm">
             <span>&copy; Copyright </span>
             <span>{displayYear}</span>
