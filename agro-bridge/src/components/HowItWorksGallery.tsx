@@ -45,12 +45,12 @@ export default function HowItWorksGallery({
   const activeCtrl = controls.find((c) => c.imageIndex === activeIndex);
 
   return (
-    <div className="relative w-full grid-cols-1 gap-20 lg:grid lg:gap-4 lg:grid-cols-2 lg:gap-12">
+    <div className="relative grid w-full grid-cols-1 gap-16 lg:gap-4 lg:grid lg:grid-cols-2 lg:gap-12">
 
       {/* ------------------------------------
         LEFT SECTION — SLIDES
       ------------------------------------ */}
-      <div className="relative min-h-[350px] lg:min-h-[420px]">
+      <div className="relative flex flex-col gap-8 h-80 lg:min-h-full">
 
         <AnimatePresence mode="wait" initial={false}>
           <motion.div
@@ -76,7 +76,7 @@ export default function HowItWorksGallery({
             {/* --------------------------
               Image A (main)
             --------------------------- */}
-            <div className="relative w-4/5 mx-auto overflow-hidden bg-gray-100 sm:w-3/5 lg:pb-0 lg:mx-0 lg:w-4/5 h-4/5 rounded-xl">
+            <div className="relative w-4/5 mx-auto overflow-hidden h-60 sm:w-3/5 lg:pb-0 lg:mx-0 lg:w-4/5 lg:h-4/5 rounded-xl">
               <Image
                 src={activeSlide.imageUrlA}
                 alt={activeSlide.imageAltA}
@@ -103,7 +103,7 @@ export default function HowItWorksGallery({
                   src={activeSlide.imageUrlB}
                   alt={activeSlide.imageAltB}
                   fill
-                  className="object-contain -mt-6 lg:-mt-16"
+                  className="object-contain -mt-6 lg:mt-4"
                 />
               </div>
               
