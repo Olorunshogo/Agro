@@ -23,7 +23,7 @@ type Props = {
 export const ProductCard: React.FC<Props> = ({ product, className = "" }) => {
   return (
     <article
-      className={`flex flex-col gap-6 p-4 border rounded-xl shadow-custom w-4/5 max-w-[320px] lg:w-full mx-auto ${className}`}
+      className={`flex flex-col gap-6 p-4 border rounded-xl font-openSans shadow-custom w-4/5 max-w-[320px] lg:w-full mx-auto ${className}`}
       aria-label={`Product ${product.name ?? "Product"}`}
     >
       <div className="flex flex-col gap-4">
@@ -40,24 +40,24 @@ export const ProductCard: React.FC<Props> = ({ product, className = "" }) => {
 
         <div className="flex flex-col gap-4">
           <div className="flex items-center justify-between gap-2">
-            <span className="text-xs font-medium lg:text-sm">
+            <span className="text-sm font-medium lg:text-base text-(--heading-colour)">
               {product.name ?? "Product Name"}
             </span>
-            <div className="flex items-center gap-1 text-xs lg:text-sm">
+            <div className="flex items-center gap-1 text-xs lg:text-sm text-[#414652]">
               <MapPin className="w-3 h-3" />
               <span>{product.location}</span>
             </div>
           </div>
 
           <div className="flex items-center justify-between gap-2">
-            <div className="text-lg font-semibold text-black">
+            <div className="text-lg font-semibold text-(--heading-colour)">
               ${product.price}
               <span className="text-sm">/Ton</span>
             </div>
 
             <Link
               href={product.productDetailsLink}
-              className="text-white text-sm font-semibold bg-[var(--agro-green-light)] hover:bg-[var(--agro-green-dark)] px-3 py-1.5 rounded-full shadow-lg"
+              className="text-[#FFF8F8] text-sm bg-(--agro-green-dark) hover:bg-(--agro-green-light) px-3 py-1.5 rounded-full shadow-lg"
             >
               View Detail
             </Link>
