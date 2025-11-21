@@ -88,13 +88,15 @@
   --section-px-lg: 3rem;
 
   --section-py: 2rem;
-  --section-py-sm: 3rem;
-  --section-py-lg: 5rem;
+  --section-py-lg: 3rem;
 
   --navbar-h: 4.5rem;
 
   --agro-green-dark: #2B6036;
   --agro-green-light: #22C55E;
+  --input-border-green: #2B6036;
+  --input-text-colour: #111827;
+  --input-error-red: #EF4444;
   --border-gray: #E5E7EB;
 
   --primary-bg-light: #FEFEFE;

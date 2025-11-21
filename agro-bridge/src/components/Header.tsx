@@ -40,7 +40,7 @@ export default function Header() {
                   <li key={href}>
                     <Link
                       href={href}
-                      className={`flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-full transition-colors
+                      className={`flex items-center gap-2 px-4 py-2 text-sm font-medium font-inter rounded-full transition-colors
                         ${
                           isActive
                             ? "bg-white text-black shadow-sm"
@@ -58,21 +58,19 @@ export default function Header() {
 
           <div className="items-center hidden gap-4 lg:flex">
             <Link
-              href="/auth/signin"
-              className="text-sm font-medium hover:text-primary"
+              href="/signin"
+              className="px-4 py-2 text-sm text-[#F4F9EC] font-inter border-1 border-[#F4F9EC] hover:shadow-custom rounded-md font-medium bg-transparent hover:opacity-90 duration-300 ease-in-out transition-all"
             >
               Sign In
             </Link>
 
-            <Button variant="outline">
-              <Link
-                href="/auth/signup"
-                className="flex items-center gap-1 text-sm font-medium hover:text-primary"
-              >
-                Sign Up
-                <span><ArrowRight className="w-4 h-4 -rotate-45" /></span>
-              </Link>
-            </Button>
+            <Link
+              href="/signup"
+              className="flex items-center gap-1 px-4 py-2 text-sm text-[#F4F9EC] font-inter hover:shadow-custom rounded-md font-medium bg-(--agro-green-dark) hover:opacity-90 duration-300 ease-in-out transition-all"
+            >
+              Sign Up
+              <span><ArrowRight className="w-4 h-4 -rotate-45" /></span>
+            </Link>
           </div>
 
           {/* Sidebar Toggle Button */}

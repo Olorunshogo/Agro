@@ -2,11 +2,14 @@
   "name": "agro-bridge",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "prettier": "prettier --config prettier.config.js --write ."
+
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.15",
