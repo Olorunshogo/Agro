@@ -4,6 +4,7 @@ import { HomeIcon } from "lucide-react";
 
 export const navLinks: NavLink[] = [
   { label: "Home", href: "/", icon: HomeIcon, },
+  { label: "Product Page", href: "/product-page" },
   { label: "About Us", href: "/about" },
   { label: "Contact Us", href: "/contact" },
   { label: "Terms", href: "/terms" },

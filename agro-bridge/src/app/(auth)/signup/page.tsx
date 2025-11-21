@@ -2,7 +2,7 @@
 "use client";
 
 import React, { useState } from "react";
-
+import { TextInput } from "~/components/TextInput";
 import { EmailInput } from "~/components/EmailInput";
 import { PasswordInput } from "~/components/PasswordInput";
 import { Button } from "~/components/ui/button";
@@ -10,13 +10,13 @@ import Link from "next/link";
 import { Toaster } from "~/components/ui/sonner";
 import { z } from "zod";
 import { AppLogo } from "~/components/app-logo";
-
-
 // icons
 import { Github, Chromium } from "lucide-react";
 
 
 const formSchema = z.object({
+  companyName: z.string().min(3, "Input a minimum of three letters here"),
+  userName: z.string().min(3, "Input a minimum of three letters here"),
   email: z.string().min(1, "Email is required").email("Invalid email"),
   password: z
   .string()
@@ -28,7 +28,12 @@ const formSchema = z.object({
 type FormData = z.infer<typeof formSchema>;
 
 export default function SignInPage() {
-  const [form, setForm] = useState<FormData>({ email: "", password: "" });
+  const [form, setForm] = useState<FormData>({ 
+    companyName: "",
+    userName: "",
+    email: "", 
+    password: "" 
+  });
   const [errors, setErrors] = useState<Partial<Record<keyof FormData, string>>>({});
   const [loading, setLoading] = useState(false);  
   
@@ -93,22 +98,55 @@ export default function SignInPage() {
 
       <div className="flex flex-col items-center w-full h-full max-w-[564px] max-h-[664px] gap-6 p-6 lg:p-8">
         
-        {/* Header */}
-        <div className="flex items-center justify-center w-full gap-4">
-          {/* <img src="/logo.png" alt="AgroBridge logo" className="object-contain w-10 h-10" /> */}
-          <AppLogo className="w-8 h-8" />
-          <div className="text-lg font-semibold">AgroBridge</div>
-        </div>      
-      
-        {/* Title + OAuth buttons */}        
-        <div className="text-xl font-semibold text-center lg:text-2xl">Sign In</div>      
-      
-        <form
+        {/* Heading, App Logo and Title*/}
+        <div className="flex flex-col items-center w-full h-full gap-6">
+          <div className="flex items-center gap-4">
+            <AppLogo className="w-8 h-8" />
+            <span className="text-xl text-(--agro-green-dark) font-semibold">AgroBridge</span>              
+          </div>
+
+          <div className="text-xl text-(--heading-colour) font-semibold">Sign Up</div>
+        </div>
+
+         <form
           onSubmit={submit}
           className="flex flex-col w-full gap-8 bg-white"
         >        
-          {/* Inputs */}
+          {/* Input Fieldss */}
           <div className="flex flex-col gap-4">
+            {/* Company Name Input Field */}
+            <div className="flex flex-col gap-4">
+              <TextInput 
+                label="Company Name"
+                placeholder="Enter your company name"
+                required
+                value={form.companyName}
+                onChange={onChange("companyName")}
+                error={!!errors.companyName}
+              />
+              
+              {errors.companyName && (
+                <p className="text-sm text-(--input-error-red)">{errors.companyName}</p>
+              )}
+            </div>
+
+            {/* User Name Input Field */}
+            <div className="flex flex-col gap-4">
+              <TextInput 
+                label="User Name"
+                placeholder="Enter your user name"
+                required
+                value={form.userName}
+                onChange={onChange("userName")}
+                error={!!errors.userName}
+              />
+              
+              {errors.companyName && (
+                <p className="text-sm text-(--input-error-red)">{errors.userName}</p>
+              )}
+            </div>
+            
+            {/* Email */}
             <div>
               <EmailInput
                 value={form.email}
@@ -120,6 +158,7 @@ export default function SignInPage() {
               {errors.email && <p className="mt-1 text-sm text-red-500">{errors.email}</p>}
             </div>
 
+            {/* Password */}
             <div>
               <PasswordInput
                 value={form.password}
@@ -132,28 +171,29 @@ export default function SignInPage() {
             </div>
           </div>
 
-          <div className="flex flex-col w-full h-full gap-6">
-            {/* Submit */}
-            <div>
-              <Button
-                type="submit"
-                className="w-full text-white rounded-full bg-(--agro-green-dark) hover:bg-(--agro-green-light) hover:opacity-90 hover:cursor-pointer duration-300 ease-in-out transition-all"
-                disabled={loading}
-              >
-                {loading ? "Signing up..." : "Sign Up"}
-              </Button>
-            </div>
-
-            {/* Footer */}
-            <div className="text-sm text-center text-black lg:text-base">
-              You already have an account? {" "}
-              <Link href="/auth/signin" className="font-bold underline">
-                Sign In
-              </Link>
-            </div>
+          {/* Submit */}
+          <div>
+            <Button
+              type="submit"
+              className="w-full text-white rounded-full bg-(--agro-green-dark) hover:bg-(--agro-green-light) hover:opacity-90 hover:cursor-pointer duration-300 ease-in-out transition-all"
+              disabled={loading}
+            >
+              {loading ? "Signing up..." : "Sign Up"}
+            </Button>
           </div>
           
         </form>
+
+        {/* Footer */}
+        <p className="flex items-center mx-auto text-sm text-center text-(--text-colour)">
+          You already have an account?{" "}            
+          <Link 
+            href="/signin" 
+            className="font-bold text-(--agro-green-dark) hover:underline"
+          >
+            &nbsp;Sign In
+          </Link>
+        </p>
         
       </div>
     </div>

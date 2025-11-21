@@ -1,6 +1,304 @@
 
-export default function ContactUsPage() {
+"use client";
+
+import { useState } from "react";
+
+import HeroSection from "~/components/HeroSection";
+import { Button } from "~/components/ui/button";
+import { Toaster, toast } from "sonner";
+
+import { TextInput } from "~/components/TextInput";
+import { EmailInput } from "~/components/EmailInput";
+import { MessageInput } from "~/components/MessageInput";
+import { z } from "zod";
+
+import Image from "next/image";
+import Link from "next/link";
+import { Phone, Mail, Clock } from "lucide-react";
+
+import type { Metadata } from "next";
+
+// Static metadata
+const metadata: Metadata = {
+  title: {
+    template: "%s | Bridging Farmers to Sellers",
+    default: "Contact",
+  },
+  description:
+    "Agrobridge connects farmers with the right sellers for their crops. Streamlining agriculture for a better tomorrow.",
+  keywords: "Agrobridge, farmers, sellers, agriculture, crops, marketplace",
+  authors: [
+    { 
+      name: "Agrobridge Team", 
+      url: "https://agro-bom-vercel.vercel.app/",
+    }
+  ],
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://agro-bom-vercel.vercel.app/",
+    title: "Agrobridge | Bridging Farmers to Sellers",
+    description: "Agrobridge connects farmers with the right sellers for their crops. Streamlining agriculture for a better tomorrow.",
+    siteName: "Agrobridge",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,  
+        height: 630,
+        alt: "Agrobridge - Connecting Farmers to Sellers",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    site: "@agrobridge",
+    title: "Agrobridge | Bridging Farmers to Sellers",
+    description: "Agrobridge connects farmers with the right sellers for their crops.",
+    images: "/twitter-image.png",
+  },
+};
+
+const contactSchema = z.object({
+  fullName: z.string().min(2, "Name must be at least 2 characters"),
+  email: z.string().email("Invalid email address"),
+  message: z
+    .string()
+    .min(10, "Message must be at least 10 words")
+    .max(300, "Message cannot exceed 300 words"),
+});
+
+type ContactForm = z.infer<typeof contactSchema>;
+
+
+
+export default function ContactPage() {
+
+  const [form, setForm] = useState<ContactForm>({
+    fullName: "",
+    email: "",
+    message: "",
+  });
+
+  const [errors, setErrors] = useState<Partial<ContactForm>>({});
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (
+    field: keyof ContactForm
+  ) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setForm((prev) => ({ ...prev, [field]: e.target.value }));
+  };
+
+  const validate = (): boolean => {
+    const result = contactSchema.safeParse(form);
+    if (!result.success) {
+      const fieldErrors: Partial<ContactForm> = {};
+      result.error.issues.forEach((issue) => {
+        const key = issue.path[0] as keyof ContactForm;
+        fieldErrors[key] = issue.message;
+      });
+      setErrors(fieldErrors);
+      return false;
+    }
+    setErrors({});
+    return true;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!validate()) return;
+
+    setLoading(true);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      if (res.ok) {
+        toast.success("Thank you! We’ll get back to you soon.");
+        setForm({ fullName: "", email: "", message: "" });
+      } else {
+        const data = await res.json();
+        toast.error(data.message || "Something went wrong");
+      }
+    } catch (err) {
+      toast.error("Network error. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const sitemapUrl:string = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.952412683761!2d3.342567!3d6.596429!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8b2ae68280c1%3A0xdc9e87a367c3d9cb!2sLagos!5e0!3m2!1sen!2sng!4v1703123456789";
+  
+
   return (
-    <div>Contact Us Page</div>
-  )
+    <main className="relative font-openSans">
+      <div className="flex flex-col gap-12 w-full -mt-(--navbar-h) h-full bg-(--primary-bg-light) dark:bg-black">
+        
+        {/* Home Hero Section */}
+        <HeroSection 
+          backgroundImage="/home-landing-page.png"
+          heading="Buy Fresh Farm Produce Directly from Source at the Best Price."
+          paragraph="AgroBridge connects international buyers with premium-quality agricultural goods sourced and verified by our team in Nigeria."
+          showCtas={true}
+          primaryCta={{
+            text: "Explore Product",
+            href: "/products",
+          }}
+          secondaryCta={{
+            text: "Request a Quote",
+            href: "/contact",
+          }}
+        />
+
+        {/* Who We Are & Our Values Section */}
+        <section className="relative overflow-hidden bg-white">
+          <div className="flex flex-col gap-8 lg:gap-12 px-(--section-px) sm:px-(--section-px-sm) lg:px-(--section-px-lg) py-(--section-py)    lg:py-(--section-py-lg) w-full max-w-7xl mx-auto h-full">
+
+            <div className="flex flex-col w-full h-full gap-6 text-center">
+              <h2 className="text-(--heading-colour) lg:text-(--text-colour) text-xl lg:text-2xl font-semibold">Who Are We</h2>
+              <p className="text-sm lg:text-lg text-(--text-colour)">
+                We&apos;re here to help you reach out with any question or partnership inquires.
+              </p>
+            </div>
+
+            <div className="grid w-full h-full grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-8">
+              {/* Form area */}
+              <div className="relative flex flex-col w-full h-full gap-6 p-6 rounded-md">
+                <p className="font-semibold text-black">Send Us A Message </p>
+                
+                <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+                    
+                  {/* Full Name Input Field */}
+                  <div className="flex flex-col gap-4">
+                    <TextInput 
+                      label="Full Name"
+                      placeholder="Enter your full name"
+                      required
+                      value={form.fullName}
+                      onChange={handleChange("fullName")}
+                      error={!!errors.fullName}
+                    />
+                    
+                    {errors.fullName && (
+                      <p className="text-sm text-(--input-error-red)">{errors.fullName}</p>
+                    )}
+                  </div>
+
+                  {/* Email Input Field */}
+                  <div className="flex flex-col gap-4">
+                    <EmailInput 
+                      label="Email"
+                      placeholder="Enter your email"
+                      required
+                      value={form.email}
+                      onChange={handleChange("email")}
+                      error={!!errors.email}
+                    />
+                    
+                    {errors.email && (
+                      <p className="text-sm text-(--input-error-red)">{errors.email}</p>
+                    )}
+                  </div>
+
+                  {/* Message Input Field */}
+                  <div className="flex flex-col gap-4">
+                    <MessageInput 
+                      label="Your Message"
+                      placeholder="Type your message here"
+                      required
+                      minWords={10}
+                      maxWords={300}
+                      value={form.message}
+                      onChange={handleChange("message")}
+                      error={!!errors.message}
+                    />
+                    
+                    {errors.message && (
+                      <p className="text-sm text-(--input-error-red)">{errors.message}</p>
+                    )}
+                  </div>
+
+                  <Button
+                    type="submit"
+                    disabled={loading}
+                    className="w-full rounded-full bg-(--agro-green-dark) hover:bg-(--agro-green-light) hover:cursor-pointer text-white py-6 text-lg font-medium duration-300 ease-in-out transition-all"
+                  >
+                    {loading ? "Sending..." : "Send Message"}
+                  </Button>
+                  
+                </form>
+              </div>
+
+              {/* Contact Information and Map Area */}
+              <div className="flex flex-col w-full h-full gap-12 lg:gap-20">
+
+                {/* Contact Information */}
+                <div className="flex flex-col w-full gap-4 border-1 lg:border-0 border-(--agro-green-dark) lg:bg-[#EAEFEB]">
+                  <a href="tel:+2347012288798" className="flex items-center gap-4">
+                    <span className="p-3 rounded-md bg-[#FCECCE]">
+                      <Phone className="w-6 h-6 text-[#EF9E0B]" />
+                    </span>
+
+                    <div className="flex flex-col flex-1 text-(--text-colour)">
+                      <span className="font-semibold">Phone</span>
+                      <span className="text-sm hover:text-black">+2347012288798</span>                      
+                    </div>
+                  </a>
+
+                  <a href="mailto:shownzy001@gmail.com" className="flex items-center gap-4">
+                    <span className="p-3 rounded-md bg-[#FCECCE]">
+                      <Mail className="w-6 h-6 text-[#EF9E0B]" />
+                    </span>
+
+                    <div className="flex flex-col flex-1 text-(--text-colour)">
+                      <span className="font-semibold">Email</span>
+                      <span className="text-sm hover:text-black">shownzy001@gmail.com</span>                      
+                    </div>
+                  </a>
+
+                  <div className="flex items-center gap-4">
+                    <span className="p-3 rounded-md bg-[#FCECCE]">
+                      <Clock className="w-6 h-6 text-[#EF9E0B]" />
+                    </span>
+
+                    <div className="flex flex-col flex-1 text-(--text-colour)">
+                      <span className="font-semibold">Business Hours</span>
+                      <span className="text-sm hover:text-black">Active 24hrs</span>                      
+                    </div>
+                  </div>                  
+                </div>
+
+                {/* Map Area */}
+                {/* Use Leaflet to remake this part: https://leafletjs.com/ */}
+                <div className="relative w-full overflow-hidden border border-gray-200 shadow-xl h-96 lg:h-full min-h-96 rounded-xl">
+                  <iframe
+                    src={sitemapUrl}
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    className="absolute inset-0"
+                  />
+                </div>
+
+              </div>
+              
+            </div>
+
+            
+            
+          </div>
+        </section>
+    
+
+      </div>
+
+    </main>
+  );
 }

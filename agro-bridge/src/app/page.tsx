@@ -227,7 +227,7 @@ export default function Home() {
         />
 
         {/* Products Section */}
-        <section className="relative py-(--section-py) sm:py-( ) lg:py-(--section-py-lg) overflow-hidden bg-white">
+        <section className="relative py-(--section-py)    lg:py-(--section-py-lg) overflow-hidden bg-white">
           <div className="w-full max-w-7xl mx-auto flex flex-col gap-8 px-(--section-px) sm:px-(--section-px-sm) lg:px-(--section-px-lg) h-full">
 
             <h2 className="text-lg font-normal lg:text-xl text-center text-(--heading-color)">
@@ -245,7 +245,7 @@ export default function Home() {
         </section>
 
         {/* How It Works Section */}
-        <section className="relative py-(--section-py) sm:py-( ) lg:py-(--section-py-lg) overflow-hidden bg-white">
+        <section className="relative py-(--section-py)    lg:py-(--section-py-lg) overflow-hidden bg-white">
           <div className="w-full max-w-7xl mx-auto px-(--section-px) sm:px-(--section-px-sm) lg:px-(--section-px-lg) h-full">
           {/* Background Image */}
           <Image
@@ -280,7 +280,7 @@ export default function Home() {
         </section>        
 
         {/* User Persona Section */}
-        <section className="relative py-(--section-py) sm:py-( ) lg:py-(--section-py-lg) overflow-hidden bg-white">
+        <section className="relative py-(--section-py)    lg:py-(--section-py-lg) overflow-hidden bg-white">
           <div className="w-full max-w-7xl mx-auto flex flex-col gap-8 px-(--section-px) sm:px-(--section-px-sm) lg:px-(--section-px-lg) h-full">
 
             <h2 className="text-lg font-normal lg:text-xl text-center text-(--heading-color)">

@@ -58,14 +58,14 @@ export default function Header() {
 
           <div className="items-center hidden gap-4 lg:flex">
             <Link
-              href="/auth/signin"
+              href="/signin"
               className="px-4 py-2 text-sm text-[#F4F9EC] font-inter border-1 border-[#F4F9EC] hover:shadow-custom rounded-md font-medium bg-transparent hover:opacity-90 duration-300 ease-in-out transition-all"
             >
               Sign In
             </Link>
 
             <Link
-              href="/auth/signup"
+              href="/signup"
               className="flex items-center gap-1 px-4 py-2 text-sm text-[#F4F9EC] font-inter hover:shadow-custom rounded-md font-medium bg-(--agro-green-dark) hover:opacity-90 duration-300 ease-in-out transition-all"
             >
               Sign Up

@@ -3,9 +3,7 @@ import type { Metadata } from "next";
 import { inter, openSans } from "./fonts";
 import "./globals.css";
 
-import Header from "~/components/Header";
-import SubscribeSection from "~/components/SubscribeSection";
-import Footer from "~/components/Footer";
+import RootLayoutWrapper from "~/components/RootLayoutWrapper";
 import { Toaster } from "sonner";
 
 export const metadata: Metadata = {
@@ -22,10 +20,7 @@ export default function RootLayout({
     <>
       <html lang="en">
         <body className={`${inter.variable} ${openSans.variable} antialiased`}>
-          <Header />
-          <main>{children}</main>   
-          <SubscribeSection />       
-          <Footer />
+          <RootLayoutWrapper>{children}</RootLayoutWrapper>
           <Toaster richColors position="top-right" />
         </body>
       </html>
