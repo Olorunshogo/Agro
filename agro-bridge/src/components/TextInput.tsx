@@ -21,8 +21,8 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
         <Input
           ref={ref}
           aria-label={label}
-          className={`text-sm lg:text-base 
-            ${error ? "border-(--input-error-red)" : "border-gray-300"}`}
+          className={`text-sm lg:text-base h-10 pr-10 caret-(--input-field-green) text-(--input-text-colour)
+            ${error ? "border-(--input-error-red)" : "border-(--input-border-green)"}`}
           {...props}
         />
       </div>

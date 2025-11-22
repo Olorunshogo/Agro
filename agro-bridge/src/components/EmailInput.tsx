@@ -16,14 +16,14 @@ export const EmailInput = forwardRef<HTMLInputElement, EmailInputProps>(
       <div className={`flex flex-col gap-2 ${className}`}>
         <label className="flex items-center gap-1 text-sm font-medium text-[#0F172A] lg:text-base lg:font-bold">
           {label}
-          {required && <span className="text-red-500">*</span>}
+          {required && <span className="text-(--input-error-red)">*</span>}
         </label>
         <div className="relative">
           <Input
             type="email"
             ref={ref}
             aria-label={label}
-            className={`text-sm lg:text-base pr-10 caret-(--input-field-green) text-(--input-text-colour) 
+            className={`text-sm lg:text-base pr-10 h-10 caret-(--input-field-green) text-(--input-text-colour) 
               ${props.error ? "border-(--input-error-red)" : "border-(--input-border-green)"}`}
             {...props}
           />

@@ -24,7 +24,7 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
             type={visible ? "text" : "password"}
             ref={ref}
             aria-label={label}
-            className={`text-sm lg:text-base pr-10 caret-(--input-field-green) text-(--input-text-colour)
+            className={`text-sm lg:text-base pr-10 h-10 caret-(--input-field-green) text-(--input-text-colour)
               ${props.error ? "border-(--input-error-red)" : "border-(--input-border-green)"}`}
             {...props}
           />

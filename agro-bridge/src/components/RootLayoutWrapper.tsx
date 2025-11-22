@@ -13,21 +13,23 @@ export default function RootLayoutWrapper({
 }) {
   const pathname = usePathname();
   const isDashboard = pathname.startsWith('/dashboard');
+  const isForgotten = pathname.startsWith('/forgotten-password');
   const isSignIn = pathname.startsWith('/signin');
   const isSignUp = pathname.startsWith('/signup');
+  const isVerifyEmail = pathname.startsWith('/verify-email');
 
   return (
     <>
-      {!isDashboard && !isSignIn && !isSignUp &&
+      {!isDashboard && !isForgotten && !isSignIn && !isSignUp && !isVerifyEmail &&
         <Header />
       }
       <main>{children}</main>
 
-      {!isDashboard && isSignIn && !isSignUp &&
+      {!isDashboard && !isForgotten && !isSignIn && !isSignUp && !isVerifyEmail &&
         <SubscribeSection />
       
       }
-      {!isDashboard && isSignIn && !isSignUp &&
+      {!isDashboard && !isForgotten && !isSignIn && !isSignUp && !isVerifyEmail &&
         <Footer />
       }
     </>

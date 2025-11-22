@@ -3,7 +3,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
 import { Package, ShoppingCart, Users, TrendingUp } from "lucide-react";
 
-export default function DashboardHome() {
+export default function Dashboard() {
   const stats = [
     { title: "Total Products", value: "124", icon: Package, change: "+12%" },
     { title: "Active Orders", value: "89", icon: ShoppingCart, change: "+23%" },

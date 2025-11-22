@@ -49,7 +49,7 @@ export default function SubscribeSection() {
   return (
     <>
       <section className="relative z-10 w-full mx-auto mt-12 -mb-12 max-w-7xl">
-        <div className="grid grid-cols-1 lg:grid-cols-2 w-full mx-auto lg:w-4/5 h-full gap-6 bg-[radial-gradient(circle_at_center,_#2B6036_0%,_#55805E_5%,_#2B6036_20%)] rounded-2xl overflow-hidden shadow-2xl">
+        <div className="grid grid-cols-1 lg:grid-cols-2 w-full mx-auto lg:w-4/5 h-full gap-6 bg-[radial-gradient(circle_at_center,_#2B6036_0%,_#55805E_46%,_#2B6036_1000%)] rounded-2xl overflow-hidden shadow-2xl">
           {/* Left: Image */}
           <div className="flex items-center justify-center p-8">
             <Image
