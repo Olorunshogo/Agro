@@ -92,7 +92,7 @@ export default function SignInPage() {
   return (
     <>
       <Toaster position="top-center" richColors />
-      <div className="min-h-screen bg-(--primary-bg-light) flex items-center justify-center p-4 font-openSans">
+      <div className="min-h-screen bg-(--primary-bg-light) flex items-center justify-center w-full h-full p-4 font-openSans">
         <div className="flex flex-col w-full h-full max-w-md gap-6">
 
           {/* Heading, App Logo and Title*/}
@@ -110,7 +110,7 @@ export default function SignInPage() {
             <Button
               type="button"
               variant="outline"
-              className="w-full py-6 text-base font-medium hover:border-(--agro-green-dark) border-(--border-gray) hover:cursor-pointer duration-300 ease-in-out transition-all"
+              className="w-full h-10 text-base font-medium hover:border-(--agro-green-dark) border-(--border-gray) hover:cursor-pointer duration-300 ease-in-out transition-all"
               onClick={() => handleOAuth("google")}
             >
               <Chrome className="w-5 h-5 mr-3" />
@@ -120,7 +120,7 @@ export default function SignInPage() {
             <Button
               type="button"
               variant="outline"
-              className="w-full py-6 text-base font-medium hover:border-(--agro-green-dark) border-(--border-gray) hover:cursor-pointer duration-300 ease-in-out transition-all"
+              className="w-full text-base h-10 font-medium hover:border-(--agro-green-dark) border-(--border-gray) hover:cursor-pointer duration-300 ease-in-out transition-all"
               onClick={() => handleOAuth("github")}
             >
               <Github className="w-5 h-5 mr-3" />
@@ -168,6 +168,13 @@ export default function SignInPage() {
               {errors.password && (
                 <p className="text-sm text-(--input-error-red)">{errors.password}</p>
               )}
+
+              <Link 
+                href="/forgot-password" 
+                className="self-end text-sm text-(--agro-green-dark) hover:underline"
+              >
+                Forgot password?
+              </Link>
             </div>
 
             <Button
