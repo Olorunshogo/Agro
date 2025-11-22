@@ -1,7 +1,26 @@
 
-// app/verify-email/page.tsx
 import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
+
+import type { Metadata } from "next";
+
+const metadata: Metadata = {
+  title: "Verify Your Email",
+  description: "Almost there! Verify your email address to activate your AgroBridge account and start buying.",
+
+  openGraph: {
+    url: "/verify-email",
+    title: "Verify Email | AgroBridge",
+    description: "One click to activate your account and access verified suppliers.",
+  },
+
+  twitter: {
+    title: "Verify Email | AgroBridge",
+    description: "One click to activate your account and access verified suppliers.",
+  },
+
+  alternates: { canonical: "/verify-email" },
+};
 
 export default async function VerifyEmailPage({
   searchParams,

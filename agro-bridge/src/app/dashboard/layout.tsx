@@ -6,6 +6,16 @@ import { AppLogo } from "~/components/app-logo";
 import { Button } from "~/components/ui/button";
 import { LogOut, Home, Package, ShoppingCart, Settings, Users } from "lucide-react";
 import Link from "next/link";
+import type { Metadata } from "next";
+
+
+const metadata: Metadata = {
+  title: "Dashboard",
+  robots: {
+    index: false,
+    follow: true,
+  },
+};
 
 
 export default function DashboardLayout({
@@ -18,10 +28,6 @@ export default function DashboardLayout({
 
   const pageName = pathname.split("/").pop() || "dashboard";
   const capitalisedPageName = pageName.charAt(0).toUpperCase() + pageName.slice(1) + " Page";
-
-  // if (pathname === "/dashboard") {
-  //   pageName = "Overview";
-  // }
 
   async function logout() {
     await fetch("/api/auth/logout", { method: "POST" });

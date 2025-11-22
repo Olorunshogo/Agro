@@ -5,6 +5,30 @@ import { useState } from "react";
 import { Button } from "~/components/ui/button";
 import { EmailInput } from "~/components/EmailInput";
 import { toast } from "sonner";
+import type { Metadata } from "next";
+
+const metadata: Metadata = {
+  title: "Forgot Password – Reset Securely",
+  description: "Reset your AgroBridge password securely. We’ll send a reset link to your email.",
+
+  keywords: [
+    "forgot password", "password reset", "recover account",
+    "agrobridge password"
+  ],
+
+  openGraph: {
+    url: "/forgotten-password",
+    title: "Forgot Password – Reset Securely | AgroBridge",
+    description: "Get back into your account in seconds.",
+  },
+
+  twitter: {
+    title: "Forgot Password – Reset Securely | AgroBridge",
+    description: "Get back into your account in seconds.",
+  },
+
+  alternates: { canonical: "/forgotten-password" },
+};
 
 export default function ForgotPasswordPage() {
   const [email, setEmail] = useState("");

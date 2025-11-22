@@ -13,6 +13,31 @@ import Link from "next/link";
 import { Github, Chrome } from "lucide-react";
 import { z } from "zod";
 
+import type { Metadata } from "next";
+
+const metadata: Metadata = {
+  title: "Sign In to Your Account",
+  description: "Log in to AgroBridge to access verified Nigerian agricultural products and manage your orders.",
+
+  keywords: [
+    "agrobridge login", "signin", "buyer login",
+    "agricultural marketplace login"
+  ],
+
+  openGraph: {
+    url: "/signin",
+    title: "Sign In to Your Account | AgroBridge",
+    description: "Access your buyer dashboard and start sourcing premium crops.",
+  },
+
+  twitter: {
+    title: "Sign In to Your Account | AgroBridge",
+    description: "Access your buyer dashboard and start sourcing premium crops.",
+  },
+
+  alternates: { canonical: "/signin" },
+};
+
 const signInSchema = z.object({
   email: z.string().min(1, "Email is required").email("Invalid email address"),
   password: z.string().min(8, "Password must be at least 8 characters"),
