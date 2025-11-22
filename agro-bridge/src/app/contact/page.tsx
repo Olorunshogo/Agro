@@ -12,51 +12,27 @@ import { EmailInput } from "~/components/EmailInput";
 import { MessageInput } from "~/components/MessageInput";
 import { z } from "zod";
 
-import Image from "next/image";
-import Link from "next/link";
 import { Phone, Mail, Clock } from "lucide-react";
 
 import type { Metadata } from "next";
 
 // Static metadata
 const metadata: Metadata = {
-  title: {
-    template: "%s | Bridging Farmers to Sellers",
-    default: "Contact",
-  },
-  description:
-    "Agrobridge connects farmers with the right sellers for their crops. Streamlining agriculture for a better tomorrow.",
-  keywords: "Agrobridge, farmers, sellers, agriculture, crops, marketplace",
-  authors: [
-    { 
-      name: "Agrobridge Team", 
-      url: "https://agro-bom-vercel.vercel.app/",
-    }
-  ],
+  title: "Contact Us",
+  description: "Get in touch with AgroBridge for quotes, partnerships, or support.",
+
   openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: "https://agro-bom-vercel.vercel.app/",
-    title: "Agrobridge | Bridging Farmers to Sellers",
-    description: "Agrobridge connects farmers with the right sellers for their crops. Streamlining agriculture for a better tomorrow.",
-    siteName: "Agrobridge",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,  
-        height: 630,
-        alt: "Agrobridge - Connecting Farmers to Sellers",
-      },
-    ],
+    url: "/contact",
+    title: "Contact AgroBridge",
+    description: "We're here to help with your agricultural sourcing needs.",
   },
 
   twitter: {
-    card: "summary_large_image",
-    site: "@agrobridge",
-    title: "Agrobridge | Bridging Farmers to Sellers",
-    description: "Agrobridge connects farmers with the right sellers for their crops.",
-    images: "/twitter-image.png",
+    title: "Contact AgroBridge",
+    description: "We're here to help with your agricultural sourcing needs.",
   },
+
+  alternates: { canonical: "/contact" },
 };
 
 const contactSchema = z.object({
@@ -69,8 +45,6 @@ const contactSchema = z.object({
 });
 
 type ContactForm = z.infer<typeof contactSchema>;
-
-
 
 export default function ContactPage() {
 

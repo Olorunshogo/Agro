@@ -13,6 +13,30 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { z } from "zod";
 
+import type { Metadata } from "next";
+
+const metadata: Metadata = {
+  title: "Create Free Account – Start Sourcing",
+  description: "Join AgroBridge today and buy premium Nigerian crops directly from verified farmers.",
+
+  keywords: [
+    "agrobridge signup", "create account", "register",
+    "buyer registration", "agricultural marketplace"
+  ],
+
+  openGraph: {
+    url: "/signup",
+    title: "Create Free Account – Start Sourcing | AgroBridge",
+    description: "Join thousands of buyers sourcing directly from Nigeria.",
+  },
+
+  twitter: {
+    title: "Create Free Account – Start Sourcing | AgroBridge",
+    description: "Join thousands of buyers sourcing directly from Nigeria.",
+  },
+
+  alternates: { canonical: "/signup" },
+};
 
 const signUpSchema = z.
   object({
@@ -28,7 +52,6 @@ const signUpSchema = z.
     message: "Passwords do not match",
     path: ["confirmPassword"]
   });
-
 
 type SignUpForm = z.infer<typeof signUpSchema>;
 

@@ -1,7 +1,32 @@
 
-// app/(dashboard)/page.tsx
 import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
 import { Package, ShoppingCart, Users, TrendingUp } from "lucide-react";
+
+import type { Metadata } from "next";
+
+const metadata: Metadata = {
+  title: "Dashboard – Manage Orders & Quotes",
+  description: "Your personal AgroBridge buyer dashboard. Track orders, quotes, and sourcing activity.",
+
+  keywords: [
+    "agrobridge dashboard", "buyer dashboard", "order tracking",
+    "quote requests", "agricultural sourcing dashboard"
+  ],
+
+  openGraph: {
+    url: "/dashboard",
+    title: "Dashboard – Manage Orders & Quotes | AgroBridge",
+    description: "Track your orders, quotes, and sourcing activity in one place.",
+  },
+
+  twitter: {
+    title: "Dashboard – Manage Orders & Quotes | AgroBridge",
+    description: "Track your orders, quotes, and sourcing activity in one place.",
+  },
+
+  alternates: { canonical: "/dashboard" },
+  robots: { index: false, follow: true },
+};
 
 export default function Dashboard() {
   const stats = [

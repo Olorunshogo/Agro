@@ -12,45 +12,22 @@ import HeroSection from "~/components/HeroSection";
 import type { Metadata } from "next";
 import type { OurProcess, TeamMember } from "../types/types";
 
-// Static metadata
 const metadata: Metadata = {
-  title: {
-    template: "%s | Bridging Farmers to Sellers",
-    default: "About Us",
-  },
-  description:
-    "Agrobridge connects farmers with the right sellers for their crops. Streamlining agriculture for a better tomorrow.",
-  keywords: "Agrobridge, farmers, sellers, agriculture, crops, marketplace",
-  authors: [
-    { 
-      name: "Agrobridge Team", 
-      url: "https://agro-bom-vercel.vercel.app/",
-    }
-  ],
+  title: "About Us",
+  description: "Learn about AgroBridge — connecting international buyers with trusted Nigerian farmers since 2024.",
+
   openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: "https://agro-bom-vercel.vercel.app/",
-    title: "Agrobridge | Bridging Farmers to Sellers",
-    description: "Agrobridge connects farmers with the right sellers for their crops. Streamlining agriculture for a better tomorrow.",
-    siteName: "Agrobridge",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,  
-        height: 630,
-        alt: "Agrobridge - Connecting Farmers to Sellers",
-      },
-    ],
+    url: "/about",
+    title: "About AgroBridge | Bridging Farmers to Global Buyers",
+    description: "We verify farmers, secure payments, and handle logistics so you don’t have to.",
   },
 
   twitter: {
-    card: "summary_large_image",
-    site: "@agrobridge",
-    title: "Agrobridge | Bridging Farmers to Sellers",
-    description: "Agrobridge connects farmers with the right sellers for their crops.",
-    images: "/twitter-image.png",
+    title: "About AgroBridge",
+    description: "We verify farmers, secure payments, and handle logistics so you don’t have to.",
   },
+
+  alternates: { canonical: "/about" },
 };
 
 const ourProcesses: OurProcess[] = [

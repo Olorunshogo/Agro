@@ -1,6 +1,15 @@
 
 import { inter, openSans } from "../fonts";
 import { Toaster } from "sonner";
+import type { Metadata } from "next";
+
+const metadata: Metadata = {
+  title: "Welcome",
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
 
 export default function AuthLayout({
   children,
