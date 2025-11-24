@@ -1,7 +1,7 @@
 
 // Static Metadata Template
 import { Metadata } from "next";
-const metadata: Metadata = {
+const metadata = {
   metadataBase: new URL("https://agro-bom-vercel.vercel.app/"),
 
   title: {

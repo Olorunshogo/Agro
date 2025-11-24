@@ -4,15 +4,10 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-
 import { BadgeCheck, SearchCheck, FunnelPlus, Truck, LucideIcon } from "lucide-react";
 import HeroSection from "~/components/HeroSection";
 
-
-import type { Metadata } from "next";
-import type { OurProcess, TeamMember } from "../types/types";
-
-const metadata: Metadata = {
+const metadata = {
   title: "About Us",
   description: "Learn about AgroBridge — connecting international buyers with trusted Nigerian farmers since 2024.",
 
@@ -29,6 +24,12 @@ const metadata: Metadata = {
 
   alternates: { canonical: "/about" },
 };
+
+interface OurProcess {
+  icon: LucideIcon;
+  heading: string;
+  paragraph: string;
+}
 
 const ourProcesses: OurProcess[] = [
   {
@@ -52,6 +53,13 @@ const ourProcesses: OurProcess[] = [
     paragraph: "We handle all logistics, from packaging and transport to customs clearance, ensuring a seamless delivery."
   }
 ];
+
+type TeamMember = {
+  imageUrl: string;
+  imageAlt: string;
+  name: string;
+  role: string;
+}
 
 const teamMembers: TeamMember[] = [
   {
@@ -91,7 +99,8 @@ export default function AboutUsPage() {
 
         {/* Home Hero Section */}
         <HeroSection 
-          backgroundImage="/home-landing-page.png"
+          backgroundImageUrl="/home-landing-page.png"
+          backgroundImageAlt="A picture of farmers bagging their farm produce"
           heading="Our Mission is to Make African Produce Globally Accessible"
           paragraph="Debridger connects international buyers with premium-quality agricultural goods sourced and verified by our team in Nigeria."
           showCtas={false}

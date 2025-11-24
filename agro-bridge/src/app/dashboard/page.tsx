@@ -2,9 +2,9 @@
 import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
 import { Package, ShoppingCart, Users, TrendingUp } from "lucide-react";
 
-import type { Metadata } from "next";
 
-const metadata: Metadata = {
+
+const metadata = {
   title: "Dashboard – Manage Orders & Quotes",
   description: "Your personal AgroBridge buyer dashboard. Track orders, quotes, and sourcing activity.",
 

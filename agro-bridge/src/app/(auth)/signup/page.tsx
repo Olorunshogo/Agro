@@ -13,9 +13,9 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { z } from "zod";
 
-import type { Metadata } from "next";
 
-const metadata: Metadata = {
+
+const metadata = {
   title: "Create Free Account – Start Sourcing",
   description: "Join AgroBridge today and buy premium Nigerian crops directly from verified farmers.",
 

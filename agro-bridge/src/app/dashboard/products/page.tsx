@@ -1,7 +1,7 @@
 
-import type { Metadata } from "next";
 
-const metadata: Metadata = {
+
+const metadata = {
   title: "My Products",
   description: "Browse and manage your requested and purchased agricultural products on AgroBridge.",
 

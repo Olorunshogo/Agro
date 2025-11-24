@@ -1,15 +1,5 @@
 
-import { inter, openSans } from "../fonts";
-
-
-const metadata = {
-  title: "Welcome",
-  robots: {
-    index: false,
-    follow: false,
-  },
-};
-
+import React from "react";
 export default function AuthLayout({
   children,
 }: Readonly<{

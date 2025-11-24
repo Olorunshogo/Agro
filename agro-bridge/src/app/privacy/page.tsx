@@ -1,7 +1,7 @@
 
-import type { Metadata } from "next";
 
-const metadata: Metadata = {
+
+const metadata = {
   title: "Privacy Policy",
   description: "Read how AgroBridge protects your personal information and respects your privacy.",
 

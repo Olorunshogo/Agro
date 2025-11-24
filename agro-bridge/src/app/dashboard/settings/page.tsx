@@ -1,7 +1,7 @@
 
-import type { Metadata } from "next";
 
-const metadata: Metadata = {
+
+const metadata = {
   title: "Account Settings – Profile & Preferences",
   description: "Update your profile, payment methods, notifications, and account preferences.",
 
