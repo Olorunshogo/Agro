@@ -12,22 +12,22 @@ export default function LandingHowitworks() {
   const howItWorksImageSlides: SlidePair[] = [
     { 
       id: "s1",
-      imageUrlA: "/howitworks-1a.png",
-      imageUrlB: "/howitworks-1b.jpg",
+      imageUrlA: "/landing/howitworks-1a.png",
+      imageUrlB: "/landing/howitworks-1b.jpg",
       imageAltA: "Step 1 image A",
       imageAltB: "Step 1 image B",
     },
     {
       id: "s2",
-      imageUrlA: "/howitworks-2a.png",
-      imageUrlB: "/howitworks-2b.png",
+      imageUrlA: "/landing/howitworks-2a.png",
+      imageUrlB: "/landing/howitworks-2b.png",
       imageAltA: "Step 2 image A",
       imageAltB: "Step 2 image B",
     },
     {
       id: "s3",
-      imageUrlA: "/howitworks-3a.png",
-      imageUrlB: "/howitworks-3b.jpg",
+      imageUrlA: "/landing/howitworks-3a.png",
+      imageUrlB: "/landing/howitworks-3b.jpg",
       imageAltA: "Step 3 image A",
       imageAltB: "Step 3 image B",
     },
@@ -79,7 +79,7 @@ export default function LandingHowitworks() {
         <div className="z-10 flex flex-col w-full h-full gap-8">
 
           {/* Heading */}
-          <h2 className="text-lg font-normal lg:text-xl text-center text-(--heading-color-2)">
+          <h2 className="text-lg font-normal text-center text-red-700 lg:text-xl">
             How It Works
           </h2>
 

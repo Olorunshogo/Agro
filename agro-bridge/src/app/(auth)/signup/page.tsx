@@ -5,13 +5,15 @@ import React, { useState, useEffect } from "react";
 import { Button } from "~/components/ui/button";
 import { Toaster } from "~/components/ui/sonner";
 import { toast } from "sonner";
+import { AppLogo } from "~/components/app-logo";
 import { TextInput } from "~/components/TextInput";
 import { EmailInput } from "~/components/EmailInput";
 import { PasswordInput } from "~/components/PasswordInput";
-import { AppLogo } from "~/components/app-logo";
+import { CheckboxInput } from "~/components/CheckboxInput";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { z } from "zod";
+
 
 
 
@@ -47,6 +49,9 @@ const signUpSchema = z.
       .string()
       .min(8, "Password must be at least 8 characters"),
     confirmPassword: z.string(),
+    terms: z.boolean().refine((val) => val === true, {
+      message: "You must accept the Terms and Conditions",
+    }),
   })
   .refine((data) => data.password === data.confirmPassword, {
     message: "Passwords do not match",
@@ -54,6 +59,7 @@ const signUpSchema = z.
   });
 
 type SignUpForm = z.infer<typeof signUpSchema>;
+type FormErrors = Partial<Record<keyof SignUpForm, string>>;
 
 export default function SignUpPage() {
   const router = useRouter();
@@ -63,9 +69,10 @@ export default function SignUpPage() {
     contactPerson: "",
     email: "",
     password: "",
-    confirmPassword: ""
+    confirmPassword: "",
+    terms: false
   });
-  const [errors, setErrors] = useState<Partial<SignUpForm>>({});
+  const [errors, setErrors] = useState<FormErrors>({});
   const [loading, setLoading] = useState(false);  
 
   // Live password match check
@@ -90,10 +97,9 @@ export default function SignUpPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
     const result = signUpSchema.safeParse(form);
     if (!result.success) {
-      const fieldErrors: Partial<SignUpForm> = {};
+      const fieldErrors: FormErrors = {};
       result.error.issues.forEach((issue) => {
         const key = issue.path[0] as keyof SignUpForm;
         fieldErrors[key] = issue.message;
@@ -185,7 +191,7 @@ export default function SignUpPage() {
                   error={!!errors.contactPerson}
                 />
                 
-                {errors.companyName && (
+                {errors.contactPerson && (
                   <p className="text-sm text-(--input-error-red)">{errors.contactPerson}</p>
                 )}
               </div>
@@ -236,6 +242,31 @@ export default function SignUpPage() {
                   <p className="text-sm text-(--input-error-red)">{errors.confirmPassword}</p>
                 }
               </div>
+
+              {/* Terms & Conditions Checkbox */}
+              <div className="flex flex-col gap-2 -mt-4">
+                <CheckboxInput 
+                  label="I agree to the Terms and Conditions"
+                  description="You must accept to continue creating your account."
+                  checked={form.terms}
+                  onCheckedChange={(checked) => {
+                    setForm(prev => ({ ...prev, terms: !!checked }));
+                    if (!checked) {
+                      setErrors(prev => ({ ...prev, terms: "You must accept the Terms and Conditions" }));
+                    } else {
+                      setErrors(prev => ({ ...prev, terms: undefined }));
+                    }
+                  }}
+                  required
+                  error={!!errors.terms}
+                />
+
+                {errors.terms && (
+                  <p className="text-sm text-(--input-error-red)">{errors.terms}</p>
+                )}
+
+              </div>
+
             </div>
 
             {/* Submit */}
@@ -243,7 +274,7 @@ export default function SignUpPage() {
               <Button
                 type="submit"
                 className="w-full text-white rounded-full h-10 bg-(--agro-green-dark) hover:bg-(--agro-green-light) hover:opacity-90 hover:cursor-pointer duration-300 ease-in-out transition-all"
-                disabled={loading}
+                disabled={loading || !form.terms}
               >
                 {loading ? "Creating Account..." : "Sign Up"}
               </Button>

@@ -53,7 +53,7 @@ export default function SubscribeSection() {
           {/* Left: Image */}
           <div className="flex items-center justify-center p-8">
             <Image
-              src="/home-subscribe.png"
+              src="/landing/home-subscribe.png"
               alt="Stay updated with AgroBridge"
               width={500}
               height={400}

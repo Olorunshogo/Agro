@@ -7,7 +7,7 @@ const userPersona: UserPersona[] = [
   {
     rating: 5,
     description: "Sourcing from Africa used to be complicated, but AgroBridge changed that. Every supplier is verified, payments are secure, and logistics are handled smoothly.",
-    imageUrl: "/woman-1.jpg",
+    imageUrl: "/landing/woman-1.jpg",
     imageAlt: "closeup photography of woman smiling",
     name: "Rebecca L.",
     location: "USA"
@@ -16,7 +16,7 @@ const userPersona: UserPersona[] = [
   {
     rating: 3.5,
     description: "Sourcing from Africa used to be complicated, but AgroBridge changed that. Every supplier is verified, payments are secure, and logistics are handled smoothly.",
-    imageUrl: "/man-1.jpg",
+    imageUrl: "/landing/man-1.jpg",
     imageAlt: "man standing beside wall ",
     name: "Goodness J.",
     location: "USA"
@@ -25,7 +25,7 @@ const userPersona: UserPersona[] = [
   {
     rating: 5,
     description: "Sourcing from Africa used to be complicated, but AgroBridge changed that. Every supplier is verified, payments are secure, and logistics are handled smoothly.",
-    imageUrl: "/woman-2.jpg",
+    imageUrl: "/landing/woman-2.jpg",
     imageAlt: "woman in white scoop neck shirt smiling",
     name: "Rebecca L.",
     location: "USA"
@@ -34,7 +34,7 @@ const userPersona: UserPersona[] = [
   {
     rating: 4,
     description: "Sourcing from Africa used to be complicated, but AgroBridge changed that. Every supplier is verified, payments are secure, and logistics are handled smoothly.",
-    imageUrl: "/man-1.jpg",
+    imageUrl: "/landing/man-1.jpg",
     imageAlt: "man's grey and black shirt",
     name: "Rebecca L.",
     location: "USA"
@@ -43,7 +43,7 @@ const userPersona: UserPersona[] = [
   {
     rating: 5,
     description: "Sourcing from Africa used to be complicated, but AgroBridge changed that. Every supplier is verified, payments are secure, and logistics are handled smoothly.",
-    imageUrl: "/woman-1.jpg",
+    imageUrl: "/landing/woman-1.jpg",
     imageAlt: "closeup photography of woman smiling",
     name: "Rebecca L.",
     location: "USA"

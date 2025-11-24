@@ -63,25 +63,25 @@ type TeamMember = {
 
 const teamMembers: TeamMember[] = [
   {
-    imageUrl: "/team-member-1.jpg",
+    imageUrl: "/landing/team-member-1.jpg",
     imageAlt: "An image of John Doe",
     name: "John Doe",
     role: "Chief Executive Officer"
   },
   {
-    imageUrl: "/team-member-2.jpg",
+    imageUrl: "/landing/team-member-2.jpg",
     imageAlt: "An image of Emmanuel Elisha",
     name: "Emmanuel Elisha",
     role: "Head of Logistics"
   },
   {
-    imageUrl: "/team-member-3.jpg",
+    imageUrl: "/landing/team-member-3.jpg",
     imageAlt: "An image of Grace Peace.",
     name: "Grace Peace",
     role: "Chief Executive Officer"
   },
   {
-    imageUrl: "/team-member-4.jpg",
+    imageUrl: "/landing/team-member-4.jpg",
     imageAlt: "An image of Kelvin Adams.",
     name: "Kelvin Adams",
     role: "Market Relation Officer"
@@ -99,7 +99,7 @@ export default function AboutUsPage() {
 
         {/* Home Hero Section */}
         <HeroSection 
-          backgroundImageUrl="/home-landing-page.png"
+          backgroundImageUrl="/landing/home-landing-page.png"
           backgroundImageAlt="A picture of farmers bagging their farm produce"
           heading="Our Mission is to Make African Produce Globally Accessible"
           paragraph="Debridger connects international buyers with premium-quality agricultural goods sourced and verified by our team in Nigeria."

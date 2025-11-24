@@ -51,7 +51,7 @@ export default function Home() {
         
         {/* Hero */}
         <HeroSection 
-          backgroundImageUrl="/home-landing-page.png"
+          backgroundImageUrl="/landing/home-landing-page.png"
           backgroundImageAlt="A picture of farmers bagging their farm produce"
           heading="Buy Fresh Farm Produce Directly from Source at the Best Price."
           paragraph="AgroBridge connects international buyers with premium-quality agricultural goods sourced and verified by our team in Nigeria."
@@ -67,7 +67,7 @@ export default function Home() {
         />
 
         {/* Featured Products */}
-        <LandingProducts />
+        {/* <LandingProducts /> */}
 
         {/* How It Works */}
         <LandingHowitworks />      

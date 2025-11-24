@@ -115,7 +115,7 @@ export default function ContactPage() {
         
         {/* Home Hero Section */}
         <HeroSection 
-          backgroundImageUrl="/home-landing-page.png"
+          backgroundImageUrl="/landing/home-landing-page.png"
           backgroundImageAlt="A picture of farmers bagging their farm produce"
           heading="Buy Fresh Farm Produce Directly from Source at the Best Price."
           paragraph="AgroBridge connects international buyers with premium-quality agricultural goods sourced and verified by our team in Nigeria."
@@ -213,7 +213,7 @@ export default function ContactPage() {
               <div className="flex flex-col w-full h-full gap-12 lg:gap-20">
 
                 {/* Contact Information */}
-                <div className="flex flex-col w-full gap-4 border-1 lg:border-0 border-(--agro-green-dark)">
+                <div className="flex flex-col w-full gap-4 border-(--agro-green-dark)">
                   <a 
                     href="tel:+2347012288798" 
                     className="flex items-center gap-4"
