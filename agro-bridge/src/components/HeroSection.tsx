@@ -1,12 +1,13 @@
+
 "use client";
 
 import Image from "next/image";
 import Link from "next/link";
 import { MousePointer } from "lucide-react";
-import type { Sponsor } from "~/app/types/types";
 
 interface HeroSectionProps {
-  backgroundImage: string;
+  backgroundImageUrl: string;
+  backgroundImageAlt: string;
   heading: string;
   paragraph: string;
 
@@ -25,15 +26,33 @@ interface HeroSectionProps {
   sponsors?: Sponsor[];
 }
 
+interface Sponsor {
+  imageUrl: string;
+  imageAlt: string;
+}
+
 const defaultSponsors: Sponsor[] = [
-  { imageUrl: "/cargill_logo.png", imageAlt: "Cargill" },
-  { imageUrl: "/louis_dreyfus_company_logo.png", imageAlt: "Louis Dreyfus Company" },
-  { imageUrl: "/kuehnenagel_logo.png", imageAlt: "Kuehne+Nagel" },
-  { imageUrl: "/cargo_logo.png", imageAlt: "Cargo" },
+  { 
+    imageUrl: "/landing/cargill_logo.png", 
+    imageAlt: "Cargill" 
+  },
+  { 
+    imageUrl: "/landing/louis_dreyfus_company_logo.png", 
+    imageAlt: "Louis Dreyfus Company" 
+  },
+  { 
+    imageUrl: "/landing/kuehnenagel_logo.png", 
+    imageAlt: "Kuehne+Nagel" 
+  },
+  { 
+    imageUrl: "/landing/cargo_logo.png", 
+    imageAlt: "Cargo" 
+  },
 ];
 
 export default function HeroSection({
-  backgroundImage,
+  backgroundImageUrl,
+  backgroundImageAlt,
   heading,
   paragraph,
   primaryCta,
@@ -45,8 +64,8 @@ export default function HeroSection({
     <section className="relative h-screen lg:h-dvh">
       {/* Background Image */}
       <Image
-        src={backgroundImage}
-        alt=""
+        src={backgroundImageUrl}
+        alt={backgroundImageAlt}
         fill
         className="object-cover dark:invert"
         priority
@@ -54,7 +73,7 @@ export default function HeroSection({
       />
 
       {/* Dark Overlay */}
-      <div className="absolute inset-0 z-10 bg-black/50" />
+      <div className="absolute inset-0 z-10 bg-black/70" />
 
       {/* Content */}
       <div className="relative z-20 flex flex-col justify-center px-(--section-px) sm:px-(--section-px-sm) lg:px-(--section-px-lg) py-12 w-full max-w-4xl mx-auto h-full">

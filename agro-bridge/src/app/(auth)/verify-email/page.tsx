@@ -2,9 +2,9 @@
 import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
 
-import type { Metadata } from "next";
 
-const metadata: Metadata = {
+
+const metadata = {
   title: "Verify Your Email",
   description: "Almost there! Verify your email address to activate your AgroBridge account and start buying.",
 

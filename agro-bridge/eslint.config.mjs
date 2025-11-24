@@ -11,6 +11,8 @@ export default defineConfig([
   // Next.js base config
   ...nextVitals,
   ...nextTs,
+  ...simpleImportSort,
+  ...unusedImports,
 
   // Your enhanced custom rules
   {

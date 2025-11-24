@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import HeroSection from "~/components/HeroSection";
 import { Button } from "~/components/ui/button";
@@ -14,10 +14,8 @@ import { z } from "zod";
 
 import { Phone, Mail, Clock } from "lucide-react";
 
-import type { Metadata } from "next";
-
 // Static metadata
-const metadata: Metadata = {
+const metadata = {
   title: "Contact Us",
   description: "Get in touch with AgroBridge for quotes, partnerships, or support.",
 
@@ -47,6 +45,9 @@ const contactSchema = z.object({
 type ContactForm = z.infer<typeof contactSchema>;
 
 export default function ContactPage() {
+
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
 
   const [form, setForm] = useState<ContactForm>({
     fullName: "",
@@ -114,7 +115,8 @@ export default function ContactPage() {
         
         {/* Home Hero Section */}
         <HeroSection 
-          backgroundImage="/home-landing-page.png"
+          backgroundImageUrl="/home-landing-page.png"
+          backgroundImageAlt="A picture of farmers bagging their farm produce"
           heading="Buy Fresh Farm Produce Directly from Source at the Best Price."
           paragraph="AgroBridge connects international buyers with premium-quality agricultural goods sourced and verified by our team in Nigeria."
           showCtas={true}
@@ -211,8 +213,11 @@ export default function ContactPage() {
               <div className="flex flex-col w-full h-full gap-12 lg:gap-20">
 
                 {/* Contact Information */}
-                <div className="flex flex-col w-full gap-4 border-1 lg:border-0 border-(--agro-green-dark) lg:bg-[#EAEFEB]">
-                  <a href="tel:+2347012288798" className="flex items-center gap-4">
+                <div className="flex flex-col w-full gap-4 border-1 lg:border-0 border-(--agro-green-dark)">
+                  <a 
+                    href="tel:+2347012288798" 
+                    className="flex items-center gap-4"
+                  >
                     <span className="p-3 rounded-md bg-[#FCECCE]">
                       <Phone className="w-6 h-6 text-[#EF9E0B]" />
                     </span>
@@ -268,8 +273,7 @@ export default function ContactPage() {
             
             
           </div>
-        </section>
-    
+        </section>   
 
       </div>
 

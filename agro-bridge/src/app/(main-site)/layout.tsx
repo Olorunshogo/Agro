@@ -1,8 +1,10 @@
 
 
-import { inter, openSans } from "./fonts";
-import "./globals.css";
-import { Toaster } from "sonner";
+import { inter, openSans } from "../fonts";
+
+import Header from "~/components/Header";
+import SubscribeSection from "~/components/SubscribeSection";
+import Footer from "~/components/Footer";
 
 const metadata = {
   // This applies to EVERY page
@@ -64,17 +66,17 @@ const metadata = {
   },
 };
 
-export default function RootLayout({
+export default function MainLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${inter.variable} ${openSans.variable} antialiased`}>
-          {children}
-        <Toaster richColors position="top-right" />
-      </body>
-    </html>
+    <>
+      <Header />
+        <main>{children}</main>
+      <SubscribeSection />
+      <Footer />
+    </>
   );
 }

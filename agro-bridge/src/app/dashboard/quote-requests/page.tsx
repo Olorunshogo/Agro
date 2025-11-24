@@ -1,7 +1,7 @@
 
-import type { Metadata } from "next";
 
-const metadata: Metadata = {
+
+const metadata = {
 
   title: "Quote Requests – View & Track",
   description: "See all your active and past quote requests for Nigerian crops.",

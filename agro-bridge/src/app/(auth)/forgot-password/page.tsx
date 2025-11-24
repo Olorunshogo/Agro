@@ -5,9 +5,9 @@ import { useState } from "react";
 import { Button } from "~/components/ui/button";
 import { EmailInput } from "~/components/EmailInput";
 import { toast } from "sonner";
-import type { Metadata } from "next";
 
-const metadata: Metadata = {
+
+const metadata = {
   title: "Forgot Password – Reset Securely",
   description: "Reset your AgroBridge password securely. We’ll send a reset link to your email.",
 
