@@ -133,7 +133,7 @@ export default function AboutUsPage() {
 
         {/* Our Process Section */}
         <section className="relative overflow-hidden bg-white">
-          <div className="flex flex-col gap-8 lg:gap-12 px-(--section-px) sm:px-(--section-px-sm) lg:px-(--section-px-lg) py-(--section-py) lg:py-(--section-py-lg) w-full max-w-7xl mx-auto h-full">
+          <div className="flex flex-col gap-8 lg:gap-12 px-(--section-px) sm:px-(--section-px-sm) lg:px-(--section-px-lg) py-(--section-py) sm:py-(--section-py-sm) py-(--section-py-lg) w-full max-w-7xl mx-auto h-full">
 
             <div className="flex flex-col items-center max-w-xl gap-6 mx-auto text-center">
               <h2 className="text-(--heading-colour) lg:text-(--text-colour) text-xl lg:text-2xl font-semibold">Our Process</h2>

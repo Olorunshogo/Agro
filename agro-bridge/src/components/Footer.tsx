@@ -34,7 +34,7 @@ export default function Footer() {
   const displayYear = currentYear > devYear ? `${devYear} - ${currentYear}` : `${devYear}`;
   
   return (
-    <footer className="relative dark:bg-zinc-900 [font-family:var(--font-open-sans)]">
+    <footer className="relative dark:bg-zinc-900 font-openSans">
       <div className="grid gap-8 px-(--section-px) sm:px-(--section-px-sm) lg:px-(--section-px-lg) border-3 border-[#E5E7EB] rounded-lg w-full max-w-7xl mx-auto h-full"
       >
         

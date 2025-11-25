@@ -2,8 +2,8 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
-import { MousePointer } from "lucide-react";
+import PrimaryLink from "./LinkPrimary";
+import SecondaryLink from "./LinkSecondary";
 
 interface HeroSectionProps {
   backgroundImageUrl: string;
@@ -33,20 +33,20 @@ interface Sponsor {
 
 const defaultSponsors: Sponsor[] = [
   { 
-    imageUrl: "/landing/cargill_logo.png", 
-    imageAlt: "Cargill" 
+    imageUrl: "/landing/logo_cargill.png", 
+    imageAlt: "Cargill logo" 
   },
   { 
-    imageUrl: "/landing/louis_dreyfus_company_logo.png", 
-    imageAlt: "Louis Dreyfus Company" 
+    imageUrl: "/landing/logo_louis_dreyfus_company.png", 
+    imageAlt: "Louis Dreyfus Company logo" 
   },
   { 
-    imageUrl: "/landing/kuehnenagel_logo.png", 
-    imageAlt: "Kuehne+Nagel" 
+    imageUrl: "/landing/logo_kuehnenagel.png", 
+    imageAlt: "Kuehne+Nagel logo" 
   },
   { 
-    imageUrl: "/landing/cargo_logo.png", 
-    imageAlt: "Cargo" 
+    imageUrl: "/landing/logo_cargo.png", 
+    imageAlt: "Cargo logo" 
   },
 ];
 
@@ -61,7 +61,7 @@ export default function HeroSection({
   sponsors = defaultSponsors,
 }: HeroSectionProps) {
   return (
-    <section className="relative h-screen lg:h-dvh">
+    <section className="relative h-screen font-openSans lg:h-dvh">
       {/* Background Image */}
       <Image
         src={backgroundImageUrl}
@@ -84,7 +84,7 @@ export default function HeroSection({
               {heading}
             </h1>
 
-            <p className="mx-auto text-sm text-center text-white max-w-xl lg:text-base">
+            <p className="max-w-xl mx-auto text-lg text-center text-white font-indie">
               {paragraph}
             </p>
           </div>
@@ -93,22 +93,17 @@ export default function HeroSection({
           {showCtas && (primaryCta || secondaryCta) && (
             <div className="flex flex-wrap justify-center gap-4">
               {primaryCta && (
-                <Link
+                <PrimaryLink
                   href={primaryCta.href}
-                  className="flex items-center gap-2 text-white text-sm font-semibold border border-(--primary-bg-light) bg-(--agro-green-dark) hover:bg-(--agro-green-light) px-6 py-3 rounded-full shadow-md transition-all duration-300 ease-in-out"
-                >
-                  <span>{primaryCta.text}</span>
-                  <MousePointer className="w-5 h-5 rotate-90" />
-                </Link>
+                  text={primaryCta.text}
+                />
               )}
 
               {secondaryCta && (
-                <Link
+                <SecondaryLink
                   href={secondaryCta.href}
-                  className="text-white text-sm font-semibold border border-(--primary-bg-light) bg-transparent hover:bg-(--agro-green-light) px-6 py-3 rounded-full transition-all duration-300 ease-in-out hover:shadow-lg"
-                >
-                  {secondaryCta.text}
-                </Link>
+                  text={secondaryCta.text}
+                />
               )}
             </div>
           )}

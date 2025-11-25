@@ -63,8 +63,8 @@ export default function SubscribeSection() {
           </div>
 
           {/* Right: Form */}
-          <div className="flex flex-col justify-center p-8 text-white lg:p-12">
-            <h3 className="mb-4 text-2xl font-bold text-center">
+          <div className="flex flex-col justify-center gap-4 p-8 text-white lg:p-12">
+            <h3 className="text-white text-center font-openSans">
               Stay Updated on Price Trends & Product Availability
             </h3>
 
@@ -77,8 +77,23 @@ export default function SubscribeSection() {
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="pl-12 text-gray-900 bg-white rounded-lg shadow-lg pr-36 py-7 focus-visible:ring-2 focus-visible:ring-white/50"
+                  className="pl-12 text-sm text-(--heading-colour) bg-white rounded-lg shadow-lg pr-36 py-6 focus-visible:ring-2 focus-visible:ring-white/50"
                 />
+
+                {/* <div className="flex flex-col gap-2">
+                  <EmailInput
+                    label="Email Address"
+                    placeholder="Enter your email"
+                    required
+                    onChange={(e) => setEmail(e.target.value)}
+                    error={false}
+                    className="w-full"
+                  />
+                  {/* {errors.email && (
+                    <p className="text-sm text-(--input-error-red)">{errors.email}</p>
+                  )} *
+                </div> */}
+
                 <Button
                   type="submit"
                   disabled={loading}
@@ -88,7 +103,7 @@ export default function SubscribeSection() {
                 </Button>
               </div>
 
-              <p className="text-sm text-center text-white/90">
+              <p className="text-sm text-center text-white">
                 Get the latest insights on crops, pricing, and export-ready products.
               </p>
             </form>

@@ -3,10 +3,10 @@
 
 import { useState, useEffect } from "react";
 import HeroSection from "~/components/HeroSection";
-import LandingConnectingFarms from "~/components/LandingConnectingFarmers";
-import LandingOurMission from "~/components/LandingOurMission";
-import LandingHowitworks from "~/components/LandingHowitWorks";
-import LandingUserPersona from "~/components/LandingTestimonials";
+import ConnectingFarms from "~/components/LandingConnectingFarmers";
+import TargetMarket from "~/components/LandingTargetMarket";
+import OurMission from "~/components/LandingOurMission";
+import UserPersona from "~/components/LandingTestimonials";
 
 // Static metadata
 const metadata = {
@@ -63,18 +63,21 @@ export default function Home() {
           }}
           secondaryCta={{
             text: "Request a Quote",
-            href: "/contact",
+            href: "/request-quote",
           }}
         />
 
         {/* Connecting Farms */}
-        <LandingConnectingFarms />   
+        <ConnectingFarms />   
+
+        {/* Target Market */}
+        <TargetMarket />
 
         {/* Our Mission */}
-        <LandingOurMission />
+        <OurMission />
 
         {/* Testimonials / Buyer Personas */}
-        <LandingUserPersona />
+        <UserPersona />
       </div>
 
     </main>

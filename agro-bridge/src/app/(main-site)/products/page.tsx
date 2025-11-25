@@ -62,7 +62,7 @@ export default function ProductsPage() {
    
   return (
     <div className="relative w-full h-full min-h-screen py-12">
-      <div className="px-(--section-px) sm:px-(--section-px-sm) lg:px-(--section-px-lg) py-(--section-py) lg:py-(--section-py-lg) w-full h-full mx-auto max-w-7xl">
+      <div className="px-(--section-px) sm:px-(--section-px-sm) lg:px-(--section-px-lg) py-(--section-py) sm:py-(--section-py-sm) py-(--section-py-lg) w-full h-full mx-auto max-w-7xl">
 
 
       {/* 

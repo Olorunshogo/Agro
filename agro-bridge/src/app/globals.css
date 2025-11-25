@@ -1,3 +1,14 @@
+
+/* Font: Open Sans */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+/* Font: Indie Flower */
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+/* Font: Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+
 @import "tailwindcss";
 
 /* @plugin "tailwindcss-animate";
@@ -84,15 +95,17 @@
   --text-colour-2: #D5DFD7;
 
   --section-px: 1rem;
-  --section-px-sm: 2rem;
-  --section-px-lg: 3rem;
+  --section-px-sm: 1.5rem;
+  --section-px-lg: 2rem;
 
   --section-py: 2rem;
-  --section-py-lg: 3rem;
+  --section-py-sm: 3rem;
+  --section-py-lg: 4rem;
 
   --navbar-h: 4.5rem;
 
-  --agro-green-dark: #2B6036;
+  --agro-green-dark: #1E5925;
+  --agro-green-dark-2: #789B7C;
   --agro-green-light: #22C55E;
   --input-border-green: #2B6036;
   --input-text-colour: #111827;
@@ -150,5 +163,36 @@
 @layer utilities {
   .shadow-custom {
     box-shadow: 0px 44px 24px -19px #0000001A;
+  }
+
+  .font-openSans {
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;  
+  }
+
+  .font-inter {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+  }
+
+  .font-indie {
+    font-family: "Indie Flower", cursive;
+    font-optical-sizing: auto;
+  }
+
+  .clip-path-notch-top {
+    clip-path: polygon(
+      0 0,      
+      50% 100%, 
+      100% 0     
+    );
+  }
+  
+  .clip-path-notch-bottom {
+    clip-path: polygon(
+      0 100%, 
+      50% 0,    
+      100% 100%   
+    );
   }
 }

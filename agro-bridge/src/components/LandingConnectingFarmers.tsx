@@ -3,8 +3,8 @@
 
 import Image from "next/image";
 import { TreePalm } from "lucide-react";
-import { MousePointer } from "lucide-react";
-import Link from "next/link";
+import ConnectingMission from "./ConnectingMission";
+import PrimaryLink from "./LinkPrimary";
 
 interface List {
   title: string;
@@ -26,14 +26,15 @@ const listItems: List[] = [
   }
 ];
 
-export default function LandingConnectingFarms() {
+export default function ConnectingFarms() {
 
   return (
     <>
       {/* Connecting Farmers */}
-      <section className="relative font-openSans py-(--section-py) lg:py-(--section-py-lg) overflow-hidden bg-white">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 px-(--section-px) sm:px-(--section-px-sm) lg:px-(--section-px-lg) w-full max-w-7xl mx-auto h-full">
+      <section className="relative font-openSans py-(--section-py) sm:py-(--section-py-sm) py-(--section-py-lg) overflow-hidden bg-white">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-6 px-(--section-px) sm:px-(--section-px-sm) lg:px-(--section-px-lg) w-full max-w-7xl mx-auto h-full">
 
+          {/* Images */}
           <div className="relative w-full h-full">
 
             <div className="relative w-4/5 h-90 lg:h-110 rounded-xl">
@@ -41,11 +42,11 @@ export default function LandingConnectingFarms() {
                 src="/landing/connecting-farms-1.jpg"
                 alt="Connecting farms 1"
                 fill
-                className="object-contain object-cover rounded-xl w-full h-full"
+                className="object-contain object-cover w-full h-full rounded-xl"
               />
             </div>
 
-            <div className="absolute top-1/4 right-0 z-20 overflow-hidden w-1/2 max-w-110 p-4 border-10 border-white rounded-xl bg-red-900 bg-red-800 h-1/2">
+            <div className="absolute right-0 z-20 w-1/2 p-4 overflow-hidden border-white top-1/4 max-w-110 border-10 h-1/2 rounded-xl">
 
               <Image
                 src="/landing/connecting-farms-2.jpg"
@@ -57,27 +58,20 @@ export default function LandingConnectingFarms() {
             </div>
           </div>
 
+          {/* Right Hand Side */}
           <div className="relative flex flex-col w-full h-full gap-6">
+            
             {/* Font: Indie Flower */}
-            <div className="flex items-center gap-4">
-              <span className="font-normal text-[#1E5925]">
-                Connecting Farms to the World
-              </span>
-              <Image
-                src="/landing/truck.png"
-                alt="Landing Truck"
-                width={200}
-                height={200}
-                className="object-contain w-10 h-10"
-              />
-            </div>
-
+            <ConnectingMission
+              titleText="Connecting Farms to the World"
+            />
+            
             {/* Heading */}
-            <h2 className="text-lg font-semibold text-(--heading-colour) lg:text-xl">
+            <h2 className="text-xl font-openSans font-semibold text-(--heading-colour) lg:text-xl">
               Debrigger
             </h2>
 
-            <p className="font-normal text-(--text-colour)">
+            <p className="font-normal text-(--text-colour) font-openSans">
               Modern agricultural export platform built to connect African farmers directly with global buyers. 
               We exist to remove the long chain of middlemen, reduce fraud, and give international importers a reliable way to source high-quality produce at scale.
             </p>
@@ -93,17 +87,12 @@ export default function LandingConnectingFarms() {
               ))}
             </div>
 
-            <Link
+            <PrimaryLink
               href="/about"
-              className="flex items-center gap-2 text-white text-sm font-semibold w-fit border border-(--primary-bg-light) bg-(--agro-green-dark) hover:bg-(--agro-green-light) px-6 py-3 rounded-full shadow-md transition-all duration-300 ease-in-out"
-            >
-              <span>See more</span>
-              <MousePointer className="w-5 h-5 rotate-90" />
-            </Link>
+              text="See more"
+            />
             
-          </div>
-        
-
+          </div>      
           
         </div>
       </section>      

@@ -23,7 +23,7 @@ export default function LandingProducts() {
   return (
     <>
       {/* Featured Products */}
-      <section className="relative font-openSans py-(--section-py) lg:py-(--section-py-lg) overflow-hidden bg-white">
+      <section className="relative font-openSans py-(--section-py) sm:py-(--section-py-sm) py-(--section-py-lg) overflow-hidden bg-white">
         <div className="w-full max-w-7xl mx-auto flex flex-col gap-8 px-(--section-px) sm:px-(--section-px-sm) lg:px-(--section-px-lg) h-full">
 
           <h2 className="text-lg font-normal lg:text-xl text-center text-(--heading-color)">
