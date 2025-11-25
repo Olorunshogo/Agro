@@ -3,7 +3,8 @@
 
 import { useState, useEffect } from "react";
 import HeroSection from "~/components/HeroSection";
-import LandingProducts from "~/components/LandingProducts";
+import LandingConnectingFarms from "~/components/LandingConnectingFarmers";
+import LandingOurMission from "~/components/LandingOurMission";
 import LandingHowitworks from "~/components/LandingHowitWorks";
 import LandingUserPersona from "~/components/LandingTestimonials";
 
@@ -66,16 +67,16 @@ export default function Home() {
           }}
         />
 
-        {/* Featured Products */}
-        {/* <LandingProducts /> */}
+        {/* Connecting Farms */}
+        <LandingConnectingFarms />   
 
-        {/* How It Works */}
-        <LandingHowitworks />      
+        {/* Our Mission */}
+        <LandingOurMission />
 
         {/* Testimonials / Buyer Personas */}
         <LandingUserPersona />
       </div>
 
     </main>
-  );
+  ); 
 }

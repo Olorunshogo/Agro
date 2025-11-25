@@ -1,0 +1,112 @@
+
+"use client";
+
+import Image from "next/image";
+import { TreePalm } from "lucide-react";
+import { MousePointer } from "lucide-react";
+import Link from "next/link";
+
+interface List {
+  title: string;
+  description: string;
+}
+
+const listItems: List[] = [
+  {
+    title: "Direct Sourcing:",
+    description: "We work closely with farmers, cooperatives, and processors to ensure buyers access premium-grade agricultural products sourced straight from the farm."
+  },
+  {
+    title: "Quality & Verification:",
+    description: "Every product listed passes through our verification process, grading, documentation, and compliance checks."
+  },
+  {
+    title: "Secure Transactions:",
+    description: "Through escrow-backed payments, buyers transact safely while farmers receive guaranteed payouts."
+  }
+];
+
+export default function LandingConnectingFarms() {
+
+  return (
+    <>
+      {/* Connecting Farmers */}
+      <section className="relative font-openSans py-(--section-py) lg:py-(--section-py-lg) overflow-hidden bg-white">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 px-(--section-px) sm:px-(--section-px-sm) lg:px-(--section-px-lg) w-full max-w-7xl mx-auto h-full">
+
+          <div className="relative w-full h-full">
+
+            <div className="relative w-4/5 h-90 lg:h-110 rounded-xl">
+              <Image
+                src="/landing/connecting-farms-1.jpg"
+                alt="Connecting farms 1"
+                fill
+                className="object-contain object-cover rounded-xl w-full h-full"
+              />
+            </div>
+
+            <div className="absolute top-1/4 right-0 z-20 overflow-hidden w-1/2 max-w-110 p-4 border-10 border-white rounded-xl bg-red-900 bg-red-800 h-1/2">
+
+              <Image
+                src="/landing/connecting-farms-2.jpg"
+                alt="Connecting farms 2"
+                fill
+                className="object-cover w-full h-full"
+              />
+                            
+            </div>
+          </div>
+
+          <div className="relative flex flex-col w-full h-full gap-6">
+            {/* Font: Indie Flower */}
+            <div className="flex items-center gap-4">
+              <span className="font-normal text-[#1E5925]">
+                Connecting Farms to the World
+              </span>
+              <Image
+                src="/landing/truck.png"
+                alt="Landing Truck"
+                width={200}
+                height={200}
+                className="object-contain w-10 h-10"
+              />
+            </div>
+
+            {/* Heading */}
+            <h2 className="text-lg font-semibold text-(--heading-colour) lg:text-xl">
+              Debrigger
+            </h2>
+
+            <p className="font-normal text-(--text-colour)">
+              Modern agricultural export platform built to connect African farmers directly with global buyers. 
+              We exist to remove the long chain of middlemen, reduce fraud, and give international importers a reliable way to source high-quality produce at scale.
+            </p>
+
+            <div className="flex flex-col gap-4">
+              {listItems.map((item) => (
+                <div className="flex gap-4">
+                  <TreePalm className="text-(--agro-green-dark) w-6 h-6" />
+                  <div className="text-(--colour)">
+                    <span className="text-(--agro-green-dark) font-semibold">{item.title}</span>&nbsp;{item.description}              
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <Link
+              href="/about"
+              className="flex items-center gap-2 text-white text-sm font-semibold w-fit border border-(--primary-bg-light) bg-(--agro-green-dark) hover:bg-(--agro-green-light) px-6 py-3 rounded-full shadow-md transition-all duration-300 ease-in-out"
+            >
+              <span>See more</span>
+              <MousePointer className="w-5 h-5 rotate-90" />
+            </Link>
+            
+          </div>
+        
+
+          
+        </div>
+      </section>      
+    </>
+  );
+}
