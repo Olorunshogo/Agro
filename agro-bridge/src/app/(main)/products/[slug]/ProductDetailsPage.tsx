@@ -29,7 +29,7 @@ export default function ProductDetailPage({ slug }: { slug: string }) {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <div className="flex flex-col min-h-screen gap-12 py-12 bg-white">
+    <div className="flex flex-col min-h-screen gap-12 py-12">
       <div className="flex flex-col gap-8 lg:gap-12 px-(--section-px) sm:px-(--section-px-sm) lg:px-(--section-px-lg) py-(--section-py) lg:py-(--section-py-lg) w-full max-w-7xl mx-auto h-full">
         {/* Breadcrumbs */}
         <Breadcrumbs
@@ -159,9 +159,9 @@ export default function ProductDetailPage({ slug }: { slug: string }) {
                 <Link
                   key={rel.slug}
                   href={`/products/${rel.slug}`}
-                  className="flex items-center gap-2 transition-all duration-300 ease-in-out rounded-lg group"
+                  className="flex items-center gap-4 transition-all duration-300 ease-in-out rounded-lg group"
                 >
-                  <div className="relative w-20 h-16 transition-all duration-300 ease-in-out group-hover:scale-105">
+                  <div className="relative w-24 h-20 transition-all duration-300 ease-in-out group-hover:scale-105">
                     <Image 
                       src={rel.imageUrl} 
                       alt={rel.name} 

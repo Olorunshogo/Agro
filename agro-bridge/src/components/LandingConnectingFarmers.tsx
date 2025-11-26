@@ -78,7 +78,7 @@ export default function ConnectingFarms() {
 
             <div className="flex flex-col gap-4">
               {listItems.map((item) => (
-                <div className="flex gap-4">
+                <div key={item.title} className="flex gap-4">
                   <TreePalm className="text-(--agro-green-dark) w-6 h-6" />
                   <div className="text-(--colour)">
                     <span className="text-(--agro-green-dark) font-semibold">{item.title}</span>&nbsp;{item.description}              

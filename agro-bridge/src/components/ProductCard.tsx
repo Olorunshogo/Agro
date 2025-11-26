@@ -12,16 +12,20 @@ export type Props = {
 
 export const ProductCard: React.FC<Props> = ({ product }) => {
   return (
-    <div className="flex flex-col w-full gap-6 p-4 transition-all duration-300 ease-in-out border rounded-xl font-openSans shadow-custom hover:shadow-lg">
+    <div className="flex flex-col w-full gap-6 p-4 transition-all duration-300 ease-in-out bg-white border rounded-xl font-openSans shadow-custom hover:shadow-lg">
 
-      <div className="relative w-full h-48 overflow-hidden rounded-md">
+      <div className="relative w-full h-48 rounded-md">
         <Image
           src={product.imageUrl}
           alt={product.imageAlt || product.name || "product image"}
           fill
           sizes="(max-width: 768px) 100vw, 320px"
-          className="object-cover object-center"
+          className="object-cover object-center rounded-md"
         />
+
+        <div className="absolute -top-1 px-2 py-1 text-sm rounded-md shadow-md font-inter text-[#22C55E] -left-1 bg-[#E9F9EF]">
+          {product.inStock ? "In Stock" : "Coming Soon"}
+        </div>
       </div>
 
       <div className="flex flex-col gap-4">

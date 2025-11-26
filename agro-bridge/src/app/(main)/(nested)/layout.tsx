@@ -1,13 +1,12 @@
 
 
-import { inter, openSans } from "../fonts";
+import { inter, openSans } from "~/app/fonts";
 
 import Header from "~/components/Header";
 import SubscribeSection from "~/components/SubscribeSection";
 import Footer from "~/components/Footer";
 
 const metadata = {
-  // This applies to EVERY page
   metadataBase: new URL("https://agro-bom-vercel.vercel.app"),
 
   title: {
@@ -74,7 +73,7 @@ export default function MainLayout({
   return (
     <>
       <Header />
-        <main>{children}</main>
+      <main>{children}</main>
       <SubscribeSection />
       <Footer />
     </>

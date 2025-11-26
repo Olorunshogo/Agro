@@ -12,7 +12,7 @@ export interface NavLink {
 
 export type Product = {
   slug: string;
-  category?: string;
+  category: string;
   name: string;
   price: number;
   location: string;
