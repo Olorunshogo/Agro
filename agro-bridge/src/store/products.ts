@@ -2,9 +2,10 @@
 import { Product } from "~/app/types/types";
 
 export const products: Product[] = [
-  // Cashew Nuts
+  // 1. Cashew Nuts
   {
     slug: "cashew-nuts",
+    category: "Nuts",
     name: "Premium Raw Cashew Nuts",
     price: 1230,
     location: "Oyo & Kaduna, Nigeria",
@@ -21,52 +22,22 @@ export const products: Product[] = [
     downloadSpecSheetUrl: "/rust-book.pdf",
     seoDescription: "Export-quality Nigerian cashew nuts – WW240 & WW320 grades.",
     galleryImages: [
-      { url: "/products/cashew.jpg", alt: "Close-up of premium cashew nuts" },
-      { url: "/products/palm-oil.jpg", alt: "Cashew nuts in jute bags" },
-      { url: "/products/cashew.jpg", alt: "Close-up of premium cashew nuts" },
-      { url: "/products/sesame.jpg", alt: "Export-ready cashew packaging" },
-
+      { url: "/products/product-details/cashew-detail-2.jpg", alt: "Cashew nuts in jute bags" },
+      { url: "/products/product-details/cashew-detail-3.jpg", alt: "Close-up of premium cashew nuts" },
+      { url: "/products/product-details/cashew-detail-4.jpg", alt: "Export-ready cashew packaging" }
     ],
     relatedProducts: [
-      // Crude Palm Oil
-      { 
-        slug: "crude-palm-oil",
-        name: "Crude Palm Oil (CPO)",
-        price: 488,
-        imageUrl: "/products/palm-oil.jpg", 
-        description: "Freshly pressed crude palm oil with low FFA." 
-      },
-      // Sesame Seeds
-      { 
-        slug: "sesame-seeds", 
-        name: "White Sesame Seeds", 
-        price: 1450, 
-        imageUrl: "/products/sesame.jpg", 
-        description: "99.95% purity white sesame seeds, naturally grown and cleaned." 
-      },
-      // Dried Ginger
-      { 
-        slug: "dried-ginger",
-        name: "Split Dried Ginger",
-        price: 2100,
-        imageUrl: "/products/ginger-split.jpg", 
-        description: "99.95% purity white sesame seeds, naturally grown and cleaned." 
-      },
-      // Cocoa Beans
-      { 
-
-        slug: "cocoa-beans", 
-        name: "Dried Cocoa Beans", 
-        price: 980, 
-        imageUrl: "/products/cocoa-beans.jpg", 
-        description: "Fermented and sun-dried Grade 1 cocoa beans." 
-      },
+      { slug: "cocoa-beans", name: "Dried Cocoa Beans", price: 980, imageUrl: "/products/cocoa-beans.jpg", description: "Fermented and sun-dried Grade 1 cocoa beans." },
+      { slug: "dried-ginger", name: "Split Dried Ginger", price: 2100, imageUrl: "/products/ginger-split.jpg", description: "Low fiber, high oleoresin content." },
+      { slug: "crude-palm-oil", name: "Crude Palm Oil (CPO)", price: 488, imageUrl: "/products/palm-oil.jpg", description: "Freshly pressed crude palm oil with low FFA." },
+      { slug: "sesame-seeds", name: "White Sesame Seeds", price: 1450, imageUrl: "/products/sesame.jpg", description: "99.95% purity white sesame seeds, naturally grown and cleaned." }
     ],
   },
 
-  // Crude Palm Oil
+  // 2. Crude Palm Oil
   {
     slug: "crude-palm-oil",
+    category: "Oils",
     name: "Crude Palm Oil (CPO)",
     price: 488,
     location: "Edo & Cross River, Nigeria",
@@ -82,49 +53,21 @@ export const products: Product[] = [
     downloadSpecSheetUrl: "/rust-book.pdf",
     galleryImages: [
       { url: "/products/palm-oil.jpg", alt: "Crude palm oil in flexi tank" },
-      { url: "/products/sesame.jpg", alt: "Export-ready cashew packaging" },
-      { url: "/products/cashew.jpg", alt: "Close-up of premium cashew nuts" },
+      { url: "/products/sesame.jpg", alt: "Clean sesame seeds ready for export" },
+      { url: "/products/cashew.jpg", alt: "Premium cashew nuts" }
     ],
     relatedProducts: [
-      // Cashew Nuts
-      { 
-        slug: "cashew-nuts",
-        name: "Premium Raw Cashew Nuts",
-        price: 720, 
-        imageUrl: "/products/cashew.jpg", 
-        description: "Pure palm kernel oil for food and cosmetics." 
-      },
-      // Sesame Seeds
-      { 
-        slug: "sesame-seeds", 
-        name: "White Sesame Seeds", 
-        price: 1450, 
-        imageUrl: "/products/sesame.jpg", 
-        description: "99.95% purity white sesame seeds, naturally grown and cleaned." 
-      },
-      // Dried Ginger
-      { 
-        slug: "dried-ginger",
-        name: "Split Dried Ginger",
-        price: 2100,
-        imageUrl: "/products/ginger-split.jpg", 
-        description: "99.95% purity white sesame seeds, naturally grown and cleaned." 
-      },
-      // Cocoa Beans
-      { 
-
-        slug: "cocoa-beans", 
-        name: "Dried Cocoa Beans", 
-        price: 980, 
-        imageUrl: "/products/cocoa-beans.jpg", 
-        description: "Fermented and sun-dried Grade 1 cocoa beans." 
-      },
+      { slug: "cocoa-beans", name: "Dried Cocoa Beans", price: 980, imageUrl: "/products/cocoa-beans.jpg", description: "Fermented and sun-dried Grade 1 cocoa beans." },
+      { slug: "veggies", name: "Fresh Mixed Vegetables", price: 640, imageUrl: "/products/veggies.jpg", description: "Farm-fresh mixed vegetables sourced from organic growers." },
+      { slug: "dried-ginger", name: "Split Dried Ginger", price: 2100, imageUrl: "/products/ginger-split.jpg", description: "Low fiber, high oleoresin content." },
+      { slug: "sesame-seeds", name: "White Sesame Seeds", price: 1450, imageUrl: "/products/sesame.jpg", description: "Naturally grown with a high oil content." }
     ],
   },
 
-  // Sesame Seeds
+  // 3. Sesame Seeds
   {
     slug: "sesame-seeds",
+    category: "Seeds",
     name: "White Sesame Seeds",
     price: 1450,
     location: "Kano & Jigawa, Nigeria",
@@ -139,50 +82,22 @@ export const products: Product[] = [
     originDetails: "From Nigeria's northern sesame belt.",
     downloadSpecSheetUrl: "/rust-book.pdf",
     galleryImages: [
-      { url: "/products/palm-oil.jpg", alt: "Crude palm oil in flexi tank" },
-      { url: "/products/sesame.jpg", alt: "Export-ready cashew packaging" },
-      { url: "/products/cashew.jpg", alt: "Close-up of premium cashew nuts" },
+      { url: "/products/sesame.jpg", alt: "Clean white sesame seeds" },
+      { url: "/products/palm-oil.jpg", alt: "Palm oil processed for export" },
+      { url: "/products/cashew.jpg", alt: "High-quality cashew nuts" }
     ],
     relatedProducts: [
-      // Cashew Nuts
-      { 
-        slug: "cashew-nuts",
-        name: "Premium Raw Cashew Nuts",
-        price: 720, 
-        imageUrl: "/products/cashew.jpg", 
-        description: "Pure palm kernel oil for food and cosmetics." 
-      },
-      // Dried Ginger
-      { 
-        slug: "dried-ginger",
-        name: "Split Dried Ginger",
-        price: 2100,
-        imageUrl: "/products/ginger-split.jpg", 
-        description: "99.95% purity white sesame seeds, naturally grown and cleaned." 
-      },
-      // Cocoa Beans
-      { 
-
-        slug: "cocoa-beans", 
-        name: "Dried Cocoa Beans", 
-        price: 980, 
-        imageUrl: "/products/cocoa-beans.jpg", 
-        description: "Fermented and sun-dried Grade 1 cocoa beans." 
-      },
-      // Crude Palm Oil
-      { 
-        slug: "crude-palm-oil",
-        name: "Crude Palm Oil (CPO)",
-        price: 488,
-        imageUrl: "/products/palm-oil.jpg", 
-        description: "Freshly pressed crude palm oil with low FFA." 
-      },
+      { slug: "crude-palm-oil", name: "Crude Palm Oil (CPO)", price: 488, imageUrl: "/products/palm-oil.jpg", description: "Freshly pressed crude palm oil." },
+      { slug: "cocoa-beans", name: "Dried Cocoa Beans", price: 980, imageUrl: "/products/cocoa-beans.jpg", description: "Fermented and sun-dried beans." },
+      { slug: "veggies", name: "Fresh Mixed Vegetables", price: 640, imageUrl: "/products/veggies.jpg", description: "Clean, fresh vegetables for food and processing." },
+      { slug: "dried-ginger", name: "Split Dried Ginger", price: 2100, imageUrl: "/products/ginger-split.jpg", description: "Sun-dried ginger with strong aroma." }
     ],
   },
 
-  // Dried Ginger
+  // 4. Dried Ginger
   {
     slug: "dried-ginger",
+    category: "Spices",
     name: "Split Dried Ginger",
     price: 2100,
     location: "Kaduna, Nigeria",
@@ -197,104 +112,78 @@ export const products: Product[] = [
     originDetails: "Kaduna-grown, sun-dried to 10–12% moisture.",
     downloadSpecSheetUrl: "/rust-book.pdf",
     galleryImages: [
-      { url: "/products/ginger-split.jpg", alt: "Crude palm oil in flexi tank" },
-      { url: "/products/palm-oil.jpg", alt: "Crude palm oil in flexi tank" },
-      { url: "/products/sesame.jpg", alt: "Export-ready cashew packaging" },
-      { url: "/products/cashew.jpg", alt: "Close-up of premium cashew nuts" },
+      { url: "/products/ginger-split.jpg", alt: "Premium dried ginger" },
+      { url: "/products/cashew.jpg", alt: "Cashews bagged for export" },
+      { url: "/products/sesame.jpg", alt: "White sesame seeds" }
     ],
     relatedProducts: [
-      // Cashew Nuts
-      { 
-        slug: "cashew-nuts",
-        name: "Premium Raw Cashew Nuts",
-        price: 720, 
-        imageUrl: "/products/cashew.jpg", 
-        description: "Pure palm kernel oil for food and cosmetics." 
-      },
-      // Cocoa Beans
-      { 
-
-        slug: "cocoa-beans", 
-        name: "Dried Cocoa Beans", 
-        price: 980, 
-        imageUrl: "/products/cocoa-beans.jpg", 
-        description: "Fermented and sun-dried Grade 1 cocoa beans." 
-      },
-      // Crude Palm Oil
-      { 
-        slug: "crude-palm-oil",
-        name: "Crude Palm Oil (CPO)",
-        price: 488,
-        imageUrl: "/products/palm-oil.jpg", 
-        description: "Freshly pressed crude palm oil with low FFA." 
-      },
-      // Sesame Seeds
-      { 
-        slug: "sesame-seeds", 
-        name: "White Sesame Seeds", 
-        price: 1450, 
-        imageUrl: "/products/sesame.jpg", 
-        description: "99.95% purity white sesame seeds, naturally grown and cleaned." 
-      },
+      { slug: "veggies", name: "Fresh Mixed Vegetables", price: 640, imageUrl: "/products/veggies.jpg", description: "Fresh vegetables sourced from smallholder farmers." },
+      { slug: "cocoa-beans", name: "Dried Cocoa Beans", price: 980, imageUrl: "/products/cocoa-beans.jpg", description: "Sun-dried cocoa beans." },
+      { slug: "crude-palm-oil", name: "Crude Palm Oil (CPO)", price: 488, imageUrl: "/products/palm-oil.jpg", description: "Pure crude palm oil." },
+      { slug: "sesame-seeds", name: "White Sesame Seeds", price: 1450, imageUrl: "/products/sesame.jpg", description: "High purity sesame seeds." }
     ],
   },
 
-  // Dried Cocoa Beans
+  // 5. Cocoa Beans
   {
-    slug: "cocoa-beans", 
-    name: "Dried Cocoa Beans", 
-    price: 980, 
-    location: "Kaduna, Nigeria",
+    slug: "cocoa-beans",
+    category: "Beans",
+    name: "Dried Cocoa Beans",
+    price: 980,
+    location: "Ondo & Cross River, Nigeria",
     inStock: true,
     imageUrl: "/products/cocoa-beans.jpg",
     imageAlt: "Cocoa beans powder with strong aroma",
     description: "Fermented and sun-dried Grade 1 cocoa beans.",
     availability: "In Stock",
     minimumOrder: "10 Tons",
-    grade: "Export Grade",
+    grade: "Grade 1 Export",
     packaging: "50kg jute bags",
-    originDetails: "Kaduna-grown, sun-dried to 10–12% moisture.",
+    originDetails: "Sourced from Nigeria’s premium cocoa belt.",
     downloadSpecSheetUrl: "/rust-book.pdf",
     galleryImages: [
-      { url: "/products/ginger-split.jpg", alt: "Crude palm oil in flexi tank" },
-      { url: "/products/palm-oil.jpg", alt: "Crude palm oil in flexi tank" },
-      { url: "/products/sesame.jpg", alt: "Export-ready cashew packaging" },
-      { url: "/products/cashew.jpg", alt: "Close-up of premium cashew nuts" },
+      { url: "/products/cocoa-beans.jpg", alt: "Premium cocoa beans" },
+      { url: "/products/sesame.jpg", alt: "White sesame seeds" },
+      { url: "/products/palm-oil.jpg", alt: "Fresh palm oil" }
     ],
     relatedProducts: [
-      // Cashew Nuts
-      { 
-        slug: "cashew-nuts",
-        name: "Premium Raw Cashew Nuts",
-        price: 720, 
-        imageUrl: "/products/cashew.jpg", 
-        description: "Pure palm kernel oil for food and cosmetics." 
-      },
-      // Crude Palm Oil
-      { 
-        slug: "crude-palm-oil",
-        name: "Crude Palm Oil (CPO)",
-        price: 488,
-        imageUrl: "/products/palm-oil.jpg", 
-        description: "Freshly pressed crude palm oil with low FFA." 
-      },
-      // Sesame Seeds
-      { 
-        slug: "sesame-seeds", 
-        name: "White Sesame Seeds", 
-        price: 1450, 
-        imageUrl: "/products/sesame.jpg", 
-        description: "99.95% purity white sesame seeds, naturally grown and cleaned." 
-      },
-      // Dried Ginger
-      { 
-        slug: "dried-ginger",
-        name: "Split Dried Ginger",
-        price: 2100,
-        imageUrl: "/products/ginger-split.jpg", 
-        description: "99.95% purity white sesame seeds, naturally grown and cleaned." 
-      },
+      { slug: "sesame-seeds", name: "White Sesame Seeds", price: 1450, imageUrl: "/products/sesame.jpg", description: "High purity sesame seeds." },
+      { slug: "veggies", name: "Fresh Mixed Vegetables", price: 640, imageUrl: "/products/veggies.jpg", description: "Fresh organic vegetables." },
+      { slug: "dried-ginger", name: "Split Dried Ginger", price: 2100, imageUrl: "/products/ginger-split.jpg", description: "Aromatic dried ginger." },
+      { slug: "crude-palm-oil", name: "Crude Palm Oil (CPO)", price: 488, imageUrl: "/products/palm-oil.jpg", description: "Pure crude palm oil." }
     ],
   },
 
+  // 6. Veggies (New & Original)
+  {
+    slug: "veggies",
+    category: "Vegetables",
+    name: "Fresh Mixed Vegetables",
+    price: 640,
+    location: "Plateau & Kaduna, Nigeria",
+    inStock: true,
+    imageUrl: "/products/veggies.jpg",
+    imageAlt: "Fresh farm vegetables prepared for bulk export",
+    description: "A premium blend of hand-harvested mixed vegetables including carrots, cucumbers, green peppers, tomatoes, and leafy greens. Perfect for food processors, wholesalers, and international buyers.",
+    seeds: "Mixed Vegetables",
+    availability: "In Stock – 150+ Tons",
+    minimumOrder: "3 Tons",
+    grade: "Premium Export Grade A",
+    packaging: "10kg–25kg mesh or perforated plastic crates",
+    originDetails: "Grown under monitored conditions in the high-altitude Plateau region for superior freshness.",
+    downloadSpecSheetUrl: "/rust-book.pdf",
+    seoDescription: "Export-quality mixed vegetables from Nigeria — fresh, hand-selected and sorted for international buyers.",
+    galleryImages: [
+      { url: "/products/cashew.jpg", alt: "Agricultural export products" },
+      { url: "/products/sesame.jpg", alt: "High-quality agricultural produce" },
+      { url: "/products/palm-oil.jpg", alt: "Nigerian agro-commodity exports" }
+    ],
+    relatedProducts: [
+      { slug: "sesame-seeds", name: "White Sesame Seeds", price: 1450, imageUrl: "/products/sesame.jpg", description: "Pure white sesame seeds with high oil content." },
+      { slug: "cocoa-beans", name: "Dried Cocoa Beans", price: 980, imageUrl: "/products/cocoa-beans.jpg", description: "Fermented, sun-dried cocoa beans." },
+      { slug: "dried-ginger", name: "Split Dried Ginger", price: 2100, imageUrl: "/products/ginger-split.jpg", description: "Low moisture ginger with strong aroma." },
+      { slug: "cashew-nuts", name: "Premium Raw Cashew Nuts", price: 1230, imageUrl: "/products/cashew.jpg", description: "Top-grade export raw cashews." }
+    ],
+  },
 ];
+

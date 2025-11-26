@@ -19,17 +19,18 @@ export const EmailInput = forwardRef<HTMLInputElement, EmailInputProps>(
           {required && <span className="text-(--input-error-red)">*</span>}
         </label>
         <div className="relative">
+          <div className="absolute inset-y-0 flex items-center pointer-events-none left-3">
+            <Mail size={18} />
+          </div>
+
           <Input
             type="email"
             ref={ref}
             aria-label={label}
-            className={`text-sm lg:text-base pr-10 h-10 caret-(--input-field-green) text-(--input-text-colour) 
+            className={`pl-10 text-sm lg:text-base pr-10 h-10 caret-(--input-field-green) text-(--input-text-colour) 
               ${props.error ? "border-(--input-error-red)" : "border-(--input-border-green)"}`}
             {...props}
           />
-          <div className="absolute inset-y-0 flex items-center pointer-events-none right-3">
-            <Mail size={18} />
-          </div>
         </div>
       </div>
     );

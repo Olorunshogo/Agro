@@ -5,9 +5,13 @@
 import { useState, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Button } from '~/components/ui/button';
-import { HomeIcon, Menu, ArrowRight } from 'lucide-react';
 import { AppLogo } from './app-logo';
+import { HomeIcon, Menu, ArrowRight } from 'lucide-react';
+import { Button } from '~/components/ui/button';
+
+import PrimaryLink from './LinkPrimary';
+import SecondaryLink from './LinkSecondary';
+
 
 import { navLinks } from '~/store/store';
 import { socialLinks } from '~/store/store';
@@ -21,18 +25,18 @@ export default function Header() {
 
   return (
     <>
-      <header className="sticky top-0 left-0 z-50 w-full bg-transparent shadow-sm backdrop-blur-sm">
+      <header className="sticky top-0 left-0 z-50 w-full bg-transparent backdrop-blur-none">
         <div className="flex items-center justify-between gap-2 px-(--section-px) sm:px-(--section-px-sm) lg:px-(--section-px-lg) w-full max-w-7xl mx-auto h-full">
           {/* Logo */}
           <div className="flex items-center py-4">
             <Link href="/" className="flex items-center gap-2">
               <AppLogo className="w-8 h-8 text-lg" />
-              <span className="text-xl font-bold text-(--agro-green-light)">AgroBridge</span>
+              <span className="text-xl font-bold text-(--agro-green-light)">Debrigger</span>
             </Link>
           </div>
 
           {/* Navigaiton Links */}
-          <nav className="items-center hidden gap-2 p-1 bg-black rounded-full lg:flex">
+          <nav className="items-center hidden gap-2 rounded-full lg:flex">
             <ul className="flex items-center gap-2">
               {navLinks.map(({ label, href, icon: Icon }) => {
                 const isActive = pathname == href;
@@ -40,10 +44,10 @@ export default function Header() {
                   <li key={href}>
                     <Link
                       href={href}
-                      className={`flex items-center gap-2 px-4 py-2 text-sm font-medium font-inter rounded-full transition-colors
+                      className={`flex items-center text-white gap-2 px-2 py-2 text-sm font-medium font-inter rounded-full transition-colors
                         ${
                           isActive
-                            ? "bg-white text-black shadow-sm"
+                            ? "hover:text-black underline-2 decoration-4 decoration-(--agro-green-dark)"
                             : "text-zinc-400 hover:text-white"
                         }`}
                     >
@@ -56,21 +60,17 @@ export default function Header() {
             </ul>
           </nav>
 
+          {/* Authentication Links */}
           <div className="items-center hidden gap-4 lg:flex">
-            <Link
-              href="/signin"
-              className="px-4 py-2 text-sm text-[#F4F9EC] font-inter border-1 border-[#F4F9EC] hover:shadow-custom rounded-md font-medium bg-transparent hover:opacity-90 duration-300 ease-in-out transition-all"
-            >
-              Sign In
-            </Link>
+            <SecondaryLink
+              href='/signin'
+              text='Sign In'
+            />
 
-            <Link
-              href="/signup"
-              className="flex items-center gap-1 px-4 py-2 text-sm text-[#F4F9EC] font-inter hover:shadow-custom rounded-md font-medium bg-(--agro-green-dark) hover:opacity-90 duration-300 ease-in-out transition-all"
-            >
-              Sign Up
-              <span><ArrowRight className="w-4 h-4 -rotate-45" /></span>
-            </Link>
+            <PrimaryLink
+              href='/signup'
+              text='Sign Up'
+            />
           </div>
 
           {/* Sidebar Toggle Button */}

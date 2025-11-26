@@ -44,11 +44,11 @@ export default function TargetMarket() {
       {/* Our Mission Header */}
       <div className="flex flex-col gap-4 mx-auto text-center">
         <h2 className="text-lg lg:text-xl font-bold text-(--text-color)">
-          Finance and Growth Strategy
+          Target Market
         </h2>
 
         <p className="text-(--text-xolour) text-lg lg:text-xl">
-          Industries needing high-grade raw materials for manufacturing.
+          We serve a wide range of business that rely on consistent agricultural supply chain.
         </p>
       </div>
 

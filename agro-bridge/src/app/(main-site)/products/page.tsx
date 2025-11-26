@@ -1,7 +1,9 @@
 
 import { products } from "~/store/products";
+import { useProducts } from "~/store/useProduct";
 import ProductCard from "~/components/ProductCard";
 import type { ProductCardInfo } from "~/app/types/types";
+import { CheckboxInput } from "~/components/CheckboxInput";
 
 const metadata = {
   title: "Our Products – Premium Nigerian Crops",
@@ -45,7 +47,35 @@ export const revalidate = 21600; // 6 hours
 
 export const dynamic = "force-static";
 
+interface ProductCategory {
+  label: string;
+    description: string;
+    required: boolean;
+    error: boolean;
+    checked: boolean;
+    defaultChecked: boolean;
+    disabled: boolean;
+    onCheckedChange: (checked: boolean) => undefined;
+  id: string;
+};
+
 export default function ProductsPage() {
+
+  const products = useProducts();
+
+  // const productCategories: ProductCategory = [
+  //   {
+  //     label: "Label",
+  //     description: "Description",
+  //     required: true,
+  //     error: false,
+  //     checked: false,
+  //     defaultChecked: false,
+  //     disabled: false,
+  //     onCheckedChange: (checked: boolean) => undefined;
+  //     id: "pc1",
+  //   }
+  // ];
 
   // Map all products → card info
   const productCardInfo: ProductCardInfo[] = products.map(
@@ -72,11 +102,47 @@ export default function ProductsPage() {
 
       <div className="grid grid-cols-1 md:grid-cols-[210px_1fr] w-full max-w-7xl mx-auto h-full">
         
-        <div className="flex flex-col w-full gap-4">
+        <div className="flex flex-col w-full gap-6">
+
+          <div className="flex gap-4 col">
+            <h2 className="text-sm font-bold text-(--heading-colour) lg:text-base">
+              Product Category
+            </h2>
+
+            <div className="flex flex-col gap-2 text-(--text-colour)">
+              {/* Terms & Conditions Checkbox */}
+              <div className="flex flex-col gap-2 -mt-4">
+                {/* <CheckboxInput 
+                  label="I agree to the Terms and Conditions"
+                  description="You must accept to continue creating your account."
+                  checked={false}
+                  onCheckedChange={(checked) => {
+                    // setForm(prev => ({ ...prev, terms: !!checked }));
+                    // if (!checked) {
+                    //   setErrors(prev => ({ ...prev, terms: "You must accept the Terms and Conditions" }));
+                    // } else {
+                    //   setErrors(prev => ({ ...prev, terms: undefined }));
+                    // }
+                  }}
+                  required
+                  error={false}
+                /> */}
+
+                {/* {errors && (
+                  <p className="text-sm text-(--input-error-red)">{errors.terms}</p>
+                )} */}
+
+              </div>
+              
+              
+            </div>
+          </div>
+          
           What's even here
         </div>
 
 
+        {/* Products Card Grid */}
         <div className="flex flex-col gap-6 w-full px-(--section-px)">
           <h1 className="text-3xl font-bold text-center">Our Products</h1>
 

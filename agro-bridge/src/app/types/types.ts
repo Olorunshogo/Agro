@@ -12,11 +12,12 @@ export interface NavLink {
 
 export type Product = {
   slug: string;
+  category?: string;
   name: string;
   price: number;
   location: string;
   inStock: boolean;
-  imageUrl: string;         // main image
+  imageUrl: string; 
   imageAlt: string;
   galleryImages?: { url: string; alt: string }[];
   description: string;
@@ -43,7 +44,7 @@ export type ProductCardInfo = Pick<
 >;
 
 // export type ProductCardInfo = {
-//   slug: string;           // ← This is what we use now
+//   slug: string;  
 //   name: string;
 //   price: number;
 //   location: string;

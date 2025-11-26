@@ -16,8 +16,8 @@ export default function PrimaryLink({ href, text, className = "" }: PrimaryLinkP
       href={href}
       className="flex items-center font-inter gap-2 w-fit text-white hover:text-black text-sm font-semibold bg-(--agro-green-dark) hover:opacity-90 px-6 py-3 rounded-full shadow-md transition-all duration-300 ease-in-out"
     >
-      <span>{text}</span>
       <ArrowRight className="w-5 h-5 -rotate-45" />
+      <span>{text}</span>
     </Link>
   );
 }

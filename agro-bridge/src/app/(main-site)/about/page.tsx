@@ -108,7 +108,7 @@ export default function AboutUsPage() {
 
         {/* Who We Are & Our Values Section */}
         <section className="relative overflow-hidden bg-white">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 px-(--section-px) sm:px-(--section-px-sm) lg:px-(--section-px-lg) py-(--section-py)    lg:py-(--section-py-lg) w-full max-w-7xl mx-auto h-full">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 px-(--section-px) sm:px-(--section-px-sm) lg:px-(--section-px-lg) py-(--section-py) lg:py-(--section-py-lg) w-full max-w-7xl mx-auto h-full">
 
             <div className="flex flex-col w-full h-full gap-6">
               <h2 className="text-(--heading-colour) lg:text-(--text-colour) text-xl lg:text-2xl font-semibold">Who Are We</h2>

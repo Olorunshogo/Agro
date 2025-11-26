@@ -8,7 +8,7 @@ import { Label } from "./ui/label";
 import { cn } from "~/lib/utils";
 
 export type CheckboxInputProps = React.HTMLAttributes<HTMLDivElement> & {
-  label: string;
+  label?: string;
   description?: string;
   required?: boolean;
   error?: boolean;
@@ -41,7 +41,7 @@ export const CheckboxInput = React.forwardRef<HTMLDivElement, CheckboxInputProps
     return (
       <div
         ref={ref}
-        className={cn("flex items-start gap-3", className)}
+        className={cn("flex items-start gap-3 cursor-pointer duration-300 ease-in-out transition-all", className)}
         {...props}
       >
         <Checkbox
@@ -51,7 +51,7 @@ export const CheckboxInput = React.forwardRef<HTMLDivElement, CheckboxInputProps
           disabled={disabled}
           onCheckedChange={onCheckedChange}
           className={cn(
-            "mt-0.5", // align with label text
+            "cursor-pointer duration-300 ease-in-out transition-all",
             error && "border-red-500 focus:ring-red-500"
           )}
         />
@@ -60,7 +60,7 @@ export const CheckboxInput = React.forwardRef<HTMLDivElement, CheckboxInputProps
           <Label
             htmlFor={id}
             className={cn(
-              "flex items-center gap-1 text-sm font-medium text-[#0F172A] lg:text-base lg:font-bold cursor-pointer",
+              "flex items-center gap-1 text-sm font-medium text-[#0F172A] lg:text-base lg:font-bold cursor-pointer duration-300 ease-in-out transition-all",
               disabled && "opacity-60 cursor-not-allowed",
               error && "text-red-600"
             )}
