@@ -2,7 +2,7 @@
 "use client";
 
 import { SearchInput } from "~/components/input-fields/SearchInput";
-import { useSearch } from "~/contextSearchContext";
+import { useSearch } from "~/contextSearch";
 import { BellDot, UserCheck, ShoppingCart, Menu } from "lucide-react";
 import { useState, useMemo, useEffect, useRef } from "react";
 import { Button } from "~/components/ui/button";
@@ -70,7 +70,7 @@ export default function ProductHeader() {
   
   return (
     <>
-      <div className="relative flex justify-center w-full h-full font-inter">
+      <div className="relative z-50 flex justify-center w-full h-full font-inter">
         <div className="w-full px-(--section-px) sm:px-(--section-px-sm) lg:px-(--section-px-lg) py-(--section-py) max-w-7xl h-full mx-auto">
           
           {/* Product Selection */}

@@ -1,17 +1,19 @@
 
-import React from "react";
-import { SearchProvider } from "~/contextSearchContext";
-import type { ReactNode } from "react";
+import { SearchProvider } from "~/contextSearch";
 import ProductHeader from "./products/components/ProductHeader";
+import { Suspense, type ReactNode } from "react";
+
+export const dynamic = "force-dynamic";
+
 
 export default function ProductsLayout({ children }: { children: ReactNode }) {
   return (
     <SearchProvider>
       <div className="relative min-h-screen bg-(--primary-bg-light) font-openSans">
         {/* Fixed Header with Search */}
-        <div className="relative z-50">
+        <Suspense fallback={null}>
           <ProductHeader />
-        </div>
+        </Suspense>
 
         {/* Page Content */}
         <main>{children}</main>

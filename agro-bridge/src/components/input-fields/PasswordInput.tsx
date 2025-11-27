@@ -1,6 +1,6 @@
 
 import React, { useState, forwardRef } from "react";
-import { Input } from "./ui/input";
+import { Input } from "../ui/input";
 import { Eye, EyeOff } from "lucide-react";
 
 export type PasswordInputProps = React.ComponentProps<typeof Input> & {

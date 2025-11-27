@@ -6,8 +6,8 @@ import { useRouter } from "next/navigation";
 
 import { Button } from "~/components/ui/button";
 import { Toaster, toast } from "sonner";
-import { EmailInput } from "~/components/EmailInput";
-import { PasswordInput } from "~/components/PasswordInput"; // assuming you have this
+import { EmailInput } from "~/components/input-fields/EmailInput";
+import { PasswordInput } from "~/components/input-fields/PasswordInput";
 import { AppLogo } from "~/components/app-logo";
 import Link from "next/link";
 import { Github, Chrome } from "lucide-react";
@@ -142,7 +142,7 @@ export default function SignInPage() {
               Continue with Google
             </Button>
 
-            <Button
+            {/* <Button
               type="button"
               variant="outline"
               className="w-full text-base h-10 font-medium hover:border-(--agro-green-dark) border-(--border-gray) hover:cursor-pointer duration-300 ease-in-out transition-all"
@@ -150,7 +150,7 @@ export default function SignInPage() {
             >
               <Github className="w-5 h-5 mr-3" />
               Continue with GitHub
-            </Button>
+            </Button> */}
           </div>
 
           {/* Divider */}

@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useSearch } from "~/contextSearchContext";
+import { useSearch } from "~/contextSearch";
 import { products } from "~/store/products";
 import ProductCard from "~/components/ProductCard";
 import { Button } from "~/components/ui/button";

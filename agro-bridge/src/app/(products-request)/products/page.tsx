@@ -10,7 +10,7 @@ import { Button } from "~/components/ui/button";
 import { Slider } from "~/components/ui/slider";
 import MobileFilterDrawer from "./components/MobileFilterDrawer";
 import { Home, RotateCcw } from "lucide-react";
-import { useSearch } from "~/contextSearchContext";
+import { useSearch } from "~/contextSearch";
 import Link from "next/link";
 
 const CATEGORIES = ["Grains", "Fruits", "Seeds", "Spices"] as const;

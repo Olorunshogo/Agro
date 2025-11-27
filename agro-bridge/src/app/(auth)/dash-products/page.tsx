@@ -6,7 +6,7 @@ import { products } from "~/store/products";
 // import { useProducts } from "~/store/useProduct";
 import ProductCard from "~/components/ProductCard";
 import type { ProductCardInfo } from "~/app/types/types";
-import { CheckboxInput } from "~/components/CheckboxInput";
+import { CheckboxInput } from "~/components/input-fields/CheckboxInput";
 import { Button } from "~/components/ui/button";
 import { Slider } from "~/components/ui/slider";
 import { RotateCcw } from "lucide-react";

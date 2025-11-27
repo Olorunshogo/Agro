@@ -11,7 +11,7 @@ import {
 } from "~/components/ui/dropdown-menu";
 import { Slider } from "~/components/ui/slider";
 import { ChevronDown, RotateCcw, Filter } from "lucide-react";
-import { useSearch } from "~/contextSearchContext";
+import { useSearch } from "~/contextSearch";
 
 const CATEGORIES = ["Grains", "Fruits", "Seeds", "Spices", "Nuts", "Oils"] as const;
 const COUNTRIES = ["Nigeria", "Ghana", "Ivory Coast", "Benin", "Togo"] as const;

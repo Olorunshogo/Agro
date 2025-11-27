@@ -3,7 +3,7 @@
 
 import { useState } from "react";
 import { Button } from "~/components/ui/button";
-import { EmailInput } from "~/components/EmailInput";
+import { EmailInput } from "~/components/input-fields/EmailInput";
 import { toast } from "sonner";
 
 
