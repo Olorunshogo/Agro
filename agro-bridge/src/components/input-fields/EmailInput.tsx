@@ -1,7 +1,7 @@
 
 import React from "react";
 import { forwardRef } from "react";
-import { Input } from "./ui/input";
+import { Input } from "../ui/input";
 import { Mail } from "lucide-react";
 
 export type EmailInputProps = React.ComponentProps<typeof Input> & {

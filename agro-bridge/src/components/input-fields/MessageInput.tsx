@@ -1,6 +1,6 @@
 
 import React, { forwardRef, useMemo } from "react";
-import { Textarea } from "./ui/textarea";
+import { Textarea } from "../ui/textarea";
 
 export type MessageInputProps = React.ComponentProps<typeof Textarea> & {
   label?: string;

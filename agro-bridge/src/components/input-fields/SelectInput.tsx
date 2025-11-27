@@ -47,8 +47,8 @@ export const SelectInput = forwardRef<
             ref={ref}
             className={`h-10 text-sm lg:text-base ${
               error
-                ? "border-red-600 focus:ring-red-600"
-                : "border-gray-300 focus:ring-green-600"
+                ? "border-(--input-error-red) focus:ring-(--input-error-red)"
+                : "border-(--border-gray) focus:ring-(--agro-green-light)"
             }`}
           >
             <SelectValue placeholder={placeholder} />

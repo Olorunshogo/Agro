@@ -51,7 +51,7 @@ export default function ProductDetailPage({ slug }: { slug: string }) {
             </div>
 
             {/* Thumbnails */}
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+            <div className="grid grid-cols-3 gap-4">
               {images.map((img, index) => (
                 <button
                   key={index}

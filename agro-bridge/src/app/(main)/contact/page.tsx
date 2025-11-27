@@ -8,8 +8,8 @@ import { Button } from "~/components/ui/button";
 import { Toaster, toast } from "sonner";
 
 import { TextInput } from "~/components/input-fields/TextInput";
-import { EmailInput } from "~/components/EmailInput";
-import { MessageInput } from "~/components/MessageInput";
+import { EmailInput } from "~/components/input-fields/EmailInput";
+import { MessageInput } from "~/components/input-fields/MessageInput";
 import { z } from "zod";
 
 import { Phone, Mail, Clock } from "lucide-react";

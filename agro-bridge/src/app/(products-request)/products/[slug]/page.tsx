@@ -1,7 +1,6 @@
 
 import ProductDetailPage from "./ProductDetailsPage";
 import ProductSkeleton from "./ProductSkeleton";
-// import { Suspense, type ComponentType } from "react";
 import { Suspense } from "react";
 import { products } from "~/store/products";
 import { notFound } from "next/navigation";
@@ -28,7 +27,6 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     description: product.seoDescription || product.description,
   };
 }
-
 
 export default async function ProductDetailsPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;

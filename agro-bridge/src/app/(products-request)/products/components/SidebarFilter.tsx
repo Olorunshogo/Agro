@@ -1,39 +1,37 @@
 
 "use client";
 
-import { useMemo } from "react";
-import { products } from "~/store/products";
-// import { useProducts } from "~/store/useProduct";
-import ProductCard from "~/components/ProductCard";
-import { CheckboxInput } from "~/components/input-fields/CheckboxInput";
-import { Button } from "~/components/ui/button";
-import { Slider } from "~/components/ui/slider";
-import MobileFilterDrawer from "./components/MobileFilterDrawer";
-import { Home, RotateCcw } from "lucide-react";
 import { useSearch } from "~/contextSearchContext";
-import Link from "next/link";
+import { products } from "~/store/products";
+import ProductCard from "~/components/ProductCard";
+import { Button } from "~/components/ui/button";
+
+import { useState, useMemo } from "react";
+import { useRouter } from "next/navigation";
+// import { useProducts } from "~/store/useProduct";
+
+import type { ProductCardInfo } from "~/app/types/types";
+import { CheckboxInput } from "~/components/input-fields/CheckboxInput";
+
+import { Slider } from "~/components/ui/slider";
+import { RotateCcw } from "lucide-react";
 
 const CATEGORIES = ["Grains", "Fruits", "Seeds", "Spices"] as const;
 const COUNTRIES = ["Nigeria", "Ghana", "Ivory Coast", "Benin", "Togo"] as const;
 const STOCK_STATUS = ["In Stock", "Coming Soon"] as const;
 
 export default function ProductsPage() {
-  const {
-    searchQuery,
-    categories,
-    countries,
-    priceRange,
-    stockStatus,
-    setCategories,
-    setCountries,
-    setPriceRange,
-    setStockStatus,
-    resetFilters,
-  } = useSearch();
+  const router = useRouter();
+  
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+  const [selectedCountries, setSelectedCountries] = useState<string[]>([]);
+  const [priceRange, setPriceRange] = useState<[number, number]>([700, 10000]);
+  const [selectedStock, setSelectedStock] = useState<string[]>([]);
+  const [searchQuery, setSearchQuery] = useState<string>("");
 
   const allProducts = products;
 
-  // // Available filters
+  // Available filters
   const availableCategories = useMemo(() => {
     return Array.from(new Set(allProducts.map(p => p.category)));
   }, [allProducts]);
@@ -49,38 +47,70 @@ export default function ProductsPage() {
     });
     return Array.from(set);
   }, [allProducts]);
-
+  
+  // Filter products
   const filteredProducts = useMemo(() => {
-    return products.filter(product => {
+    return allProducts.filter(product => {
+      // Search query
       if (searchQuery) {
-        const matches = product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                        product.category.toLowerCase().includes(searchQuery.toLowerCase());
-        if (!matches) return false;
+        const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                              product.category.toLowerCase().includes(searchQuery.toLowerCase());
+        if (!matchesSearch) return false;
       }
-      if (categories.length && !categories.includes(product.category as any)) return false;
-      if (countries.length && !countries.some(c => product.location.includes(c))) return false;
-      if (product.price < priceRange[0] || product.price > priceRange[1]) return false;
-      if (stockStatus.length) {
+      
+      // Category
+      if (selectedCategories.length > 0 && !selectedCategories.includes(product.category))
+        return false;
+
+      // Country
+      if (selectedCountries.length > 0) {
+        const matchesCountry = selectedCountries.some(c =>
+          product.location.toLowerCase().includes(c.toLowerCase())
+        );
+        if (!matchesCountry) return false;
+      }
+
+      // Price Range
+      if (product.price < priceRange[0] || product.price > priceRange[1])
+        return false;
+
+      // Stock Status
+      if (selectedStock.length > 0) {
         const status = product.inStock ? "In Stock" : "Coming Soon";
-        if (!stockStatus.includes(status as any)) return false;
+        if (!selectedStock.includes(status)) return false;
       }
+
       return true;
     });
-  }, [searchQuery, categories, countries, priceRange, stockStatus]);
+  }, [allProducts, selectedCategories, selectedCountries, priceRange, selectedStock]);
+
+  // Map filtered products to card info
+  const productCardInfo: ProductCardInfo[] = filteredProducts.map(p => ({
+    slug: p.slug,
+    name: p.name,
+    price: p.price,
+    location: p.location,
+    inStock: p.inStock,
+    imageUrl: p.imageUrl,
+    imageAlt: p.imageAlt,
+  }));
+
+  function resetFilters() {
+    setSelectedCategories([]);
+    setSelectedCountries([]);
+    setPriceRange([100, 10000]);
+    setSelectedStock([]);
+    setSearchQuery("");
+  }
    
   return (
     <div className="relative w-full h-full min-h-screen py-12 bg-(--primary-bg-light)">
-      <div className="flex flex-col gap-6 px-(--section-px) sm:px-(--section-px-sm) lg:px-(--section-px-lg) w-full h-full mx-auto max-w-7xl">
-        
-        {/* Mobile Filter Trigger */}
-        <div className="flex w-full sm:hidden">
-          <MobileFilterDrawer />
-        </div>
+      <div className="px-(--section-px) sm:px-(--section-px-sm) lg:px-(--section-px-lg) w-full h-full mx-auto max-w-7xl">
 
         <div className="grid grid-cols-1 sm:grid-cols-[190px_1fr] gap-8 w-full max-w-7xl mx-auto h-full">
           
-          {/* Sidebar Desktop Filters */}
-          <aside className="hidden gap-6 sm:flex sm:flex-col">
+          {/* Sidebar Filters */}
+          <div className="grid grid-cols-[repeat(auto-fill,minmax(240px,1fr))] sm:flex sm:flex-col gap-6">
 
             {/* Product Categories */}
             <div className="flex flex-col gap-4 text-sm">
@@ -96,13 +126,11 @@ export default function ProductsPage() {
                     <CheckboxInput
                       key={category}
                       label={category}
-                      checked={categories.includes(category)}
-                      disabled={!isAvailable && !categories.includes(category)}
+                      checked={selectedCategories.includes(category)}
+                      disabled={!isAvailable && !selectedCategories.includes(category)}
                       onCheckedChange={(checked) => {
-                        setCategories(
-                          checked
-                            ? [...categories, category]
-                            : categories.filter(c => c !== category)
+                        setSelectedCategories(prev =>
+                          checked ? [...prev, category] : prev.filter(c => c !== category)
                         );
                       }}
                     />
@@ -125,13 +153,11 @@ export default function ProductsPage() {
                     <CheckboxInput
                       key={country}
                       label={country}
-                      checked={countries.includes(country)}
-                      disabled={!isAvailable && !countries.includes(country)}
+                      checked={selectedCountries.includes(country)}
+                      disabled={!isAvailable && !selectedCountries.includes(country)}
                       onCheckedChange={(checked) => {
-                        setCountries(
-                          checked
-                            ? [...countries, country]
-                            : countries.filter(c => c !== country)
+                        setSelectedCountries(prev =>
+                          checked ? [...prev, country] : prev.filter(c => c !== country)
                         );
                       }}
                     />
@@ -170,12 +196,10 @@ export default function ProductsPage() {
                   <CheckboxInput
                     key={status}
                     label={status}
-                    checked={stockStatus.includes(status)}
+                    checked={selectedStock.includes(status)}
                     onCheckedChange={(checked) => {
-                      setStockStatus(
-                        checked
-                          ? [...stockStatus, status]
-                          : stockStatus.filter(s => s !== status)
+                      setSelectedStock(prev =>
+                        checked ? [...prev, status] : prev.filter(s => s !== status)
                       );
                     }}
                   />
@@ -186,10 +210,10 @@ export default function ProductsPage() {
 
             {/* Apply & Reset Buttons */}
             <div className="flex gap-3 mt-10">
-              <Button
-                variant="default"
+            <Button
+                variant="outline"
                 onClick={resetFilters}
-                className="flex items-center gap-2 p-2 rounded-md hover:cursor-pointer text-white bg-(--agro-green-dark) hover:bg-(--agro-green-light) duration-300 ease-in-out transition-all"
+                className="flex items-center gap-2"
               >
                 <RotateCcw className="w-4 h-4" />
                 Apply
@@ -205,60 +229,39 @@ export default function ProductsPage() {
               </Button>
             </div>
 
-          </aside>
+          </div>
 
           {/* Products Grid */}
-          <div className="flex flex-col gap-8">
-
-            <div className="flex justify-between gap-2">
-
-              <Link
-                href="/" 
-                className="flex items-center gap-2 px-6 py-3 h-fit text-white rounded-md bg-(--agro-green-dark)"
-              >
-                <Home />
-              </Link>
-
-              <div className="flex flex-col gap-6 text-center ">
-                <h1 className="text-4xl font-bold">Our Products</h1>
-                <p className="text-(--text-colour)">{filteredProducts.length} products found</p>
-              </div>
-
-              <div className="p-1"></div>
-              
+          {/* <div className="flex flex-col gap-12">
+            <div className="flex flex-col gap-2 text-center">
+              <h1 className="text-3xl font-bold lg:text-4xl">Our Products</h1>
+              <p className="text-(--text-colour)">
+                {filteredProducts.length} 
+                &nbsp;
+                product{filteredProducts.length !== 0 && filteredProducts.length !== 1 ? 's' : ''} 
+                &nbsp;
+                found
+              </p>
             </div>
-            
-            
 
             {filteredProducts.length === 0 ? (
-              <div className="py-12 text-center">
-                <p className="text-xl">No products match your filters.</p>
+              <div className="flex flex-col gap-4 text-center">
+                <p className="text-lg lg:text-xl text-(--text-colour)">No products match your filters.</p>
                 <Button 
+                  onClick={resetFilters} 
                   variant="link"
-                  onClick={resetFilters}
                 >
                   Clear all filters
                 </Button>
               </div>
             ) : (
-              <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                {filteredProducts.map(p => (
-                  <ProductCard
-                    key={p.slug}
-                    product={{
-                      slug: p.slug,
-                      name: p.name,
-                      price: p.price,
-                      location: p.location,
-                      inStock: p.inStock,
-                      imageUrl: p.imageUrl,
-                      imageAlt: p.imageAlt,
-                    }}
-                  />
+              <div className="grid gap-8 grid-cols-[repeat(auto-fill,minmax(240px,1fr))]">
+                {productCardInfo.map((product) => (
+                  <ProductCard key={product.slug} product={product} />
                 ))}
               </div>
             )}
-          </div>
+          </div> */}
 
         </div>
       
@@ -266,3 +269,4 @@ export default function ProductsPage() {
     </div>
   );
 }
+

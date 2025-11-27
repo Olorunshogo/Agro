@@ -30,7 +30,7 @@ const statusItems: StatusItem[] = [
 
 export default function OurMission() {
   return (
-    <section className="relative font-openSans py-(--section-py) sm:py-(--section-py-sm) py-(--section-py-lg) overflow-hidden bg-[#F7F7F7]">
+    <section className="relative font-openSans py-(--section-py) sm:py-(--section-py-sm) lg:py-(--section-py-lg) overflow-hidden bg-[#F7F7F7]">
       <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 px-(--section-px) sm:px-(--section-px-sm) lg:px-(--section-px-lg) w-full max-w-7xl mx-auto h-full">
 
       {/* Our Mission Header */}
@@ -107,13 +107,13 @@ export default function OurMission() {
             {/* Left triangle */}
             <div
               className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-full 
-                        w-0 h-0 border-y-[12px] border-y-transparent border-r-[14px] border-r-(--agro-green-dark-2)">
+                        w-0 h-0 border-y-[12px] border-y-transparent border-r-[14px] border-r-(--agro-green-dark)">
             </div>
 
             {/* Right triangle */}
             <div
               className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-full 
-                        w-0 h-0 border-y-[12px] border-y-transparent border-l-[14px] border-l-(--agro-green-dark-2)">
+                        w-0 h-0 border-y-[12px] border-y-transparent border-l-[14px] border-l-(--agro-green-dark)">
             </div>
           </div>
 
