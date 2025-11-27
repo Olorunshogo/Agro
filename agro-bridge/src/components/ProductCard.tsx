@@ -12,7 +12,7 @@ export type Props = {
 
 export const ProductCard: React.FC<Props> = ({ product }) => {
   return (
-    <div className="flex flex-col w-full gap-6 p-4 transition-all duration-300 ease-in-out bg-white border rounded-xl font-openSans shadow-custom hover:shadow-lg">
+    <div className="flex flex-col w-full gap-6 p-4 transition-all duration-300 ease-in-out bg-white border rounded-xl font-openSans shadow-custom hover:scale-105 hover:shadow-lg">
 
       <div className="relative w-full h-48 rounded-md">
         <Image

@@ -2,7 +2,7 @@
 import React from "react";
 import { SearchProvider } from "~/contextSearchContext";
 import type { ReactNode } from "react";
-import ProductHeader from "./component/ProductHeader";
+import ProductHeader from "./products/components/ProductHeader";
 
 export default function ProductsLayout({ children }: { children: ReactNode }) {
   return (

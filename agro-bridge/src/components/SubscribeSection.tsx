@@ -64,7 +64,7 @@ export default function SubscribeSection() {
 
           {/* Right: Form */}
           <div className="flex flex-col justify-center gap-4 p-8 text-white lg:p-12">
-            <h3 className="text-white text-center font-openSans">
+            <h3 className="text-center text-white font-openSans">
               Stay Updated on Price Trends & Product Availability
             </h3>
 
@@ -128,6 +128,7 @@ export default function SubscribeSection() {
           </Button>
         </DialogContent>
       </Dialog>
+      {/*  */}
     </>
   );
 }

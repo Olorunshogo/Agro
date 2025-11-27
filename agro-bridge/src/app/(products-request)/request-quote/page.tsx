@@ -1,25 +1,22 @@
 
-// app/request-quote/page.tsx
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Button } from "~/components/ui/button";
-import { Toaster } from "~/components/ui/sonner";
-import { toast } from "sonner";
-import { TextInput } from "~/components/TextInput";
-import { EmailInput } from "~/components/EmailInput";
-import { SelectInput } from "~/components/SelectInput";
+import { TextInput } from "~/components/input-fields/TextInput";
+import { EmailInput } from "~/components/input-fields/EmailInput";
 import {
-  SelectItem,
-} from "~/components/ui/select";
-import { SearchableSelect } from "~/components/SearchableInput";
-import { CheckboxInput } from "~/components/CheckboxInput";
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "~/components/ui/dialog";
+import { SearchableSelect } from "~/components/input-fields/SearchableInput";
+import { CheckboxInput } from "~/components/input-fields/CheckboxInput";
 import { Textarea } from "~/components/ui/textarea";
 import { products } from "~/store/products";
 import { z } from "zod";
 import { useRouter } from "next/navigation";
-
-import { PersonStanding, AlertTriangle } from "lucide-react";
 
 // Zod Schema
 const quoteSchema = z.object({
@@ -69,6 +66,7 @@ export default function RequestQuotePage() {
 
   const [errors, setErrors] = useState<FormErrors>({});
   const [loading, setLoading] = useState(false);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
 
   const handleChange = (field: keyof QuoteForm) => (value: string | boolean) => {
     setForm((prev) => ({ ...prev, [field]: value }));
@@ -88,11 +86,13 @@ export default function RequestQuotePage() {
         fieldErrors[path] = issue.message;
       });
       setErrors(fieldErrors);
-      toast.error("Please fix the errors below");
+      console.error("Please fix the errors below");
+      // toast.error("Please fix the errors below");
       return;
     }
 
     setLoading(true);
+    setShowSuccessModal(false);
 
     try {
       const res = await fetch("/api/quote/request", {
@@ -104,57 +104,27 @@ export default function RequestQuotePage() {
       const data = await res.json();
 
       if (res.ok) {
-        toast.success("Quote request sent! We'll contact you within 24 hours.");
+        // toast.success("Quote request sent! We'll contact you within 24 hours.");
         router.push("/thank-you");
+        console.log("Quote request sent! We'll contact you within 24 hours.");
+        
       } else {
-        toast.error(data.message || "Failed to send request");
+        // toast.error(data.message || "Failed to send request");
+        console.error(data.message || "Failed to send request");
       }
     } catch (err) {
-      toast.error("Network error. Please try again.");
+      // toast.error("Network error. Please try again.");
+      console.error("Network error. Please try again.");
     } finally {
       setLoading(false);
+      setShowSuccessModal(false);
     }
   };
 
   return (
     <>
-      <Toaster position="top-center" richColors />
-      <div className="flex items-center justify-center w-full h-full min-h-screen px-4 py-8 bg-gray-50 font-inter">
-        <div className="flex flex-col w-full gap-8 p-6 max-w-7xl lg:p-10">
-          
-          {/* Product Selection */}
-          <div className="flex items-center justify-between w-full">
-            {/* Empty Space */}
-            <div className="">
-              
-            </div>
-            
-            {/* Searchable Input */}
-            <div>
-              <SearchableSelect
-                label="Product"
-                required
-                placeholder="Search products..."
-                options={productOptions}
-                value={form.product}
-                onValueChange={(val) => handleChange("product")(val)}
-                error={!!errors.product}
-                className="w-full max-w-xl"
-              />
-              {errors.product && 
-                <p className="-mt-6 text-sm text-red-600">
-                  {errors.product}
-                </p>
-              }
-            </div>
-
-            {/* Notification and Avatar */}
-            <div className="flex items-center gap-2">
-              <AlertTriangle className="w-5 h-5 text-red-600" />
-              <PersonStanding className="w-5 h-5" />
-            </div>
-          </div>
-                    
+      <div className="flex items-center justify-center w-full h-full min-h-screen font-inter">
+        <div className="px-(--section-px) sm:px-(--section-px-sm) lg:px-(--section-px-lg) flex flex-col w-full gap-8 mx-auto max-w-7xl">                    
           
           {/* Header */}
           <h1 className="text-xl font-bold text-center text-(--text-colour) lg:text-2xl">
@@ -185,6 +155,7 @@ export default function RequestQuotePage() {
               </div>
 
               {/* Quantity */}
+              {/* === Use a number input here instead ==== */}
               <div className="w-full gap-6">
                 <div className="flex flex-col gap-2">
                   <TextInput
@@ -277,7 +248,7 @@ export default function RequestQuotePage() {
                   placeholder="Input your email"
                   required
                   value={form.email}
-                  onChange={(e) => handleChange("email")(e.target.value)}
+                  onChange={(e: { target: { value: string | boolean; }; }) => handleChange("email")(e.target.value)}
                   error={!!errors.email}
                 />
                 {errors.email && 
@@ -348,6 +319,24 @@ export default function RequestQuotePage() {
           
         </div>
       </div>
+
+      {/* Success Modal */}
+      <Dialog open={showSuccessModal} onOpenChange={setShowSuccessModal}>
+        <DialogContent className="max-w-sm border-4 border-(--border-gray)">
+          <DialogHeader className="">
+            <DialogTitle className="text-2xl text-center">On success 🎉</DialogTitle>
+          </DialogHeader>
+          <p className="mt-4 text-center text-gray-600">
+            Thank you! Our export manager will contact you within 24 hours.
+          </p>
+          <Button
+            onClick={() => setShowSuccessModal(false)}
+            className="mt-6 w-full bg-(--agro-green-dark) hover:bg-(--agro-green-dark)/90 text-white"
+          >
+            Close
+          </Button>
+        </DialogContent>
+      </Dialog>
     </>
   );
 }

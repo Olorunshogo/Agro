@@ -6,7 +6,7 @@ import { Button } from "~/components/ui/button";
 import { Toaster } from "~/components/ui/sonner";
 import { toast } from "sonner";
 import { AppLogo } from "~/components/app-logo";
-import { TextInput } from "~/components/TextInput";
+import { TextInput } from "~/components/input-fields/TextInput";
 import { EmailInput } from "~/components/EmailInput";
 import { PasswordInput } from "~/components/PasswordInput";
 import { CheckboxInput } from "~/components/CheckboxInput";

@@ -1,10 +1,9 @@
 
-// ~/components/CheckboxWithLabel.tsx
 "use client";
 
 import * as React from "react";
-import { Checkbox } from "./ui/checkbox";
-import { Label } from "./ui/label";
+import { Checkbox } from "../ui/checkbox";
+import { Label } from "../ui/label";
 import { cn } from "~/lib/utils";
 
 export type CheckboxInputProps = React.HTMLAttributes<HTMLDivElement> & {

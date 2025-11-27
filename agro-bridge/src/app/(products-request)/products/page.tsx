@@ -7,7 +7,7 @@ import { products } from "~/store/products";
 // import { useProducts } from "~/store/useProduct";
 import ProductCard from "~/components/ProductCard";
 import type { ProductCardInfo } from "~/app/types/types";
-import { CheckboxInput } from "~/components/CheckboxInput";
+import { CheckboxInput } from "~/components/input-fields/CheckboxInput";
 import { Button } from "~/components/ui/button";
 import { Slider } from "~/components/ui/slider";
 import { RotateCcw } from "lucide-react";
@@ -81,11 +81,6 @@ export default function ProductsPage() {
   }, [allProducts, selectedCategories, selectedCountries, priceRange, selectedStock]);
 
   // Map filtered products to card info
-  // const productCardInfo: ProductCardInfo[] = filteredProducts.map(
-  //   ({ slug, name, price, location, inStock, imageUrl, imageAlt }) => ({
-  //     slug, name, price, location, inStock, imageUrl, imageAlt
-  //   })
-  // );
   const productCardInfo: ProductCardInfo[] = filteredProducts.map(p => ({
     slug: p.slug,
     name: p.name,
@@ -108,10 +103,10 @@ export default function ProductsPage() {
     <div className="relative w-full h-full min-h-screen py-12 bg-(--primary-bg-light)">
       <div className="px-(--section-px) sm:px-(--section-px-sm) lg:px-(--section-px-lg) w-full h-full mx-auto max-w-7xl">
 
-        <div className="grid grid-cols-1 md:grid-cols-[190px_1fr] gap-8 w-full max-w-7xl mx-auto h-full">
+        <div className="grid grid-cols-1 sm:grid-cols-[190px_1fr] gap-8 w-full max-w-7xl mx-auto h-full">
           
           {/* Sidebar Filters */}
-          <div className="flex flex-col w-full gap-6">
+          <div className="grid grid-cols-[repeat(auto-fill,minmax(240px,1fr))] sm:flex sm:flex-col gap-6">
 
             {/* Product Categories */}
             <div className="flex flex-col gap-4 text-sm">
@@ -224,18 +219,25 @@ export default function ProductsPage() {
           </div>
 
           {/* Products Grid */}
-          <div className="flex flex-col gap-8">
+          <div className="flex flex-col gap-12">
             <div className="flex flex-col gap-2 text-center">
-              <h1 className="text-4xl font-bold">Our Products</h1>
+              <h1 className="text-3xl font-bold lg:text-4xl">Our Products</h1>
               <p className="text-(--text-colour)">
-                {filteredProducts.length} product{filteredProducts.length !== 1 ? 's' : ''} found
+                {filteredProducts.length} 
+                &nbsp;
+                product{filteredProducts.length !== 0 && filteredProducts.length !== 1 ? 's' : ''} 
+                &nbsp;
+                found
               </p>
             </div>
 
             {filteredProducts.length === 0 ? (
-              <div className="py-16 text-center">
-                <p className="text-xl text-(--text-colour)">No products match your filters.</p>
-                <Button onClick={resetFilters} variant="link" className="mt-4">
+              <div className="flex flex-col gap-4 text-center">
+                <p className="text-lg lg:text-xl text-(--text-colour)">No products match your filters.</p>
+                <Button 
+                  onClick={resetFilters} 
+                  variant="link"
+                >
                   Clear all filters
                 </Button>
               </div>

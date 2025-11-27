@@ -52,9 +52,9 @@ export const SearchableSelect: React.FC<SearchableSelectProps> = ({
   return (
     <div className={`flex flex-col gap-2 ${className}`}>
       {label && (
-        <label className="flex items-center gap-1 text-sm font-medium text-[#0F172A] lg:text-base lg:font-bold">
+        <label className="flex items-center gap-1 text-sm font-medium text-(--input-text-colour) lg:text-base lg:font-bold">
           {label}
-          {required && <span className="text-red-600">*</span>}
+          {required && <span className="text-(--input-error-red)">*</span>}
         </label>
       )}
 
@@ -65,13 +65,13 @@ export const SearchableSelect: React.FC<SearchableSelectProps> = ({
             role="combobox"
             aria-expanded={open}
             className={cn(
-              "h-10 justify-between text-sm lg:text-base font-normal",
-              error && "border-red-600 focus:ring-red-600",
+              "h-10 justify-between text-sm lg:text-base font-normal caret-(--input-field-green) text-(--input-text-colour) border-(--input-border-green)",
+              error && "border-(--input-error-red) focus:ring-(--input-error-red)",
               !value && "text-muted-foreground"
             )}
           >
             {selectedLabel}
-            <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+            <ChevronsUpDown className="w-4 h-4 ml-2 opacity-50 shrink-0" />
           </Button>
         </PopoverTrigger>
         <PopoverContent className="w-full p-0" align="start">
@@ -88,11 +88,12 @@ export const SearchableSelect: React.FC<SearchableSelectProps> = ({
                       onValueChange(option.value);
                       setOpen(false);
                     }}
+                    className="transition-all duration-300 ease-in-out hover:cursor-pointer"
                   >
                     <Check
                       className={cn(
                         "mr-2 h-4 w-4",
-                        value === option.value ? "opacity-100" : "opacity-0"
+                        value === option.value ? "opacity-100 text-(--agro-green-light)" : "opacity-0"
                       )}
                     />
                     {option.label}

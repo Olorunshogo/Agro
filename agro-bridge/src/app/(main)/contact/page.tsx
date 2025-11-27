@@ -7,7 +7,7 @@ import HeroSection from "~/components/HeroSection";
 import { Button } from "~/components/ui/button";
 import { Toaster, toast } from "sonner";
 
-import { TextInput } from "~/components/TextInput";
+import { TextInput } from "~/components/input-fields/TextInput";
 import { EmailInput } from "~/components/EmailInput";
 import { MessageInput } from "~/components/MessageInput";
 import { z } from "zod";
