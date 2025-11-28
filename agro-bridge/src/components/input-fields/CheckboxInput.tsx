@@ -40,7 +40,7 @@ export const CheckboxInput = React.forwardRef<HTMLDivElement, CheckboxInputProps
     return (
       <div
         ref={ref}
-        className={cn("flex items-center gap-3 cursor-pointer duration-300 ease-in-out transition-all", className)}
+        className={cn("flex gap-3 cursor-pointer duration-300 ease-in-out transition-all", className)}
         {...props}
       >
         <Checkbox

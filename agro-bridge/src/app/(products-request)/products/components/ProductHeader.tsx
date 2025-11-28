@@ -3,21 +3,22 @@
 
 import { SearchInput } from "~/components/input-fields/SearchInput";
 import { useSearch } from "~/contextSearch";
-import { BellDot, UserCheck, ShoppingCart, Menu } from "lucide-react";
+import { BellDot, X, UserCheck, ShoppingCart, Search, Menu } from "lucide-react";
 import { useState, useMemo, useEffect, useRef } from "react";
 import { Button } from "~/components/ui/button";
 import { useRouter } from "next/navigation";
-import { debounce } from "lodash";
+import { debounce, set } from "lodash";
 import Link from "next/link";
 import { products } from "~/store/products";
 import { Product } from "~/app/types/types";
-import Image from "next/image";
+import { AppLogo } from "~/components/app-logo";
 
 
 export default function ProductHeader() {
   const { searchQuery, setSearchQuery } = useSearch();
   const router = useRouter();
   const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
+  const [isSearchBarOpen, setIsSearchBarOpen] = useState<boolean>(true);
 
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const inputRef = useRef<HTMLDivElement>(null);
@@ -75,26 +76,32 @@ export default function ProductHeader() {
           
           {/* Product Selection */}
           <div className="flex items-center justify-between w-full">
+            {/* Logo and Menu Button */}
+            <div className="flex items-center">
+              <Button
+                variant="ghost"
+                className="transition-all duration-300 ease-in-out cursor-pointer sm:hidden lg:hidden"
+                onClick={() => {
+                  setIsSidebarOpen(true);
+                  console.log(isSidebarOpen);
+                }}
+              >
+                <span className="sr-only">Menu</span>
+                <Menu className="w-6 h-6" />
+              </Button>
 
-            {/* Logo */}
-            <Link href="/" className="flex items-center gap-2">
-              <span className="text-xl font-bold text-(--agro-green-light) hidden sm:flex">Debrigger</span>
-            </Link>
-
-            <Button
-              variant="ghost"
-              className="transition-all duration-300 ease-in-out cursor-pointer sm:hidden lg:hidden"
-              onClick={() => {
-                setIsSidebarOpen(true);
-                console.log(isSidebarOpen);
-              }}
-            >
-              <span className="sr-only">Menu</span>
-              <Menu className="w-6 h-6" />
-            </Button>
+              {/* Logo */}
+              <Link 
+                href="/" 
+                className="flex items-center gap-2 text-xl font-bold text-(--agro-green-light)"
+              >
+                <AppLogo className="w-5 h-5" />
+                <span className="hidden sm:flex">Debrigger</span>
+              </Link>
+            </div>
             
             {/* Searchable Input */}
-            <div className="flex-1 max-w-2xl mx-8">
+            <div className="relative flex-1 hidden w-full max-w-xl mx-8 lg:flex">
               <SearchInput
                 label=""
                 value={searchQuery}
@@ -110,7 +117,7 @@ export default function ProductHeader() {
               
               {/* Search Results Dropdown */}
               {isDropdownOpen && searchResults.length > 0 && (
-                <div className="absolute left-0 right-0 z-50 mt-2 overflow-hidden bg-white border rounded-lg shadow-lg top-full">
+                <div className="absolute z-50 w-full mx-auto overflow-hidden bg-white border rounded-lg shadow-md max-w-[550px] top-full">
                   <div className="overflow-y-auto max-h-96">
                     {searchResults.map((product) => (
                       <button
@@ -139,7 +146,7 @@ export default function ProductHeader() {
                   {searchResults.length === 10 && (
                     <div className="px-4 py-2 text-xs text-center text-gray-500 border-t">
                       Showing 10 of {products.length}+ results
-                    </div>
+                    </div>                    
                   )}
                 </div>
               )}
@@ -148,12 +155,80 @@ export default function ProductHeader() {
             
             {/* Notification and Avatar */}
             <div className="flex items-center gap-2 *:hover:scale-105 *:hover:cursor-pointer *:duration-300 *:ease-in-out *:transition-all">
-              <BellDot className="w-5 h-5 text-(--input-error-red)" />
-              <ShoppingCart className="w-5 h-5 text-yellow-600" />
-              <UserCheck className="w-5 h-5 text-(--agro-green-light)" />
+              
+              {isSearchBarOpen ? (
+                <X
+                  onClick={() => setIsSearchBarOpen(false)}
+                  className="w-5 h-5 text-(--input-error-red) lg:hidden cursor-pointer hover:scale-105 transition-all duration-300 ease-in-out"
+                />
+              ) : (
+                <Search
+                  onClick={() => setIsSearchBarOpen(true)}
+                  className="w-5 h-5 text-(--heading-colour) lg:hidden cursor-pointer hover:scale-105 transition-all duration-300 ease-in-out"
+                />
+              )}
+
+              <ShoppingCart className="w-5 h-5 text-yellow-600 cursor-pointer" />
+              <UserCheck className="w-5 h-5 text-(--agro-green-light) cursor-pointer" />
             </div>
 
-          </div>                   
+          </div>  
+
+          {/* Searchable Input on small screen */}
+          {isSearchBarOpen && (
+            <div className="z-[99] bg-white flex-1 max-w-2xl mx-8 lg:hidden fixed top-18 w-full mx-auto left-0">
+
+              <SearchInput
+                label=""
+                value={searchQuery}
+                placeholder="Search by product name or category..." 
+                onChange={(e) => {
+                  setSearchQuery(e.target.value);
+                  handleSearchChange(e.target.value);
+                  setIsDropdownOpen(true);
+                }}
+                onFocus={() => searchQuery.trim() && setIsDropdownOpen(true)}
+                className="mx-auto w-9/10"
+              />
+              
+              {/* Search Results Dropdown */}
+              {isDropdownOpen && searchResults.length > 0 && (
+                <div className="absolute z-50 w-full overflow-hidden bg-white border shadow-md top-full">
+                  <div className="overflow-y-auto max-h-96">
+                    {searchResults.map((product) => (
+                      <button
+                        key={product.slug}
+                        onClick={() => handleResultClick(product.slug)}
+                        className="flex items-center w-full gap-3 px-4 py-3 text-left transition-all duration-300 ease-in-out border-b hover:cursor-pointer hover:bg-gray-50 last:border-b-0"
+                      >
+                        <div className="flex-shrink-0 w-10 h-10 overflow-hidden rounded">
+                          <img
+                            src={product.imageUrl}
+                            alt={product.name}
+                            className="object-cover w-full h-full"
+                          />
+                        </div>
+                        <div>
+                          <p className="text-sm font-medium text-(--text-colour)">
+                            {product.name}
+                          </p>
+                          <p className="text-xs text-(--text-colour)">
+                            {product.category} • ${product.price}/Ton
+                          </p>
+                        </div>
+                      </button>
+                    ))}
+                  </div>
+                  {searchResults.length === 10 && (
+                    <div className="px-4 py-2 text-xs text-center text-gray-500 border-t">
+                      Showing 10 of {products.length}+ results
+                    </div>                    
+                  )}
+                </div>
+              )}
+              
+            </div>     
+          )}            
           
         </div>
       </div>

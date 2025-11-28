@@ -244,7 +244,7 @@ export default function SignUpPage() {
               </div>
 
               {/* Terms & Conditions Checkbox */}
-              <div className="flex flex-col gap-2 -mt-4">
+              <div className="flex flex-col gap-2">
                 <CheckboxInput 
                   label="I agree to the Terms and Conditions"
                   description="You must accept to continue creating your account."

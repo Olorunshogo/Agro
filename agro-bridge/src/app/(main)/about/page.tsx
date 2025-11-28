@@ -99,7 +99,7 @@ export default function AboutUsPage() {
 
         {/* Home Hero Section */}
         <HeroSection 
-          backgroundImageUrl="/landing/home-landing-page.png"
+          backgroundImageUrl="/landing/landing-about-bg.jpg"
           backgroundImageAlt="A picture of farmers bagging their farm produce"
           heading="Our Mission is to Make African Produce Globally Accessible"
           paragraph="Debridger connects international buyers with premium-quality agricultural goods sourced and verified by our team in Nigeria."

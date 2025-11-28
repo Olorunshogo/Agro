@@ -4,6 +4,7 @@
 import Image from "next/image";
 import PrimaryLink from "./LinkPrimary";
 import SecondaryLink from "./LinkSecondary";
+import { MousePointer } from "lucide-react";
 
 interface HeroSectionProps {
   backgroundImageUrl: string;
@@ -12,12 +13,12 @@ interface HeroSectionProps {
   paragraph: string;
 
   primaryCta?: {
-    text: string;
+    label: string;
     href: string;
   };
 
   secondaryCta?: {
-    text: string;
+    label: string;
     href: string;
   };
 
@@ -95,14 +96,18 @@ export default function HeroSection({
               {primaryCta && (
                 <PrimaryLink
                   href={primaryCta.href}
-                  text={primaryCta.text}
+                  label={primaryCta.label}
+                  icon={MousePointer}
+                  rotateClass="rotate-90"
                 />
+
+                
               )}
 
               {secondaryCta && (
                 <SecondaryLink
                   href={secondaryCta.href}
-                  text={secondaryCta.text}
+                  label={secondaryCta.label}
                 />
               )}
             </div>

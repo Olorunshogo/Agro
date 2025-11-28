@@ -115,17 +115,17 @@ export default function ContactPage() {
         
         {/* Home Hero Section */}
         <HeroSection 
-          backgroundImageUrl="/landing/home-landing-page.png"
+          backgroundImageUrl="/landing/landing-contact-bg.jpg"
           backgroundImageAlt="A picture of farmers bagging their farm produce"
           heading="Buy Fresh Farm Produce Directly from Source at the Best Price."
           paragraph="AgroBridge connects international buyers with premium-quality agricultural goods sourced and verified by our team in Nigeria."
           showCtas={true}
           primaryCta={{
-            text: "Explore Product",
+            label: "Explore Product",
             href: "/products",
           }}
           secondaryCta={{
-            text: "Request a Quote",
+            label: "Request a Quote",
             href: "/contact",
           }}
         />

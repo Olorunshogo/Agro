@@ -2,7 +2,7 @@
 "use client";
 
 import Image from "next/image";
-import { TreePalm } from "lucide-react";
+import { TreePalm, MousePointer } from "lucide-react";
 import ConnectingMission from "./ConnectingMission";
 import PrimaryLink from "./LinkPrimary";
 
@@ -89,7 +89,10 @@ export default function ConnectingFarms() {
 
             <PrimaryLink
               href="/about"
-              text="See more"
+              label="See more"
+              icon={MousePointer}
+              rotateClass="rotate-90"
+              className="mx-auto lg:mx-0"
             />
             
           </div>      

@@ -8,7 +8,9 @@ import Breadcrumbs from "./Breadcrumbs";
 // import { useParams } from "next/navigation";
 import { useProducts } from "~/store/useProduct";
 import { notFound } from "next/navigation";
-import { DollarSign, Download } from "lucide-react";
+import { DollarSign, ArrowLeft, Download, ReceiptText } from "lucide-react";
+import PrimaryLink from "~/components/LinkPrimary";
+import SecondaryLink from "~/components/LinkSecondary";
 
 export default function ProductDetailPage({ slug }: { slug: string }) {
   // const { slug } = useParams();
@@ -23,7 +25,7 @@ export default function ProductDetailPage({ slug }: { slug: string }) {
   const images = [
     { url: product.imageUrl, alt: product.imageAlt },
     ...gallery,
-  ].slice(0, 3); // Limit to 3 images
+  ].slice(0, 3);
 
   const [mainImage, setMainImage] = useState(images[0]);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -119,22 +121,15 @@ export default function ProductDetailPage({ slug }: { slug: string }) {
             </div>
 
             <p className="text-(--text-colour) font-medium">{product.originDetails}</p>
-            
-            {/* Request a Quote Link */}
-            <Link
+
+
+            <PrimaryLink
               href="/request-quote"
-              className="flex items-center gap-2 text-white hover:text-black bg-(--agro-green-dark) hover:bg-(--agro-green-light) px-8 py-3 rounded-full font-medium w-fit"
-            >
-              <DollarSign className="w-5 h-5" />
-              Request a Quote
-            </Link>
-            {/* <a
-              href={product.downloadSpecSheetUrl || "#"}
-              download
-              className="px-6 py-3 border border-gray-300 rounded-lg hover:bg-gray-50"
-            >
-              Download Spec Sheet (PDF)
-            </a> */}
+              label="Request a Quote"
+              icon={DollarSign}
+              rotateClass="-rotate-45"
+            />
+            
             <a
               href={product.downloadSpecSheetUrl || "#"}
               download

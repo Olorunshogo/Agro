@@ -1,5 +1,4 @@
 
-// components/ProductCard.tsx
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -23,7 +22,7 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
           className="object-cover object-center rounded-md"
         />
 
-        <div className="absolute -top-1 px-2 py-1 text-sm rounded-md shadow-md font-inter text-[#22C55E] -left-1 bg-[#E9F9EF]">
+        <div className="absolute -top-1 px-2 py-1 text-xs rounded-md shadow-md font-inter text-(--agro-green-light) -left-1 bg-[#E9F9EF]">
           {product.inStock ? "In Stock" : "Coming Soon"}
         </div>
       </div>
@@ -40,14 +39,14 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
         </div>
 
         <div className="flex items-center justify-between gap-2">
-          <div className="text-lg font-semibold text-(--heading-colour) line-clamp-1">
+          <div className="lg:text-lg font-semibold text-(--heading-colour) line-clamp-1">
             ${product.price.toFixed(2)}
             <span className="text-sm">/Ton</span>
           </div>
 
           <Link
             href={`/products/${product.slug}`}
-            className="text-[#FFF8F8] text-sm bg-(--agro-green-dark) hover:bg-(--agro-green-light) line-clamp-1 px-3 py-1.5 rounded-full shadow-lg"
+            className="text-[#FFF8F8] text-xs bg-(--agro-green-dark) hover:bg-(--agro-green-light) line-clamp-1 px-3 py-1.5 rounded-full shadow-lg"
           >
             View Detail
           </Link>

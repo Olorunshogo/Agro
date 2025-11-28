@@ -73,14 +73,14 @@ export default function ProductsPage() {
       <div className="flex flex-col gap-6 px-(--section-px) sm:px-(--section-px-sm) lg:px-(--section-px-lg) w-full h-full mx-auto max-w-7xl">
         
         {/* Mobile Filter Trigger */}
-        <div className="flex w-full sm:hidden">
+        <div className="flex mx-auto lg:hidden">
           <MobileFilterDrawer />
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-[190px_1fr] gap-8 w-full max-w-7xl mx-auto h-full">
+        <div className="grid grid-cols-1 lg:grid-cols-[190px_1fr] gap-8 w-full max-w-7xl mx-auto h-full">
           
           {/* Sidebar Desktop Filters */}
-          <aside className="hidden gap-6 sm:flex sm:flex-col">
+          <aside className="hidden gap-6 lg:flex lg:flex-col">
 
             {/* Product Categories */}
             <div className="flex flex-col gap-4 text-sm">

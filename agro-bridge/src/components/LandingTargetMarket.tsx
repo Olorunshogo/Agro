@@ -3,6 +3,7 @@
 
 import Image from "next/image";
 import PrimaryLink from "./LinkPrimary";
+import { MousePointer } from "lucide-react";
 
 interface TargetMarketItem {
   id: string;
@@ -101,8 +102,10 @@ export default function TargetMarket() {
       <div className="flex items-center justify-center mx-auto">
         <PrimaryLink
           href="/about"
-          text="See more"      
-        />  
+          label="See more"      
+          icon={MousePointer}
+          rotateClass="rotate-90"
+        /> 
       </div>      
         
       </div>
