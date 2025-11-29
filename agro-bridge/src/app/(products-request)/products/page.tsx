@@ -210,24 +210,10 @@ export default function ProductsPage() {
           {/* Products Grid */}
           <div className="flex flex-col gap-8">
 
-            <div className="flex justify-between gap-2">
-
-              <Link
-                href="/" 
-                className="flex items-center gap-2 px-6 py-3 h-fit text-white rounded-md bg-(--agro-green-dark)"
-              >
-                <Home />
-              </Link>
-
-              <div className="flex flex-col gap-6 text-center ">
-                <h1 className="text-4xl font-bold">Our Products</h1>
-                <p className="text-(--text-colour)">{filteredProducts.length} products found</p>
-              </div>
-
-              <div className="p-1"></div>
-              
-            </div>
-            
+            <div className="flex flex-col gap-6 text-center ">
+              <h1 className="text-4xl font-bold">Our Products</h1>
+              <p className="text-(--text-colour)">{filteredProducts.length} products found</p>
+            </div>          
             
 
             {filteredProducts.length === 0 ? (

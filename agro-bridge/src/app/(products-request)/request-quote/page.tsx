@@ -226,21 +226,6 @@ export default function RequestQuotePage() {
                 )}
               </div>
 
-              {/* Company Name */}
-              <div className="flex flex-col gap-2">
-                <TextInput
-                  label="Company Name"
-                  placeholder="e.g. Olak Inc"
-                  required
-                  value={form.companyName}
-                  onChange={(e) => handleChange("companyName")(e.target.value)}
-                  error={!!errors.companyName}
-                />
-                {errors.companyName && (
-                  <p className="text-sm text-(--input-error-red)">{errors.companyName}</p>
-                )}
-              </div>
-
               {/* Email Address */}
               <div className="flex flex-col gap-2">
                 <EmailInput
@@ -275,21 +260,6 @@ export default function RequestQuotePage() {
                 }
               </div>
 
-              {/* Terms */}
-              <div className="flex flex-col gap-2">
-                <CheckboxInput
-                  label="I agree to the terms of purchase"
-                  checked={form.terms}
-                  onCheckedChange={(checked) => handleChange("terms")(!!checked)}
-                  error={!!errors.terms}
-                />
-                {errors.terms && 
-                  <p className="text-sm text-(--input-error-red)">
-                    {errors.terms}
-                  </p>
-                }
-              </div>
-
               {/* Special Requirements */}
               <div className="flex flex-col gap-2">
                 <label className="text-sm font-medium text-[#0F172A] lg:text-base lg:font-bold">
@@ -302,6 +272,21 @@ export default function RequestQuotePage() {
                   onChange={(e) => handleChange("specialRequirements")(e.target.value)}
                   className="resize-none min-h-24"
                 />
+              </div>
+
+              {/* Terms */}
+              <div className="flex flex-col gap-2 -mt-12">
+                <CheckboxInput
+                  label="I agree to the terms of purchase"
+                  checked={form.terms}
+                  onCheckedChange={(checked) => handleChange("terms")(!!checked)}
+                  error={!!errors.terms}
+                />
+                {errors.terms && 
+                  <p className="text-sm text-(--input-error-red)">
+                    {errors.terms}
+                  </p>
+                }
               </div>
 
             </div>

@@ -40,13 +40,13 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
 
         <div className="flex items-center justify-between gap-2">
           <div className="lg:text-lg font-semibold text-(--heading-colour) line-clamp-1">
-            ${product.price.toFixed(2)}
+            ${product.price.toFixed(1)}
             <span className="text-sm">/Ton</span>
           </div>
 
           <Link
             href={`/products/${product.slug}`}
-            className="text-[#FFF8F8] text-xs bg-(--agro-green-dark) hover:bg-(--agro-green-light) line-clamp-1 px-3 py-1.5 rounded-full shadow-lg"
+            className="text-[#FFF8F8] text-xs w-fit bg-(--agro-green-dark) hover:bg-(--agro-green-light) line-clamp-1 px-3 py-1.5 rounded-full shadow-lg"
           >
             View Detail
           </Link>

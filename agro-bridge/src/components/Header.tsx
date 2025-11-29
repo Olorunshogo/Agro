@@ -7,9 +7,9 @@ import { usePathname } from 'next/navigation';
 import { AppLogo } from './app-logo';
 import { Menu, LogIn, RectangleGogglesIcon } from 'lucide-react';
 import { Button } from '~/components/ui/button';
+import NavigationLinksLg from './NavigationLinksLg';
 
 import PrimaryLink from './LinkPrimary';
-import SecondaryLink from './LinkSecondary';
 
 import { navLinks } from '~/store/store';
 import { socialLinks } from '~/store/store';
@@ -34,29 +34,8 @@ export default function Header() {
           </div>
 
           {/* Navigaiton Links */}
-          <nav className="items-center hidden gap-2 rounded-full lg:flex">
-            <ul className="flex items-center gap-2">
-              {navLinks.map(({ label, href, icon: Icon }) => {
-                const isActive = pathname == href;
-                return (
-                  <li key={href}>
-                    <Link
-                      href={href}
-                      className={`flex items-center text-(--heading-colour) underline-offset-6 gap-2 px-4 py-2 text-sm font-medium font-inter rounded-full transition-colors
-                        ${
-                          isActive
-                            ? "hover:text-black underline decoration-4 decoration-(--agro-green-dark)"
-                            : "text-(--heading-colour) hover:text-black hover:underline hover:decoration-4 hover:decoration-(--agro-green-dark)"
-                        }`}
-                    >
-                      {Icon && <Icon className="w-4 h-4" />}
-                      <span>{label}</span>
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
-          </nav>
+          <NavigationLinksLg />
+          
 
           {/* Authentication Links */}
           <div className="items-center hidden gap-4 lg:flex">
