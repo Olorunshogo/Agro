@@ -2,18 +2,21 @@
 "use client";
 
 import React, { useState } from "react";
-import { Button } from "~/components/ui/button";
+import { SearchableSelect } from "~/components/input-fields/SearchableInput";
+import { NumberInput } from "~/components/input-fields/NumberInput";
 import { TextInput } from "~/components/input-fields/TextInput";
 import { EmailInput } from "~/components/input-fields/EmailInput";
+import { TelInput } from "~/components/input-fields/TelInput";
+import { MessageInput } from "~/components/input-fields/MessageInput";
+import { CheckboxInput } from "~/components/input-fields/CheckboxInput";
+import { Button } from "~/components/ui/button";
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
 } from "~/components/ui/dialog";
-import { SearchableSelect } from "~/components/input-fields/SearchableInput";
-import { CheckboxInput } from "~/components/input-fields/CheckboxInput";
-import { Textarea } from "~/components/ui/textarea";
+
 import { products } from "~/store/products";
 import { z } from "zod";
 import { useRouter } from "next/navigation";
@@ -155,29 +158,18 @@ export default function RequestQuotePage() {
               </div>
 
               {/* Quantity */}
-              {/* === Use a number input here instead ==== */}
-              <div className="w-full gap-6">
-                <div className="flex flex-col gap-2">
-                  <TextInput
-                    label="Quantity"
-                    placeholder="tons"
-                    required
-                    value={form.quantity}
-                    onChange={(e) => handleChange("quantity")(e.target.value)}
-                    error={!!errors.quantity}
-                  />
-                  {errors.quantity && 
-                    <p className="text-sm text-(--input-error-red)">{errors.quantity}</p>
-                  }
-                </div>
-
-                {/* <SelectInput
-                  value={form.quantity ? "tons" : ""}
-                  onValueChange={() => {}}
-                  disabled
-                >
-                  <SelectItem value="tons">tons</SelectItem>
-                </SelectInput> */}
+              <div className="flex flex-col gap-2">
+                <NumberInput
+                  label="Quantity"
+                  placeholder="tons"
+                  required
+                  value={form.quantity}
+                  onChange={(e) => handleChange("quantity")(e.target.value)}
+                  error={!!errors.quantity}
+                />
+                {errors.quantity && 
+                  <p className="text-sm text-(--input-error-red)">{errors.quantity}</p>
+                }
               </div>
 
               {/* Destination Port */}
@@ -245,7 +237,7 @@ export default function RequestQuotePage() {
 
               {/* Phone Number */}
               <div className="flex flex-col gap-2">
-                <TextInput
+                <TelInput
                   label="Phone No"
                   placeholder="NG +234 81 6704 2797"
                   required
@@ -266,7 +258,7 @@ export default function RequestQuotePage() {
                   Note/Special requirement{" "}
                   <span className="font-normal text-gray-500">(optional)</span>
                 </label>
-                <Textarea
+                <MessageInput
                   placeholder="Kindly make sure the nut measure is in tons."
                   value={form.specialRequirements}
                   onChange={(e) => handleChange("specialRequirements")(e.target.value)}
@@ -275,7 +267,7 @@ export default function RequestQuotePage() {
               </div>
 
               {/* Terms */}
-              <div className="flex flex-col gap-2 -mt-12">
+              <div className="flex flex-col gap-2 lg:-mt-28">
                 <CheckboxInput
                   label="I agree to the terms of purchase"
                   checked={form.terms}

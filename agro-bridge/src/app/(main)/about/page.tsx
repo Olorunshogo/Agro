@@ -95,7 +95,7 @@ export default function AboutUsPage() {
 
   return (
     <main className="relative font-openSans">
-      <div className="flex flex-col gap-12 w-full -mt-(--navbar-h) h-full bg-(--primary-bg-light) dark:bg-black">
+      <div className="flex flex-col gap-12 w-full h-full bg-(--primary-bg-light) dark:bg-black">
 
         {/* Home Hero Section */}
         <HeroSection 

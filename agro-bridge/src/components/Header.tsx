@@ -8,7 +8,7 @@ import { AppLogo } from './app-logo';
 import { Menu, LogIn, RectangleGogglesIcon } from 'lucide-react';
 import { Button } from '~/components/ui/button';
 import NavigationLinksLg from './NavigationLinksLg';
-
+import SecondaryLink from './LinkSecondary';
 import PrimaryLink from './LinkPrimary';
 
 import { navLinks } from '~/store/store';
@@ -23,13 +23,13 @@ export default function Header() {
 
   return (
     <>
-      <header className="sticky top-0 left-0 z-50 w-full backdrop-blur-md bg-(--border-gray)">
+      <header className="sticky top-0 left-0 z-50 w-full border-b border-border/40 bg-background backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="flex items-center justify-between gap-2 px-(--section-px) sm:px-(--section-px-sm) lg:px-(--section-px-lg) w-full max-w-7xl mx-auto h-full">
           {/* Logo */}
           <div className="flex items-center py-4">
             <Link href="/" className="flex items-center gap-2">
               <AppLogo className="w-8 h-8 text-lg" />
-              <span className="text-xl font-bold text-(--agro-green-light)">Debrigger</span>
+              <span className="text-xl font-bold text-(--agro-green-dark)">Debrigger</span>
             </Link>
           </div>
 
@@ -39,17 +39,10 @@ export default function Header() {
 
           {/* Authentication Links */}
           <div className="items-center hidden gap-4 lg:flex">
-            {/* <SecondaryLink
+            <SecondaryLink
               href='/signin'
               label='Sign In'
-            /> */}
-
-            <Link
-              href="/signin"
-              className="flex items-center gap-2 text-black text-sm bg-black w-fit font-inter font-semibold border hover:border-none border-black bg-transparent hover:bg-(--agro-green-light) px-6 py-3 rounded-full hover:opacity-90 hover:shadow-md transition-all duration-300 ease-in-out hover:shadow-lg"
-            > 
-              Sign In
-            </Link>
+            />
 
             <PrimaryLink
               href='/signup'

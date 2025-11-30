@@ -17,11 +17,6 @@ interface HeroSectionProps {
     href: string;
   };
 
-  secondaryCta?: {
-    label: string;
-    href: string;
-  };
-
   showCtas?: boolean;
 
   sponsors?: Sponsor[];
@@ -57,12 +52,11 @@ export default function HeroSection({
   heading,
   paragraph,
   primaryCta,
-  secondaryCta,
   showCtas = true,
   sponsors = defaultSponsors,
 }: HeroSectionProps) {
   return (
-    <section className="relative h-screen font-openSans lg:h-dvh">
+    <section className="relative h-screen -mt-(--navbar-h) font-openSans">
       {/* Background Image */}
       <Image
         src={backgroundImageUrl}
@@ -91,7 +85,7 @@ export default function HeroSection({
           </div>
 
           {/* CTA Links - conditionally rendered */}
-          {showCtas && (primaryCta || secondaryCta) && (
+          {showCtas && primaryCta && (
             <div className="flex flex-wrap justify-center gap-4">
               {primaryCta && (
                 <PrimaryLink
@@ -99,16 +93,7 @@ export default function HeroSection({
                   label={primaryCta.label}
                   icon={MousePointer}
                   rotateClass="rotate-90"
-                />
-
-                
-              )}
-
-              {secondaryCta && (
-                <SecondaryLink
-                  href={secondaryCta.href}
-                  label={secondaryCta.label}
-                />
+                />                
               )}
             </div>
           )}

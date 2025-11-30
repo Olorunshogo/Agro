@@ -111,7 +111,7 @@ export default function ContactPage() {
 
   return (
     <main className="relative font-openSans">
-      <div className="flex flex-col gap-12 w-full -mt-(--navbar-h) h-full bg-(--primary-bg-light) dark:bg-black">
+      <div className="flex flex-col gap-12 w-full h-full bg-(--primary-bg-light) dark:bg-black">
         
         {/* Home Hero Section */}
         <HeroSection 
@@ -123,10 +123,6 @@ export default function ContactPage() {
           primaryCta={{
             label: "Explore Product",
             href: "/products",
-          }}
-          secondaryCta={{
-            label: "Request a Quote",
-            href: "/contact",
           }}
         />
 

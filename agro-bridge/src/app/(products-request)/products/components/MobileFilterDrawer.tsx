@@ -35,7 +35,7 @@ export default function MobileFilterDropdowns() {
 
   return (
     <div className="flex flex-wrap gap-3 lg:hidden">
-      {/* Category Dropdown */}
+      {/* Product Category Dropdown */}
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button variant="outline" className="flex items-center gap-2">
@@ -73,9 +73,9 @@ export default function MobileFilterDropdowns() {
             >
               <RotateCcw className="w-3 h-3 mr-1" /> Reset
             </Button>
-            <Button size="sm" className="flex-1 bg-(--agro-green-dark)">
+            {/* <Button size="sm" className="flex-1 bg-(--agro-green-dark)">
               Apply
-            </Button>
+            </Button> */}
           </div>
         </DropdownMenuContent>
       </DropdownMenu>
@@ -118,9 +118,9 @@ export default function MobileFilterDropdowns() {
             >
               <RotateCcw className="w-3 h-3 mr-1" /> Reset
             </Button>
-            <Button size="sm" className="flex-1 bg-(--agro-green-dark)">
+            {/* <Button size="sm" className="flex-1 bg-(--agro-green-dark)">
               Apply
-            </Button>
+            </Button> */}
           </div>
         </DropdownMenuContent>
       </DropdownMenu>
@@ -161,9 +161,9 @@ export default function MobileFilterDropdowns() {
             >
               <RotateCcw className="w-3 h-3 mr-1" /> Reset
             </Button>
-            <Button size="sm" className="flex-1 bg-(--agro-green-dark)">
+            {/* <Button size="sm" className="flex-1 bg-(--agro-green-dark)">
               Apply
-            </Button>
+            </Button> */}
           </div>
         </DropdownMenuContent>
       </DropdownMenu>
@@ -206,9 +206,9 @@ export default function MobileFilterDropdowns() {
             >
               <RotateCcw className="w-3 h-3 mr-1" /> Reset
             </Button>
-            <Button size="sm" className="flex-1 bg-(--agro-green-dark)">
+            {/* <Button size="sm" className="flex-1 bg-(--agro-green-dark)">
               Apply
-            </Button>
+            </Button> */}
           </div>
         </DropdownMenuContent>
       </DropdownMenu>

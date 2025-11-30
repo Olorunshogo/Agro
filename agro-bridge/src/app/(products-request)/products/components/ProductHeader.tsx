@@ -1,7 +1,7 @@
 "use client";
 
 import { useSearch } from "~/contextSearch";
-import { BellDot, X, UserCheck, ShoppingCart, Search, Menu, LogIn, MousePointer } from "lucide-react";
+import { X, UserCheck, ShoppingCart, Search, Menu, LogIn } from "lucide-react";
 import { useState, useMemo, useEffect, useRef } from "react";
 import { Button } from "~/components/ui/button";
 import { useRouter } from "next/navigation";
@@ -28,18 +28,18 @@ export default function ProductHeader() {
   const authRef = useRef<HTMLDivElement>(null);
 
   // Close dropdowns when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (inputRef.current && !inputRef.current.contains(e.target as Node)) {
-        setIsDropdownOpen(false);
-      }
-      if (authRef.current && !authRef.current.contains(e.target as Node)) {
-        setIsAuthOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
+  // useEffect(() => {
+  //   const handleClickOutside = (e: MouseEvent) => {
+  //     if (inputRef.current && !inputRef.current.contains(e.target as Node)) {
+  //       setIsDropdownOpen(false);
+  //     }
+  //     if (authRef.current && !authRef.current.contains(e.target as Node)) {
+  //       setIsAuthOpen(false);
+  //     }
+  //   };
+  //   document.addEventListener("mousedown", handleClickOutside);
+  //   return () => document.removeEventListener("mousedown", handleClickOutside);
+  // }, []);
 
   const handleSearch = debounce((value: string) => {
     setSearchQuery(value);
@@ -56,6 +56,7 @@ export default function ProductHeader() {
     router.push(`/products/${slug}`);
   };
 
+  // Get a dropdown of search results: Check the ProductHer component
   const searchResults = useMemo(() => {
     if (!searchQuery.trim()) return [];
     const lowerQuery = searchQuery.toLowerCase();
@@ -71,7 +72,7 @@ export default function ProductHeader() {
     <>
       {/* Main Header */}
       <header className="sticky top-0 left-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="flex items-center justify-between h-16 px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
+        <div className="relative flex items-center justify-between h-16 px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
 
           {/* Left: Menu + Logo */}
           <div className="flex items-center gap-4">
@@ -86,7 +87,7 @@ export default function ProductHeader() {
 
             <Link href="/" className="flex items-center gap-2">
               <AppLogo className="w-8 h-8" />
-              <span className="hidden text-xl font-bold text-emerald-600 lg:block">Debrigger</span>
+              <span className="hidden text-xl font-bold text-(--agro-green-dark) lg:block">Debrigger</span>
             </Link>
           </div>
 
@@ -96,7 +97,7 @@ export default function ProductHeader() {
           </div>
 
           {/* Right: Icons */}
-          <div className="flex items-center gap-3">
+          <div className="relative flex items-center gap-1 sm:gap-2">
 
             {/* Search Toggle */}
             <Button
@@ -105,31 +106,52 @@ export default function ProductHeader() {
               onClick={() => setIsSearchBarOpen(!isSearchBarOpen)}
               className="relative"
             >
-              {isSearchBarOpen ? <X className="w-5 h-5" /> : <Search className="w-5 h-5" />}
+              {isSearchBarOpen ? <X className="w-5 h-5 text-(--input-error-red)" /> : <Search className="w-5 h-5" />}
             </Button>
 
             {/* Cart */}
             <Button variant="ghost" size="icon">
-              <ShoppingCart className="w-5 h-5 text-yellow-600" />
+              <ShoppingCart className="w-5 h-5 text-yellow-600 cursor-default" />
             </Button>
 
-            {/* Desktop Auth Links */}
-            <div className="items-center hidden gap-3 lg:flex">
-              <SecondaryLink href="/login" label="Sign In" icon={LogIn} />
-              <PrimaryLink href="/signup" label="Sign Up" icon={MousePointer} />
-            </div>
+            {/* Auth Links Toggle */}
+             <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setIsAuthOpen(!isAuthOpen)}
+              className="relative flex"
+            >
+              {isAuthOpen ? 
+                <X className="w-5 h-5 text-(--input-error-red)" /> : 
+                <UserCheck className="w-5 h-5 text-(--agro-green-dark)" />
+              }
+            </Button>
 
-            {/* Mobile Auth Toggle */}
-            <div className="relative lg:hidden" ref={authRef}>
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={() => setIsAuthOpen(!isAuthOpen)}
-              >
-                <UserCheck className="w-5 h-5 text-emerald-600" />
-              </Button>
-
-            </div>
+            {/* Absolute Desktop Auth Links */}
+            <AnimatePresence>
+              {isAuthOpen && (
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: "auto", opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                  className="absolute flex items-center justify-center w-[240px] bg-black/60 rounded-md backdrop-blur-md top-12 right-2"
+                >
+                  <div className="p-2 mx-auto">
+                    <div 
+                      ref={authRef}
+                      className="flex items-center w-full gap-2"
+                    >
+                      <SecondaryLink 
+                        href="/signin" label="Sign In" icon={LogIn} 
+                        rotateClass="rotate-90"
+                      />
+                      <PrimaryLink href="/signup" label="Sign Up" />
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
         </div>
       </header>

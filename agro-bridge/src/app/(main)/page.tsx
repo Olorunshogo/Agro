@@ -48,7 +48,7 @@ export default function Home() {
 
   return (
     <main className="relative font-openSans">
-      <div className="flex flex-col gap-12 w-full -mt-(--navbar-h) h-full bg-(--primary-bg-light)">
+      <div className="flex flex-col gap-12 w-full h-full bg-(--primary-bg-light)">
         
         {/* Hero */}
         <HeroSection 
@@ -60,10 +60,6 @@ export default function Home() {
           primaryCta={{
             label: "Get Started",
             href: "/products",
-          }}
-          secondaryCta={{
-            label: "Request a Quote",
-            href: "/request-quote",
           }}
         />
 

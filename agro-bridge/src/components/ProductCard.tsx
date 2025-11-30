@@ -22,14 +22,14 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
           className="object-cover object-center rounded-md"
         />
 
-        <div className="absolute -top-1 px-2 py-1 text-xs rounded-md shadow-md font-inter text-(--agro-green-light) -left-1 bg-[#E9F9EF]">
+        <div className="absolute -top-0.25 px-2 py-1 text-xs rounded-md shadow-md font-inter text-(--agro-green-light) -left-0.25 bg-[#E9F9EF]">
           {product.inStock ? "In Stock" : "Coming Soon"}
         </div>
       </div>
 
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-2">
         <div className="flex items-center justify-between gap-2">
-          <h3 className="text-sm font-medium lg:text-base text-(--heading-colour) line-clamp-1">
+          <h3 className="text-sm font-medium text-(--heading-colour) line-clamp-1">
             {product.name || "Premium Product"} 
           </h3>
           <div className="flex items-center gap-1 text-xs lg:text-sm text-[#414652]">

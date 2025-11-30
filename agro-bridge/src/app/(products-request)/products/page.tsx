@@ -9,9 +9,8 @@ import { CheckboxInput } from "~/components/input-fields/CheckboxInput";
 import { Button } from "~/components/ui/button";
 import { Slider } from "~/components/ui/slider";
 import MobileFilterDrawer from "./components/MobileFilterDrawer";
-import { Home, RotateCcw } from "lucide-react";
+import { RotateCcw } from "lucide-react";
 import { useSearch } from "~/contextSearch";
-import Link from "next/link";
 
 const CATEGORIES = ["Grains", "Fruits", "Seeds", "Spices"] as const;
 const COUNTRIES = ["Nigeria", "Ghana", "Ivory Coast", "Benin", "Togo"] as const;
@@ -33,7 +32,7 @@ export default function ProductsPage() {
 
   const allProducts = products;
 
-  // // Available filters
+  // Available filters
   const availableCategories = useMemo(() => {
     return Array.from(new Set(allProducts.map(p => p.category)));
   }, [allProducts]);
@@ -227,7 +226,7 @@ export default function ProductsPage() {
                 </Button>
               </div>
             ) : (
-              <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+              <div className="grid gap-8 grid-cols-[repeat(auto-fill,minmax(230px,1fr))]">
                 {filteredProducts.map(p => (
                   <ProductCard
                     key={p.slug}

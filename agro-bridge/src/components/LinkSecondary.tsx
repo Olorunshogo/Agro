@@ -22,7 +22,7 @@ export default function SecondaryLink({
   return (
     <Link
       href={href}
-      className={`flex items-center gap-2 text-white text-sm w-fit font-inter font-semibold border border-(--primary-bg-light) bg-transparent px-4 py-2 rounded-full hover:opacity-90 hover:shadow-md transition-all duration-300 ease-in-out hover:shadow-lg ${className}`}
+      className={`flex items-center font-inter gap-2 w-fit text-white text-sm font-semibold border border-(--primary-bg-light) bg-transparent px-3 py-2 rounded-full hover:opacity-90 hover:shadow-md transition-all duration-300 ease-in-out hover:shadow-lg ${className}`}
     > 
       {Icon && (
         <Icon
