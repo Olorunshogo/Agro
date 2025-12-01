@@ -127,7 +127,7 @@ export default function ProductHeader() {
 
             <Link href="/" className="flex items-center gap-2">
               <AppLogo className="w-8 h-8" />
-              <span className="hidden text-xl font-bold text-(--agro-green-dark) lg:block">Debrigger</span>
+              <span className="hidden text-xl font-bold text-(--agro-green-dark) lg:block">Debridger</span>
             </Link>
           </div>
 
@@ -256,7 +256,7 @@ export default function ProductHeader() {
                         }}
                       >
                         <AppLogo className="w-8 h-8 text-lg" />
-                        <span className="text-xl text-(--agro-green-dark) font-bold">Debrigger</span>
+                        <span className="text-xl text-(--agro-green-dark) font-bold">Debridger</span>
                       </Link>
                     </div>
 

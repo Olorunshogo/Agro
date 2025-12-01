@@ -81,7 +81,7 @@ export default function ProductHead() {
           <div className="flex items-center py-4">
             <Link href="/" className="flex items-center gap-2">
               <AppLogo className="w-8 h-8 text-lg" />
-              <span className="hidden text-xl font-bold lg:flex text-(--agro-green-light)">Debrigger</span>
+              <span className="hidden text-xl font-bold lg:flex text-(--agro-green-light)">Debridger</span>
             </Link>
           </div>
 
@@ -172,7 +172,7 @@ export default function ProductHead() {
                 className="flex items-center gap-2 text-xl font-bold text-(--agro-green-light)"
               >
                 <AppLogo className="w-5 h-5" />
-                <span className="hidden sm:flex">Debrigger</span>
+                <span className="hidden sm:flex">Debridger</span>
               </Link>
             </div>
             

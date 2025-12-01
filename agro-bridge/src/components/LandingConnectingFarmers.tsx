@@ -83,7 +83,7 @@ export default function ConnectingFarms() {
             
             {/* Heading */}
             <h2 className="text-xl font-openSans font-semibold text-(--heading-colour) lg:text-xl">
-              Debrigger
+              Debridger
             </h2>
 
             <p className="font-normal text-(--text-colour) font-openSans">

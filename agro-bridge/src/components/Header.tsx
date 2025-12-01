@@ -74,7 +74,7 @@ export default function Header() {
 
             <Link href="/" className="flex items-center gap-2">
               <AppLogo className="w-8 h-8 text-(--agro-green-light)" />
-              <span className="hidden text-xl font-bold text-white hover:text-(--agro-green-light) lg:block">Debrigger</span>
+              <span className="hidden text-xl font-bold text-white hover:text-(--agro-green-light) lg:block">Debridger</span>
             </Link>
           </div>
 
@@ -209,7 +209,7 @@ export default function Header() {
                         }}
                       >
                         <AppLogo className="w-8 h-8 text-lg" />
-                        <span className="text-xl text-(--agro-green-dark) font-bold">Debrigger</span>
+                        <span className="text-xl text-(--agro-green-dark) font-bold">Debridger</span>
                       </Link>
                     </div>
 

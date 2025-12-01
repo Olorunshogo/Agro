@@ -91,19 +91,16 @@ export default function SignInPage() {
 
       const data = await res.json();
 
-      if (res.ok) {
-        // toast.success("Welcome back! Signed in successfully");
+      if (res.ok && data.redirectTo) {
         console.log("Welcome back! Signed in successfully");
-        router.push("/dashboard");
+        router.push(data.redirectTo);
         router.refresh();
       } else {
         const data = await res.json();
         console.log(data.message || "Invalid email or password");
-        // toast.error(data.message || "Invalid email or password");
       }
     } catch (err) {
       console.log("Network error. Please try again.");
-      //  toast.error("Network error. Please try again.");
     } finally {
       setLoading(false);
     }
