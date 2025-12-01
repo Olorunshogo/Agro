@@ -3,7 +3,7 @@
 
 import Image from "next/image";
 import PrimaryLink from "./LinkPrimary";
-import { MousePointer } from "lucide-react";
+import { ConnectingBorder } from "./connecting-border";
 
 interface TargetMarketItem {
   id: string;
@@ -40,73 +40,82 @@ const targetMarkets: TargetMarketItem[] = [
 export default function TargetMarket() {
   return (
     <section className="relative font-openSans overflow-hidden bg-[#F7F7F7]">
-      <div className="flex flex-col gap-8 px-(--section-px) sm:px-(--section-px-sm) lg:px-(--section-px-lg) py-(--section-py) sm:py-(--section-py-sm) py-(--section-py-lg) w-full max-w-7xl mx-auto h-full">
+      <div className="px-(--section-px) sm:px-(--section-px-sm) lg:px-(--section-px-lg) py-(--section-py) sm:py-(--section-py-sm) py-(--section-py-lg) w-full max-w-7xl mx-auto h-full">
 
-      {/* Our Mission Header */}
-      <div className="flex flex-col gap-4 mx-auto text-center">
-        <h2 className="text-lg lg:text-xl font-bold text-(--text-color)">
-          Target Market
-        </h2>
-
-        <p className="text-(--text-xolour) text-lg lg:text-xl">
-          We serve a wide range of business that rely on consistent agricultural supply chain.
-        </p>
+      {/* Background Image */}
+      <div className="absolute w-full h-full inset-0 z-0">
+        <Image
+          src="/landing/target-market-bg.jpg"
+          alt="Target Market Background Image"
+          fill
+          className="object-cover object-contain"
+          priority
+          sizes="100vw"
+        />
       </div>
 
-      {/* Target Market Grid */}
-      <div className="grid w-full h-full grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-8">
-        {/* Test Market Image */}        
-        {targetMarkets.map((market) => (
-          <div 
-            key={market.id}
-            className="relative flex items-center justify-center w-full max-w-[350px] mx-auto overflow-hidden text-center rounded-full h-full max-h-[350px]"
-          >
-            {/* Background Image */}
-            <Image
-              src={market.imageUrl}
-              alt={market.imageAlt}
-              fill
-              className="object-cover dark:invert"
-              priority
-              sizes="100vw"
-            />
-          
-            {/* Dark Overlay */}
-            <div className="absolute inset-0 z-10 bg-black/70" />
-      
-            {/* Content */}
-            <div className="relative z-20 flex flex-col font-openSans justify-center px-(--section-px) sm:px-(--section-px-sm) lg:px-(--section-px-lg) py-12 w-full max-w-4xl mx-auto h-full">
-              {/* Top Content */}
-              <div className="flex flex-col items-center justify-center flex-1 gap-8 py-12 sm:py-20 lg:py-30 sm:gap-12">
+      <div className="absolute inset-0 w-full h-full bg-linear-to-b from-white via-white to-white/30"></div>
+
+      {/* Content */}
+      <div className="relative z-10 flex flex-col gap-12 w-full h-full">
+        {/* Our Mission Header */}
+        <div className="flex flex-col gap-4 mx-auto text-center">
+          <h2 className="text-lg lg:text-xl font-bold text-(--text-color)">
+            Target Market
+          </h2>
+
+          <p className="text-(--text-xolour) text-lg lg:text-xl">
+            We serve a wide range of business that rely on consistent agricultural supply chain.
+          </p>
+        </div>
+
+        {/* Target Market Image Grid */}
+        <div className="grid w-full h-full grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-8">      
+          {targetMarkets.map((market) => (
+            <div 
+              key={market.id}
+              className="relative flex items-center justify-center border-6 border-(--agro-green-dark) w-full max-w-[300px] mx-auto overflow-hidden text-center rounded-full h-[280px] sm:h-[300px]"
+            >
+              {/* Grid Background Image */}
+              <Image
+                src={market.imageUrl}
+                alt={market.imageAlt}
+                fill
+                className="object-cover dark:invert"
+                priority
+                sizes="100vw"
+              />
+            
+              {/* Dark Overlay */}
+              <div className="absolute inset-0 z-10 bg-black/70 overflow-hidden" />
+        
+              {/* Content */}
+              <div className="relative z-20 flex flex-col font-openSans justify-center p-4 w-full max-w-2xl mx-auto h-full">
+                {/* Top Content */}
                 <div className="flex flex-col items-center justify-center gap-4 text-center font-openSans">
-                  <h1 className="text-2xl font-bold text-center text-white lg:text-3xl">
+                  <h1 className="text-xl font-bold text-center text-white lg:text-2xl">
                     {market.heading}
                   </h1>
       
-                  <p className="text-lg text-center text-white">
+                  <p className="lg:text-base text-center text-white">
                     {market.description}
                   </p>
                 </div>
-      
-
               </div>
-      
-
+              
             </div>
-            
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
 
-      {/* See More Link */}
-      <div className="flex items-center justify-center mx-auto">
-        <PrimaryLink
-          href="/about"
-          label="See more"      
-          icon={MousePointer}
-          rotateClass="rotate-90"
-        /> 
-      </div>      
+        {/* See More Link */}
+        <div className="flex items-center justify-center mx-auto">
+          <PrimaryLink
+            href="/about"
+            label="See more"      
+            rotateClass="rotate-90"
+          /> 
+        </div>      
+      </div>
         
       </div>
     </section>   

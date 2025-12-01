@@ -1,17 +1,24 @@
 
 import { NavLink } from "~/app/types/types";
-import { HomeIcon } from "lucide-react";
+import { HomeIcon, Briefcase, ToolCase, User, Phone } from "lucide-react";
 
 export const navLinks: NavLink[] = [
-  { label: "Home", href: "/", icon: HomeIcon, },
+  { label: "Home", href: "/", },
   { label: "Products", href: "/products" },
-  { label: "How It Works", href: "/how-it-works" },
+  // { label: "How It Works", href: "/how-it-works" },
   { label: "About Us", href: "/about" },
   { label: "Contact Us", href: "/contact" },
 ];
 
+export const sideNavLinks: NavLink[] = [
+  { label: "Home", href: "/", icon: HomeIcon, },
+  { label: "Products", href: "/products", icon: Briefcase, },
+  // { label: "How it works", href: "/how-it-works", icon: ToolCase, },
+  { label: "About Us", href: "/about", icon: User, },
+  { label: "Contact", href: "/contact", icon: Phone, },
+];
+
 import { 
-  // Facebook, Twitter, 
   FacebookIcon, XIcon,
   Instagram, Linkedin,
   MessageCircleCodeIcon, Mail,

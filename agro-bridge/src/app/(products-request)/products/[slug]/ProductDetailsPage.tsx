@@ -8,7 +8,7 @@ import Breadcrumbs from "./Breadcrumbs";
 // import { useParams } from "next/navigation";
 import { useProducts } from "~/store/useProduct";
 import { notFound } from "next/navigation";
-import { DollarSign, ArrowLeft, Download, ReceiptText } from "lucide-react";
+import { DollarSign, ArrowLeft, Download } from "lucide-react";
 import PrimaryLink from "~/components/LinkPrimary";
 import SecondaryLink from "~/components/LinkSecondary";
 
@@ -122,13 +122,22 @@ export default function ProductDetailPage({ slug }: { slug: string }) {
 
             <p className="text-(--text-colour) font-medium">{product.originDetails}</p>
 
+            <div className="flex items-center gap-4 w-full">
+              <SecondaryLink
+                href="/request-quote"
+                label="Request a Quote"
+                icon={ArrowLeft}
+                rotateClass="rotate-0"
+              />
 
-            <PrimaryLink
-              href="/request-quote"
-              label="Request a Quote"
-              icon={DollarSign}
-              rotateClass="-rotate-45"
-            />
+              <PrimaryLink
+                href="/request-quote"
+                label="Request a Quote"
+                icon={DollarSign}
+                rotateClass="-rotate-45"
+                className="flex-1"
+              />
+            </div>
             
             <a
               href={product.downloadSpecSheetUrl || "#"}

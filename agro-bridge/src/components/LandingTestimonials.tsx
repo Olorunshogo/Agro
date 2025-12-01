@@ -4,6 +4,7 @@
 import PersonaCard, { type UserPersona } from "~/components/UserPersona";
 import { useRef, useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Flower, Flower2, LucideFlower, LucideFlower2, TreePine, TreePalm } from "lucide-react";
 
 const userPersona: UserPersona[] = [
   {
@@ -97,7 +98,7 @@ export default function UserPersona() {
       <section className="relative font-openSans py-(--section-py) sm:py-(--section-py-sm) py-(--section-py-lg) overflow-hidden bg-white">
         <div className="w-full max-w-7xl mx-auto flex flex-col gap-8 px-(--section-px) sm:px-(--section-px-sm) lg:px-(--section-px-lg) h-full">
 
-          <h2 className="text-lg font-normal font-openSans lg:text-xl text-center text-(--heading-color)">
+          <h2 className="text-lg font-normal font-indie lg:text-xl text-center text-(--heading-color)">
             Trusted by Buyers Across the U.S
           </h2>
 
@@ -105,10 +106,17 @@ export default function UserPersona() {
             ref={scrollRef}
             className="flex items-center gap-8 overflow-x-hidden scroll-smooth"
           >
+            <div className="absolute left-4 translate-y-1/2">
+              <Flower className="w-6 h-6 text-(--agro-green-dark)" />
+            </div>
 
             {userPersona.map((persona: UserPersona, index) => (
               <PersonaCard key={index} persona={persona} />
             ))}
+
+            <div className="absolute left-4 -translate-y-1/2 right-4 flex justify-end">
+              <Flower className="w-6 h-6 text-(--agro-green-dark)" />
+            </div>
             
           </div>
 

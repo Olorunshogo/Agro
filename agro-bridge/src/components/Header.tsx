@@ -5,14 +5,13 @@ import { useState, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { AppLogo } from './app-logo';
-import { Menu, LogIn, RectangleGogglesIcon } from 'lucide-react';
+import { X, UserCheck, ShoppingCart, LogIn, Menu } from 'lucide-react';
 import { Button } from '~/components/ui/button';
-import NavigationLinksLg from './NavigationLinksLg';
 import SecondaryLink from './LinkSecondary';
 import PrimaryLink from './LinkPrimary';
+import { AnimatePresence, motion, Variants } from 'framer-motion';
 
-import { navLinks } from '~/store/store';
-import { socialLinks } from '~/store/store';
+import { navLinks, sideNavLinks } from '~/store/store';
 
 export default function Header() {
 
@@ -20,183 +19,256 @@ export default function Header() {
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const sidebarRef = useRef<HTMLDivElement>(null);
+  const [isAuthOpen, setIsAuthOpen] = useState(false);
+  const authRef = useRef<HTMLDivElement>(null);
+
+  // Animation variants
+  const sidebarVariants: Variants = {
+    open: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        type: "spring" as const,
+        stiffness: 300,
+        damping: 30,
+        duration: 0.3,
+      },
+    },
+    closed: {
+      x: "-100%",
+      opacity: 0,
+      transition: {
+        type: "spring" as const,
+        stiffness: 300,
+        damping: 30,
+      },
+    },
+  };
+
+  const overlayVariants: Variants = {
+    open: {
+      opacity: 1,
+      transition: { duration: 0.3 },
+    },
+    closed: {
+      opacity: 0,
+      transition: { duration: 0.3 },
+    },
+  };
 
   return (
     <>
-      <header className="sticky top-0 left-0 z-50 w-full border-b border-border/40 bg-background backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="flex items-center justify-between gap-2 px-(--section-px) sm:px-(--section-px-sm) lg:px-(--section-px-lg) w-full max-w-7xl mx-auto h-full">
-          {/* Logo */}
-          <div className="flex items-center py-4">
+      <header className="sticky top-0 left-0 z-50 w-full border-b border-border/40 bg-linear-to-b from-(--navbar-bg) to-(--navbar-bg)/10 backdrop-blur-sm supports-[backdrop-filter]:bg-(--navbar-bg)/60">
+        <div className="flex items-center justify-between gap-2 px-(--section-px) sm:px-(--section-px-sm) lg:px-(--section-px-lg) w-full max-w-7xl mx-auto h-(--navbar-h)">
+        
+          {/* Left: Menu + Logo */}
+          <div className="flex items-center gap-4">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="lg:hidden"
+              onClick={() => setIsSidebarOpen(true)}
+            >
+              <Menu className="w-5 h-5 text-white" />
+            </Button>
+
             <Link href="/" className="flex items-center gap-2">
-              <AppLogo className="w-8 h-8 text-lg" />
-              <span className="text-xl font-bold text-(--agro-green-dark)">Debrigger</span>
+              <AppLogo className="w-8 h-8 text-(--agro-green-light)" />
+              <span className="hidden text-xl font-bold text-white hover:text-(--agro-green-light) lg:block">Debrigger</span>
             </Link>
           </div>
 
-          {/* Navigaiton Links */}
-          <NavigationLinksLg />
-          
+          {/* Center: Desktop Nav */}
+          <nav className="items-center hidden gap-2 lg:flex">
+            <ul className="flex items-center gap-2 bg-[#FEFEFE] rounded-full p-1 shadow-md">
+              {navLinks.map(({ label, href, icon: Icon }) => {
+                const isActive = pathname == href;
+                return (
+                  <li key={href}>
+                    <Link
+                      href={href}
+                      className={`flex items-center border-1 border-[#FEFEFE] gap-2 px-4 py-2 text-sm font-semibold font-inter hover:opacity-90 rounded-full transition-all duration-300 ease-in-out
+                        ${
+                          isActive
+                            ? "text-white bg-(--agro-green-dark) shadow-md"
+                            : "text-(--agro-green-dark) hover:text-white hover:bg-(--agro-green-dark)"
+                        }`}
+                    >
+                      {Icon && <Icon className="w-4 h-4" />}
+                      <span>{label}</span>
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </nav>          
 
-          {/* Authentication Links */}
-          <div className="items-center hidden gap-4 lg:flex">
-            <SecondaryLink
-              href='/signin'
-              label='Sign In'
-            />
+          {/* Right: Icons */}
+          <div className="relative flex items-center gap-1 sm:gap-2 lg:hidden">
+            {/* Cart */}
+            <Button variant="ghost" size="icon">
+              <ShoppingCart className="w-5 h-5 text-yellow-600 cursor-default" />
+            </Button>
 
-            <PrimaryLink
-              href='/signup'
-              label='Sign Up'
-            />
+            {/* Auth Links Toggle */}
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setIsAuthOpen(!isAuthOpen)}
+              className="relative flex"
+            >
+              {isAuthOpen ? 
+                <X className="w-5 h-5 text-(--input-error-red)" /> : 
+                <UserCheck className="w-5 h-5 text-(--agro-green-light)" />
+              }
+            </Button>
+
+            {/* Absolute Desktop Auth Links */}
+            <AnimatePresence>
+              {isAuthOpen && (
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: "auto", opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                  className="absolute flex items-center justify-center w-[260px] bg-black/60 rounded-md backdrop-blur-md top-12 right-2"
+                >
+                  <div className="p-2 mx-auto">
+                    <div 
+                      ref={authRef}
+                      className="flex items-center w-full gap-2"
+                    >
+                      <SecondaryLink 
+                        href="/signin" label="Log In" icon={LogIn} 
+                        rotateClass="rotate-90"
+                      />
+                      <PrimaryLink href="/signup" label="Sign Up" />
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
 
-          {/* Sidebar Toggle Button */}
-          <Button
-            variant="ghost"
-            className="transition-all duration-300 ease-in-out cursor-pointer lg:hidden"
-            onClick={() => {
-              setIsSidebarOpen(true);
-              console.log(isSidebarOpen);
-            }}
-          >
-            <span className="sr-only">Menu</span>
-            <Menu className="w-6 h-6" />
-          </Button>
+          <div className="relative lg:flex items-center gap-1 sm:gap-2 hidden">
+
+            {/* Desktop Auth Links */}
+            <div 
+              ref={authRef}
+              className="flex items-center w-full gap-2"
+            >
+              <SecondaryLink 
+                href="/signin" 
+                label="Log In" icon={LogIn} 
+                rotateClass="rotate-90"
+              />
+              <PrimaryLink href="/signup" label="Sign Up" />
+            </div>
+
+          </div>
         </div>
       </header>
 
       {/* Sidebar */}
-      {isSidebarOpen && (
-        <>
-          {/* Backdrop */}
-          <div
-            className={`fixed lg:hidden inset-0 z-40 bg-black/50 backdrop-blur-sm transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] 
-              ${
-                isSidebarOpen
-                  ? "opacity-100 translate-x-0"
-                  : "opacity-0 -translate-x-full pointer-events-none"
-              }`}
-            onClick={() => setIsSidebarOpen(false)}
-          />
+      <AnimatePresence>
+        {isSidebarOpen && (
+          <>
+            {/* Backdrop */}
+            <motion.div
+              variants={overlayVariants}
+              initial="closed"
+              animate="open"
+              exit="closed"
+              className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm lg:hidden"
+              onClick={() => setIsSidebarOpen(false)}
+            />
 
-          {/* Sidebar Content */}
-          <aside
-            ref={sidebarRef}
-            className={`fixed lg:hidden top-0 left-0 z-50 h-full bg-background/80 shadow-lg w-full sm:w-1/2 lg:w-1/3 h-full duration-300 ease-in-out transform transition-transform ${
-              isSidebarOpen ? "translate-x-0" : "-translate-x-full"
-            }`}
-          >
-            <div className="flex flex-col h-full gap-6 overflow-y-auto">
-              <div className="flex items-center justify-between w-full gap-4 p-3 shadow-md backdrop-blur-sm h-fit">
-                <div className="flex items-center py-1">
-                  <Link
-                    href="/"
-                    className="flex items-center gap-2"
-                    onClick={() => {
-                      setIsSidebarOpen(false);
-                      console.log(isSidebarOpen);
-                    }}
-                  >
-                    <AppLogo className="w-8 h-8 text-lg" />
-                    <span className="text-xl font-bold">AgroBridge</span>
-                  </Link>
-                </div>
-
-                <Button
-                  variant="ghost"
-                  className="p-1 text-xl font-bold text-red-600 duration-300 ease-in-out rounded-full hover:text-white hover:bg-black/50 hover:cursor-pointer transition-out"
-                  onClick={() => {
-                    setIsSidebarOpen(false);
-                    console.log(isSidebarOpen);
-                  }}
-                >
-                  x
-                </Button>
-              </div>
-
-              <nav className="w-full">
-                <ul className="grid w-full gap-2 p-4">
-                  {navLinks.map(({ label, href, icon: Icon }) => {
-                    const isActive = pathname === href;
-                    return (
-                      <li key={href}>
-                        <Link
-                          href={href}
-                          passHref
-                          className={`${
-                            isActive
-                              ? "!bg-gradient-nav !text-white active:bg-gradient-nav bg-black/50"
-                              : "text-black dark:text-white hover:text-white hover:bg-black/50"
-                          } flex items-center gap-2 px-2 py-2 text-base font-medium rounded-md`}
-                          onClick={() => setIsSidebarOpen(false)}
-                        >
-                          {Icon && <Icon className="w-5 h-5" />}
-                          <span>{label}</span>
-                        </Link>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </nav>
-
-              {/* Social Links */}
-              <ul className="flex items-center gap-6 p-6">
-                {socialLinks.map(({ label, href, icon: Icon, color }) => {
-                  return (
-                    <li 
-                      key={href}
-                      className="relative flex flex-col items-center group"
-                    >
-                      {/* Label */}
-                      <span
-                        className={`
-                          absolute -top-6 text-xs text-(--text-black) dark:text-white px-2 py-0.5 rounded-md backdrop-blur-sm 
-                          bg-white/80 dark:bg-black/50 opacity-0 group-hover:opacity-100 
-                          group-hover:translate-y-[-2px] transition-all duration-300 ease-in-out 
-                          ${color?.replace("hover:", "")}
-                        `}
-                      >
-                        {label}
-                      </span>
-
-                      {/* Icon */}
+            {/* Sidebar Content */}
+            <motion.aside
+              variants={sidebarVariants}
+              initial="closed"
+              animate="open"
+              exit="closed"              
+              className="fixed lg:hidden top-0 left-0 z-50 h-full bg-white shadow-lg w-full sm:w-1/2 lg:w-1/3 h-full duration-300 ease-in-out transform transition-all"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div 
+                ref={sidebarRef}
+                className="flex flex-col h-full gap-4"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <div className="flex flex-col h-full gap-4">
+                  <div className="flex items-center justify-between w-full p-3 gap-4 shadow-md backdrop-blur-sm h-(--navbar-h)">
+                    <div className="flex items-center">
                       <Link
-                        href={href}
-                        className={`text-(--text-black) dark:text-white ${color} focus:text-(--text-black)
-                          duration-300 ease-in-out transition-all
-                          "
-                        `}
+                        href="/"
+                        className="flex items-center gap-2"
+                        onClick={() => {
+                          setIsSidebarOpen(false);
+                          console.log(isSidebarOpen);
+                        }}
                       >
-                        {Icon && <Icon className="w-5 h-5" />}
+                        <AppLogo className="w-8 h-8 text-lg" />
+                        <span className="text-xl text-(--agro-green-dark) font-bold">Debrigger</span>
                       </Link>
-                    </li>
-                  );
-                })}
-              </ul>
+                    </div>
 
-              {/* Authentication Links */}
-              <div className="flex flex-wrap items-center gap-4 p-6">
+                    <Button
+                      variant="ghost"
+                      className="h-6 flex items-center justify-center w-6 text-xl font-bold text-(--text-colour) hover:text-(--input-error-red) duration-300 ease-in-out hover:cursor-pointer transition-all"
+                      onClick={() => {
+                        setIsSidebarOpen(false);
+                        console.log(isSidebarOpen);
+                      }}
+                    >
+                      x
+                    </Button>
+                  </div>
 
-                <Link
-                  href="/signin"
-                  className="flex items-center gap-2 text-black text-sm bg-black w-fit font-inter font-semibold border hover:border-none border-black bg-transparent hover:bg-(--agro-green-light) px-6 py-3 rounded-full hover:opacity-90 hover:shadow-md transition-all duration-300 ease-in-out hover:shadow-lg"
-                > 
-                <LogIn className="w-4 h-4 rotate-90" />
-                  Sign In
-                </Link>
-                
-                <PrimaryLink
-                  href='/signup'
-                  label="Sign Up"
-                  icon={RectangleGogglesIcon}
-                />
+                  <nav className="w-full p-4">
+                    <ul className="grid w-full gap-2">
+                      {sideNavLinks.map(({ label, href, icon: Icon }) => {
+                        const isActive = pathname === href;
+                        return (
+                          <li key={href}>
+                            <Link
+                              href={href}
+                              passHref
+                              className={`${
+                                isActive
+                                  ? "bg-[#E8EEE9] border-1 border-(--border-gray) text-(--heading-colour) shadow-md"
+                                  : "text-(--text-colour) hover:bg-[[#E8EEE9] hover:shadow-md hover:bg-[#E8EEE9]"
+                              } flex items-center gap-2 px-2 py-2 text-base font-medium rounded-md`}
+                              onClick={() => setIsSidebarOpen(false)}
+                            >
+                              {Icon && <Icon className="w-5 h-5 text-(--agro-green-dark)" />}
+                              <span>{label}</span>
+                            </Link>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </nav>
 
+                  {/* Authentication Links */}
+                  <div className="flex flex-wrap items-center gap-4 p-4">
+                    <SecondaryLink
+                      href='/signin'
+                      label="Login"
+                    />
+
+                    
+                    <PrimaryLink
+                      href='/signup'
+                      label="Sign Up"
+                    />
+                  </div>
+                </div>
               </div>
-
-            </div>
-          </aside>
-        </>
-      )}
+            </motion.aside>
+          </>
+        )}
+      </AnimatePresence>
     </>
   );
 }

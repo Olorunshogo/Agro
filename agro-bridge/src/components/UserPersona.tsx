@@ -21,10 +21,10 @@ type Props = {
 export const PersonaCard: React.FC<Props> = ({ persona, className = "" }) => {
   return (
     <div
-      className={`flex flex-col min-w-76 w-9/10 sm:w-full max-w-80 p-4 gap-4 border rounded-xl shadow-custom ${className}`}
+      className={`flex flex-col min-w-76 w-9/10 font-openSans sm:w-full max-w-80 p-4 gap-4 border rounded-xl shadow-custom ${className}`}
     >
       <StarRating rating={persona.rating} />
-      <p className="text-xs lg:text-sm text-(--text-colour) font-indie">
+      <p className="text-xs lg:text-sm text-(--text-colour)">
         {persona.description}
       </p>
 
@@ -37,7 +37,7 @@ export const PersonaCard: React.FC<Props> = ({ persona, className = "" }) => {
           className="object-cover w-10 h-10 rounded-full"
         />
 
-        <div className="flex flex-col font-openSans">
+        <div className="flex flex-col">
           <h3 className="font-bold text-(--heading-color)">{persona.name}</h3>
           <p className="text-xs lg:text-sm text-(--text-colour)">
             {persona.location ?? ""}

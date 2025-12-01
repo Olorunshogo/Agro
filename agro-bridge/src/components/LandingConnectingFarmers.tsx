@@ -5,6 +5,7 @@ import Image from "next/image";
 import { TreePalm, MousePointer } from "lucide-react";
 import ConnectingMission from "./ConnectingMission";
 import PrimaryLink from "./LinkPrimary";
+import { motion } from "framer-motion";
 
 interface List {
   title: string;
@@ -37,16 +38,30 @@ export default function ConnectingFarms() {
           {/* Images */}
           <div className="relative w-full h-full">
 
-            <div className="relative w-4/5 h-90 lg:h-110 rounded-xl">
+            {/* BIG IMAGE - animate from left */}
+            <motion.div 
+              initial={{ x: -120, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.9, ease: "easeInOut" }}
+              viewport={{ once: true }}
+              className="relative w-4/5 h-90 lg:h-110 rounded-xl"
+            >
               <Image
                 src="/landing/connecting-farms-1.jpg"
                 alt="Connecting farms 1"
                 fill
                 className="object-contain object-cover w-full h-full rounded-xl"
               />
-            </div>
+            </motion.div>
 
-            <div className="absolute right-0 z-20 w-1/2 p-4 overflow-hidden border-white top-1/4 max-w-110 border-10 h-1/2 rounded-xl">
+            {/* ABSOLUTE IMAGE - animate from bottom */}
+            <motion.div
+              initial={{ y: 140, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.9, ease: "easeInOut" }}
+              viewport={{ once: true }}
+              className="absolute right-0 z-20 w-1/2 p-4 overflow-hidden border-white top-1/4 max-w-110 border-10 h-1/2 rounded-xl"
+            >
 
               <Image
                 src="/landing/connecting-farms-2.jpg"
@@ -55,7 +70,7 @@ export default function ConnectingFarms() {
                 className="object-cover w-full h-full"
               />
                             
-            </div>
+            </motion.div>
           </div>
 
           {/* Right Hand Side */}

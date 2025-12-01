@@ -21,7 +21,7 @@ export default function PrimaryLink({
   return (
     <Link
       href={href}
-      className={`flex items-center font-inter gap-2 w-fit text-white text-sm font-semibold bg-(--agro-green-dark) hover:opacity-90 px-4 py-2 rounded-full shadow-md transition-all duration-300 ease-in-out ${className}`}
+      className={`flex items-center justify-center font-inter gap-2 w-fit text-white text-center text-sm font-semibold bg-linear-to-r from-(--agro-green-light) to-(--agro-green-dark) hover:opacity-90 px-6 py-3 rounded-full shadow-md transition-all duration-300 ease-in-out ${className}`}
     >
       <span>{label}</span>
 

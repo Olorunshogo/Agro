@@ -103,10 +103,11 @@
   --section-py-lg: 4rem;
 
   --navbar-h: 4.5rem;
+  --navbar-bg: #3E3D3D;
 
   --agro-green-dark: #1E5925;
   --agro-green-dark-2: #789B7C;
-  --agro-green-light: #22C55E;
+  --agro-green-light: #40BF4F;
   --input-border-green: #2B6036;
   --input-text-colour: #111827;
   --input-error-red: #EF4444;

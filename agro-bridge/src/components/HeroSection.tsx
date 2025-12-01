@@ -68,7 +68,7 @@ export default function HeroSection({
       />
 
       {/* Dark Overlay */}
-      <div className="absolute inset-0 z-10 bg-black/70" />
+      <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/80 via-transparent to-black/30" />
 
       {/* Content */}
       <div className="relative z-20 flex flex-col justify-center px-(--section-px) sm:px-(--section-px-sm) lg:px-(--section-px-lg) py-12 w-full max-w-4xl mx-auto h-full">
@@ -79,7 +79,7 @@ export default function HeroSection({
               {heading}
             </h1>
 
-            <p className="max-w-xl mx-auto text-lg text-center text-white font-indie">
+            <p className="max-w-xl mx-auto text-lg text-center text-white">
               {paragraph}
             </p>
           </div>
