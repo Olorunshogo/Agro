@@ -3,7 +3,6 @@
 
 import { usePathname } from "next/navigation";
 import DashboardSidebar from "~/components/DashboardSidebar";
-import { useEffect, useState } from "react";
 
 const titleMap: Record<string, string> = {
   "admin-dashboard": "Admin Dashboard",
@@ -11,6 +10,7 @@ const titleMap: Record<string, string> = {
   orders: "Orders",
   products: "Products",
   analytics: "Analytics",
+  "quote-requests": "Quote Requests",
   settings: "Settings",
   profile: "Profile",
   buyers: "Buyers",
@@ -20,7 +20,6 @@ const titleMap: Record<string, string> = {
   payments: "Payments",
   reports: "Reports",
   support: "Support",
-  // Add more as needed
 };
 
 
@@ -51,7 +50,7 @@ export default function DashboardLayout({ children, }: { children: React.ReactNo
   : "User";
 
   return (
-    <div className="flex min-h-screen bg-gray-50">
+    <div className="flex min-h-screen font-openSans">
       {/* Sidebar */}
       <DashboardSidebar />      
 

@@ -57,7 +57,7 @@ export default function UserPersona() {
   const scrollRef = useRef<HTMLDivElement | null>(null);
   const [page, setPage] = useState(0);
 
-  // Number of “pages”
+  // Number of “pages"
   const totalPages = 3;
 
   // Track scroll position and update dot index
@@ -106,7 +106,7 @@ export default function UserPersona() {
             ref={scrollRef}
             className="flex items-center gap-8 overflow-x-hidden scroll-smooth"
           >
-            <div className="absolute left-4 translate-y-1/2">
+            <div className="absolute translate-y-1/2 left-4">
               <Flower className="w-6 h-6 text-(--agro-green-dark)" />
             </div>
 
@@ -114,7 +114,7 @@ export default function UserPersona() {
               <PersonaCard key={index} persona={persona} />
             ))}
 
-            <div className="absolute left-4 -translate-y-1/2 right-4 flex justify-end">
+            <div className="absolute flex justify-end -translate-y-1/2 left-4 right-4">
               <Flower className="w-6 h-6 text-(--agro-green-dark)" />
             </div>
             

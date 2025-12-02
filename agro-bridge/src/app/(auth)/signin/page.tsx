@@ -10,10 +10,8 @@ import { EmailInput } from "~/components/input-fields/EmailInput";
 import { PasswordInput } from "~/components/input-fields/PasswordInput";
 import { AppLogo } from "~/components/app-logo";
 import Link from "next/link";
-import { Github, Chrome } from "lucide-react";
+import { Chrome } from "lucide-react";
 import { z } from "zod";
-
-
 
 const metadata = {
   title: "Sign In to Your Account",
