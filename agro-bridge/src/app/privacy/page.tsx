@@ -3,21 +3,21 @@
 
 const metadata = {
   title: "Privacy Policy",
-  description: "Read how AgroBridge protects your personal information and respects your privacy.",
+  description: "Read how Debridger protects your personal information and respects your privacy.",
 
   keywords: [
-    "privacy policy", "data protection", "agrobridge privacy",
+    "privacy policy", "data protection", "Debridger privacy",
     "buyer privacy"
   ],
 
   openGraph: {
     url: "/privacy",
-    title: "Privacy Policy | AgroBridge",
+    title: "Privacy Policy | Debridger",
     description: "We never sell your data. Full transparency on how we protect your information.",
   },
 
   twitter: {
-    title: "Privacy Policy | AgroBridge",
+    title: "Privacy Policy | Debridger",
     description: "We never sell your data.",
   },
 

@@ -26,7 +26,7 @@ export async function handleSubscribe(formData: FormData): Promise<{ success: bo
       },
       body: JSON.stringify({
         email: validatedData.email,
-        _subject: "New AgroBridge Subscriber",
+        _subject: "New Debridger Subscriber",
         _captcha: "false",
         _template: "table",
       }),

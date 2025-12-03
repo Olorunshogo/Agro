@@ -6,21 +6,21 @@ import { Package, ShoppingCart, Users, TrendingUp } from "lucide-react";
 
 const metadata = {
   title: "Dashboard – Manage Orders & Quotes",
-  description: "Your personal AgroBridge buyer dashboard. Track orders, quotes, and sourcing activity.",
+  description: "Your personal Debridger buyer dashboard. Track orders, quotes, and sourcing activity.",
 
   keywords: [
-    "agrobridge dashboard", "buyer dashboard", "order tracking",
+    "Debridger dashboard", "buyer dashboard", "order tracking",
     "quote requests", "agricultural sourcing dashboard"
   ],
 
   openGraph: {
     url: "/dashboard",
-    title: "Dashboard – Manage Orders & Quotes | AgroBridge",
+    title: "Dashboard – Manage Orders & Quotes | Debridger",
     description: "Track your orders, quotes, and sourcing activity in one place.",
   },
 
   twitter: {
-    title: "Dashboard – Manage Orders & Quotes | AgroBridge",
+    title: "Dashboard – Manage Orders & Quotes | Debridger",
     description: "Track your orders, quotes, and sourcing activity in one place.",
   },
 

@@ -3,15 +3,15 @@
 
 const metadata = {
   title: "My Products",
-  description: "Browse and manage your requested and purchased agricultural products on AgroBridge.",
+  description: "Browse and manage your requested and purchased agricultural products on Debridger.",
 
   openGraph: {
     url: "/dashboard/products",
-    title: "My Products | AgroBridge Dashboard",
+    title: "My Products | Debridger Dashboard",
   },
 
   twitter: {
-    title: "My Products | AgroBridge Dashboard",
+    title: "My Products | Debridger Dashboard",
   },
 
   alternates: { canonical: "/dashboard/products" },

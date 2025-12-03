@@ -9,21 +9,21 @@ import HeroSection from "~/components/HeroSection";
 
 const metadata = {
   title: "How It Works – 3 Simple Steps",
-  description: "Discover how AgroBridge connects you with verified Nigerian farmers in just 3 steps.",
+  description: "Discover how Debridger connects you with verified Nigerian farmers in just 3 steps.",
 
   keywords: [
-    "how it works", "agrobridge process", "buying process",
+    "how it works", "Debridger process", "buying process",
     "crop sourcing steps", "export from nigeria"
   ],
 
   openGraph: {
     url: "/how-it-works",
-    title: "How It Works – 3 Simple Steps | AgroBridge",
+    title: "How It Works – 3 Simple Steps | Debridger",
     description: "Browse → Request Quote → We handle quality & logistics.",
   },
 
   twitter: {
-    title: "How It Works – 3 Simple Steps | AgroBridge",
+    title: "How It Works – 3 Simple Steps | Debridger",
     description: "Browse → Request Quote → We handle quality & logistics.",
   },
 

@@ -3,22 +3,22 @@
 
 const metadata = {
   title: "Terms of Service",
-  description: "Review the terms and conditions for using the AgroBridge platform.",
+  description: "Review the terms and conditions for using the Debridger platform.",
 
   keywords: [
     "terms of service", "terms and conditions", "legal",
-    "agrobridge terms"
+    "Debridger terms"
   ],
 
   openGraph: {
     url: "/terms",
-    title: "Terms of Service | AgroBridge",
-    description: "Legal terms governing the use of AgroBridge services.",
+    title: "Terms of Service | Debridger",
+    description: "Legal terms governing the use of Debridger services.",
   },
 
   twitter: {
-    title: "Terms of Service | AgroBridge",
-    description: "Legal terms governing the use of AgroBridge services.",
+    title: "Terms of Service | Debridger",
+    description: "Legal terms governing the use of Debridger services.",
   },
 
   alternates: { canonical: "/terms" },

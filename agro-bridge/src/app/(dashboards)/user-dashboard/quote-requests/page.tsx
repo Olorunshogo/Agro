@@ -8,18 +8,18 @@ const metadata = {
 
   keywords: [
     "quote requests", "price quotes", "crop quotes",
-    "sesame quote", "cashew quote", "agrobridge quotes"
+    "sesame quote", "cashew quote", "Debridger quotes"
   ],
 
   openGraph: {
     url: "/dashboard/quote-requests",
-    title: "Quote Requests – View & Track | AgroBridge",
-    description: "Monitor every quote request you’ve made on AgroBridge.",
+    title: "Quote Requests – View & Track | Debridger",
+    description: "Monitor every quote request you’ve made on Debridger.",
   },
 
   twitter: {
-    title: "Quote Requests – View & Track | AgroBridge",
-    description: "Monitor every quote request you’ve made on AgroBridge.",
+    title: "Quote Requests – View & Track | Debridger",
+    description: "Monitor every quote request you’ve made on Debridger.",
   },
 
   alternates: { canonical: "/dashboard/quote-requests" },

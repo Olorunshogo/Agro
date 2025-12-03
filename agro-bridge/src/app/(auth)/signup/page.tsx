@@ -19,21 +19,21 @@ import { z } from "zod";
 
 const metadata = {
   title: "Create Free Account – Start Sourcing",
-  description: "Join AgroBridge today and buy premium Nigerian crops directly from verified farmers.",
+  description: "Join Debridger today and buy premium Nigerian crops directly from verified farmers.",
 
   keywords: [
-    "agrobridge signup", "create account", "register",
+    "Debridger signup", "create account", "register",
     "buyer registration", "agricultural marketplace"
   ],
 
   openGraph: {
     url: "/signup",
-    title: "Create Free Account – Start Sourcing | AgroBridge",
+    title: "Create Free Account – Start Sourcing | Debridger",
     description: "Join thousands of buyers sourcing directly from Nigeria.",
   },
 
   twitter: {
-    title: "Create Free Account – Start Sourcing | AgroBridge",
+    title: "Create Free Account – Start Sourcing | Debridger",
     description: "Join thousands of buyers sourcing directly from Nigeria.",
   },
 
@@ -125,7 +125,7 @@ export default function SignUpPage() {
       const data = await res.json();
       
       if (res.ok) {
-        toast.success("Account created successfully! Welcome to AgroBridge");
+        toast.success("Account created successfully! Welcome to Debridger");
         router.push("/dashboard");
         router.refresh();
       } else {
@@ -146,13 +146,13 @@ export default function SignUpPage() {
       <Toaster position="top-center" richColors />    
       <div className="flex items-center justify-center min-h-screen bg-(--primary-bg-light) font-inter w-full h-full">
 
-        <div className="flex flex-col w-full h-full max-w-[564px] border-1 border-(--border-gray) shadow-md max-h-full gap-6 p-6 lg:p-8">
+        <div className="flex flex-col w-full h-full max-w-[564px] max-h-full gap-6 p-6 lg:p-8">
           
           {/* App Logo and Title*/}
-          <div className="flex items-center gap-4 mx-auto">
-            <AppLogo className="w-8 h-8" />
-            <span className="text-xl text-(--agro-green-dark) font-semibold">AgroBridge</span>              
-          </div>                 
+          <Link href="/" className="flex items-center gap-2 mx-auto">
+            <AppLogo className="w-8 h-8 text-(--agro-green-light)" />
+            <span className="text-xl text-(--agro-green-dark) font-semibold">Debridger</span> 
+          </Link>              
 
           {/* Title */}
           <div className="text-xl text-center text-(--heading-colour) font-semibold">Sign Up</div>

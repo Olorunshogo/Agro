@@ -14,7 +14,7 @@ const metadata = {
   description: "Source sesame, cashew, cocoa & more directly from verified farmers in Nigeria.",
   
   keywords: [
-    "Agrobridge", "sellers", "crops",
+    "Debridger", "sellers", "crops",
     "Nigerian agriculture",
     "export crops Nigeria",
     "buy farm produce Africa",
@@ -27,12 +27,12 @@ const metadata = {
 
   openGraph: {
     url: "/",
-    title: "AgroBridge | Buy Direct from Nigerian Farmers",
+    title: "Debridger | Buy Direct from Nigerian Farmers",
     description: "Best prices. Verified quality. End-to-end logistics.",
   },
 
   twitter: {
-    title: "Agrobridge | Buy Direct from Nigerian Farmers",
+    title: "Debridger | Buy Direct from Nigerian Farmers",
     description: "Premium crops. Verified suppliers. Seamless export logistics.",
   },
 
@@ -55,7 +55,7 @@ export default function Home() {
           backgroundImageUrl="/landing/landing-home-bg.png"
           backgroundImageAlt="A picture of farmers bagging their farm produce"
           heading="Buy Fresh Farm Produce Directly from Source at the Best Price."
-          paragraph="AgroBridge connects international buyers with premium-quality agricultural goods sourced and verified by our team in Nigeria."
+          paragraph="Debridger connects international buyers with premium-quality agricultural goods sourced and verified by our team in Nigeria."
           showCtas={true}
           primaryCta={{
             label: "Get Started",

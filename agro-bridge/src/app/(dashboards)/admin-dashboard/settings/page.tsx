@@ -7,18 +7,18 @@ const metadata = {
 
   keywords: [
     "account settings", "profile settings", "payment methods",
-    "notifications", "agrobridge account"
+    "notifications", "Debridger account"
   ],
 
   openGraph: {
     url: "/dashboard/settings",
-    title: "Account Settings – Profile & Preferences | AgroBridge",
-    description: "Manage your AgroBridge account and preferences.",
+    title: "Account Settings – Profile & Preferences | Debridger",
+    description: "Manage your Debridger account and preferences.",
   },
 
   twitter: {
-    title: "Account Settings – Profile & Preferences | AgroBridge",
-    description: "Manage your AgroBridge account and preferences.",
+    title: "Account Settings – Profile & Preferences | Debridger",
+    description: "Manage your Debridger account and preferences.",
   },
 
   alternates: { canonical: "/dashboard/settings" },  

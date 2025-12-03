@@ -3,7 +3,6 @@
 
 import Image from "next/image";
 import PrimaryLink from "./LinkPrimary";
-import { ConnectingBorder } from "./connecting-border";
 
 interface TargetMarketItem {
   id: string;
@@ -43,12 +42,12 @@ export default function TargetMarket() {
       <div className="px-(--section-px) sm:px-(--section-px-sm) lg:px-(--section-px-lg) py-(--section-py) sm:py-(--section-py-sm) py-(--section-py-lg) w-full max-w-7xl mx-auto h-full">
 
       {/* Background Image */}
-      <div className="absolute w-full h-full inset-0 z-0">
+      <div className="absolute inset-0 z-0 w-full h-full">
         <Image
           src="/landing/target-market-bg.jpg"
           alt="Target Market Background Image"
           fill
-          className="object-cover object-contain"
+          className="object-contain object-cover"
           priority
           sizes="100vw"
         />
@@ -57,7 +56,7 @@ export default function TargetMarket() {
       <div className="absolute inset-0 w-full h-full bg-linear-to-b from-white via-white to-white/30"></div>
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col gap-12 w-full h-full">
+      <div className="relative z-10 flex flex-col w-full h-full gap-12">
         {/* Our Mission Header */}
         <div className="flex flex-col gap-4 mx-auto text-center">
           <h2 className="text-lg lg:text-xl font-bold text-(--text-color)">
@@ -70,11 +69,11 @@ export default function TargetMarket() {
         </div>
 
         {/* Target Market Image Grid */}
-        <div className="grid w-full h-full grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-8">      
+        <div className="grid w-full h-full grid-cols-1 gap-8 lg:grid-cols-3">      
           {targetMarkets.map((market) => (
             <div 
               key={market.id}
-              className="relative flex items-center justify-center border-6 border-(--agro-green-dark) w-full max-w-[300px] mx-auto overflow-hidden text-center rounded-full h-[280px] sm:h-[300px]"
+              className="relative flex items-center justify-center border-6 border-(--agro-green-dark) w-full max-w-[320px] mx-auto overflow-hidden text-center rounded-full h-[320px]"
             >
               {/* Grid Background Image */}
               <Image
@@ -87,17 +86,17 @@ export default function TargetMarket() {
               />
             
               {/* Dark Overlay */}
-              <div className="absolute inset-0 z-10 bg-black/70 overflow-hidden" />
+              <div className="absolute inset-0 z-10 overflow-hidden bg-black/70" />
         
               {/* Content */}
-              <div className="relative z-20 flex flex-col font-openSans justify-center p-4 w-full max-w-2xl mx-auto h-full">
+              <div className="relative z-20 flex flex-col justify-center w-full h-full max-w-2xl p-4 mx-auto font-openSans">
                 {/* Top Content */}
                 <div className="flex flex-col items-center justify-center gap-4 text-center font-openSans">
                   <h1 className="text-xl font-bold text-center text-white lg:text-2xl">
                     {market.heading}
                   </h1>
       
-                  <p className="lg:text-base text-center text-white">
+                  <p className="text-center text-white lg:text-base">
                     {market.description}
                   </p>
                 </div>

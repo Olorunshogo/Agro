@@ -139,7 +139,7 @@ export default function Header() {
                       className="flex items-center w-full gap-2"
                     >
                       <SecondaryLink 
-                        href="/signin" label="Log In" icon={LogIn} 
+                        href="/signin" label="Log In"
                         rotateClass="rotate-90"
                       />
                       <PrimaryLink href="/signup" label="Sign Up" />
@@ -150,7 +150,7 @@ export default function Header() {
             </AnimatePresence>
           </div>
 
-          <div className="relative lg:flex items-center gap-1 sm:gap-2 hidden">
+          <div className="relative items-center hidden gap-1 lg:flex sm:gap-2">
 
             {/* Desktop Auth Links */}
             <div 
@@ -159,10 +159,12 @@ export default function Header() {
             >
               <SecondaryLink 
                 href="/signin" 
-                label="Log In" icon={LogIn} 
-                rotateClass="rotate-90"
+                label="Log In"
               />
-              <PrimaryLink href="/signup" label="Sign Up" />
+              <PrimaryLink
+                href="/signup" 
+                label="Sign Up" 
+              />
             </div>
 
           </div>
@@ -189,7 +191,7 @@ export default function Header() {
               initial="closed"
               animate="open"
               exit="closed"              
-              className="fixed lg:hidden top-0 left-0 z-50 h-full bg-white shadow-lg w-full sm:w-1/2 lg:w-1/3 h-full duration-300 ease-in-out transform transition-all"
+              className="fixed top-0 left-0 z-50 w-full h-full transition-all duration-300 ease-in-out transform bg-white shadow-lg lg:hidden sm:w-1/2 lg:w-1/3"
               onClick={(e) => e.stopPropagation()}
             >
               <div 

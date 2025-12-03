@@ -11,9 +11,9 @@ export type Props = {
 
 export const ProductCard: React.FC<Props> = ({ product }) => {
   return (
-    <div className="flex flex-col w-full gap-6 p-4 transition-all duration-300 ease-in-out bg-white border rounded-xl font-openSans shadow-custom hover:scale-105 hover:shadow-lg">
+    <div className="flex flex-col w-4/5 gap-6 p-4 mx-auto transition-all duration-300 ease-in-out bg-white border sm:w-full rounded-xl font-openSans shadow-custom hover:scale-105 hover:shadow-lg">
 
-      <div className="relative w-full h-48 rounded-md">
+      <div className="relative w-full rounded-md h-46">
         <Image
           src={product.imageUrl}
           alt={product.imageAlt || product.name || "product image"}
@@ -40,7 +40,7 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
 
         <div className="flex items-center justify-between gap-2">
           <div className="lg:text-lg font-semibold text-(--heading-colour) line-clamp-1">
-            ${product.price.toFixed(1)}
+            ${product.price.toFixed(2)}
             <span className="text-sm">/Ton</span>
           </div>
 

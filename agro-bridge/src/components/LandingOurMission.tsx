@@ -103,18 +103,6 @@ export default function OurMission() {
             <div className="relative z-10 px-4 py-0.5 text-base lg:text-lg font-bold text-center text-white rounded-md">
               Plant
             </div>
-
-            {/* Left triangle */}
-            <div
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-full 
-                        w-0 h-0 border-y-[12px] border-y-transparent border-r-[14px] border-r-(--agro-green-dark)">
-            </div>
-
-            {/* Right triangle */}
-            <div
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-full 
-                        w-0 h-0 border-y-[12px] border-y-transparent border-l-[14px] border-l-(--agro-green-dark)">
-            </div>
           </div>
 
           {/* GRAINS */}

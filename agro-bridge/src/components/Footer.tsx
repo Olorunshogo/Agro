@@ -50,7 +50,7 @@ export default function Footer() {
               {/* App Logo */}
               <Link href="/" className="flex items-center gap-2">
                 <AppLogo className="w-6 h-6 text-primary" />
-                <span className="text-2xl lg:text-3xl text-(--agro-green-dark) font-bold">AgroBridge</span>
+                <span className="text-2xl lg:text-3xl text-(--agro-green-dark) font-bold">Debridger</span>
               </Link>
 
               <p className="text-sm text-(--text-colour)">
@@ -165,13 +165,13 @@ export default function Footer() {
 
               <li>
                 {/* <a
-                  href="mailto:agrobridge@yahoomail.com"
+                  href="mailto:Debridger@yahoomail.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-sm text-(--text-colour) hover:text-primary focus:text-primary duration-300 ease-in-out transition-all"
                 >
                   <MailIcon className="w-4 h-4" />
-                  agrobridge@yahoomail.com
+                  Debridger@yahoomail.com
                 </a> */}
                 <a
                   href="mailto:shownzy001@gmail.com"

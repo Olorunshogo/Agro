@@ -71,7 +71,7 @@ export default function HeroSection({
       <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/80 via-transparent to-black/30" />
 
       {/* Content */}
-      <div className="relative z-20 flex flex-col justify-center px-(--section-px) sm:px-(--section-px-sm) lg:px-(--section-px-lg) py-12 w-full max-w-4xl mx-auto h-full">
+      <div className="relative z-20 flex flex-col justify-center px-(--section-px) sm:px-(--section-px-sm) lg:px-(--section-px-lg) py-12 w-full max-w-5xl mx-auto h-full">
         {/* Top Content */}
         <div className="flex flex-col items-center justify-center flex-1 gap-8 py-12 sm:py-20 lg:py-30 sm:gap-12">
           <div className="flex flex-col items-center justify-center gap-6 text-center">

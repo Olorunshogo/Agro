@@ -10,19 +10,19 @@ const metadata = {
   metadataBase: new URL("https://agro-bom-vercel.vercel.app"),
 
   title: {
-    template: "%s | AgroBridge", 
-    default: "AgroBridge | Bridging Farmers to Global Buyers",
+    template: "%s | Debridger", 
+    default: "Debridger | Bridging Farmers to Global Buyers",
   },
 
   description: "Premium Nigerian agricultural products. Verified farmers. Secure payments. Direct from source.",
 
   authors: [{
-    name: "Agrobridge Team", 
+    name: "Debridger Team", 
     url: "https://agro-bom-vercel.vercel.app/",
   }],
 
-  creator: "AgroBridge Team",
-  publisher: "AgroBridge",  
+  creator: "Debridger Team",
+  publisher: "Debridger",  
 
   robots : {
     index: true,
@@ -43,24 +43,24 @@ const metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    siteName: "AgroBridge",
+    siteName: "Debridger",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "AgroBridge - Premium Nigerian Crops",
+        alt: "Debridger - Premium Nigerian Crops",
       },
     ],
   },
 
   twitter: {
     card: "summary_large_image",
-    site: "@agrobridge",
-    creator: "@agrobridge",
+    site: "@Debridger",
+    creator: "@Debridger",
     images: {
       url: "/twitter-image.png",
-      alt: "Agrobridge Twitter Card",
+      alt: "Debridger Twitter Card",
     },
   },
 };

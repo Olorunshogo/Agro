@@ -17,16 +17,16 @@ import { Phone, Mail, Clock } from "lucide-react";
 // Static metadata
 const metadata = {
   title: "Contact Us",
-  description: "Get in touch with AgroBridge for quotes, partnerships, or support.",
+  description: "Get in touch with Debridger for quotes, partnerships, or support.",
 
   openGraph: {
     url: "/contact",
-    title: "Contact AgroBridge",
+    title: "Contact Debridger",
     description: "We're here to help with your agricultural sourcing needs.",
   },
 
   twitter: {
-    title: "Contact AgroBridge",
+    title: "Contact Debridger",
     description: "We're here to help with your agricultural sourcing needs.",
   },
 
@@ -118,7 +118,7 @@ export default function ContactPage() {
           backgroundImageUrl="/landing/landing-contact-bg.jpg"
           backgroundImageAlt="A picture of farmers bagging their farm produce"
           heading="Buy Fresh Farm Produce Directly from Source at the Best Price."
-          paragraph="AgroBridge connects international buyers with premium-quality agricultural goods sourced and verified by our team in Nigeria."
+          paragraph="Debridger connects international buyers with premium-quality agricultural goods sourced and verified by our team in Nigeria."
           showCtas={true}
           primaryCta={{
             label: "Explore Product",

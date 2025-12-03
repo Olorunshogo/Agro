@@ -9,16 +9,16 @@ import HeroSection from "~/components/HeroSection";
 
 const metadata = {
   title: "About Us",
-  description: "Learn about AgroBridge — connecting international buyers with trusted Nigerian farmers since 2024.",
+  description: "Learn about Debridger — connecting international buyers with trusted Nigerian farmers since 2024.",
 
   openGraph: {
     url: "/about",
-    title: "About AgroBridge | Bridging Farmers to Global Buyers",
+    title: "About Debridger | Bridging Farmers to Global Buyers",
     description: "We verify farmers, secure payments, and handle logistics so you don’t have to.",
   },
 
   twitter: {
-    title: "About AgroBridge",
+    title: "About Debridger",
     description: "We verify farmers, secure payments, and handle logistics so you don’t have to.",
   },
 
@@ -107,10 +107,10 @@ export default function AboutUsPage() {
         />
 
         {/* Who We Are & Our Values Section */}
-        <section className="relative overflow-hidden bg-white">
+        <section className="relative">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 px-(--section-px) sm:px-(--section-px-sm) lg:px-(--section-px-lg) py-(--section-py) lg:py-(--section-py-lg) w-full max-w-7xl mx-auto h-full">
 
-            <div className="flex flex-col w-full h-full gap-6">
+            <div className="flex flex-col w-full h-full gap-6 rounded-md border-1 border-(--border-gray) p-6 shadow-md hover:shadow-lg">
               <h2 className="text-(--heading-colour) lg:text-(--text-colour) text-xl lg:text-2xl font-semibold">Who Are We</h2>
               <p className="text-sm lg:text-lg text-(--text-colour)">
                 Debridger is a tech-enabled export facilitator dedicated to showcasing the best of African agriculture on the global stage. 
@@ -118,7 +118,7 @@ export default function AboutUsPage() {
               </p>
             </div>
 
-            <div className="flex flex-col w-full h-full gap-6">
+            <div className="flex flex-col w-full h-full gap-6 rounded-md border-1 border-(--border-gray) p-6 shadow-md hover:shadow-lg">
               <h2 className="text-(--heading-colour) lg:text-(--text-colour) text-xl lg:text-2xl font-semibold">Our Vision</h2>
               <p className="text-sm lg:text-lg text-(--text-colour)">
                 Our vision is to be the most trusted bridge between African agricultural excellence and the international market, ensuring fair trade and prosperity for the communities we serve. 
@@ -132,7 +132,7 @@ export default function AboutUsPage() {
         </section>
 
         {/* Our Process Section */}
-        <section className="relative overflow-hidden bg-white">
+        <section className="relative">
           <div className="flex flex-col gap-8 lg:gap-12 px-(--section-px) sm:px-(--section-px-sm) lg:px-(--section-px-lg) py-(--section-py) sm:py-(--section-py-sm) py-(--section-py-lg) w-full max-w-7xl mx-auto h-full">
 
             <div className="flex flex-col items-center max-w-xl gap-6 mx-auto text-center">
@@ -142,7 +142,7 @@ export default function AboutUsPage() {
               </p>
             </div>
 
-            <div className="grid gap-6 grid-cols-[repeat(auto-fit,minmax(210px,1fr))]">
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {ourProcesses.map(({ icon: Icon, heading, paragraph }, index) => (
                 <div 
                   key={index} 
@@ -164,7 +164,7 @@ export default function AboutUsPage() {
         </section>
 
         {/* Meet the Team Section */}
-        <section className="relative overflow-hidden bg-white">
+        <section className="relative">
           <div className="flex flex-col gap-8 lg:gap-12 px-(--section-px) sm:px-(--section-px-sm) lg:px-(--section-px-lg) py-(--section-py)    lg:py-(--section-py-lg) w-full max-w-7xl mx-auto h-full">
 
             <div className="flex flex-col w-full h-full max-w-xl gap-6 mx-auto text-center">
@@ -174,7 +174,7 @@ export default function AboutUsPage() {
               </p>
             </div>
 
-            <div className="grid gap-6 grid-cols-[repeat(auto-fit,minmax(210px,1fr))]">
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {teamMembers.map(({ imageUrl, imageAlt, name, role }, index) => (
                 <div 
                   key={index} 

@@ -50,7 +50,7 @@ export const socialLinks: NavLink[] = [
     icon: Linkedin, color: "hover:text-[#0A66C2]"
   }, // LinkedIn Blue
   { 
-    label: "Gmail", href: "mailto:agrobridge@yahoo.com", 
+    label: "Gmail", href: "mailto:Debridger@yahoo.com", 
     icon: Mail, color: "hover:text-[#EA4335]" 
   }, // Gmail Red
 ];

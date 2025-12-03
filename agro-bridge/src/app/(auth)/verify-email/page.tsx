@@ -4,16 +4,16 @@ import { cookies } from "next/headers";
 
 const metadata = {
   title: "Verify Your Email",
-  description: "Almost there! Verify your email address to activate your AgroBridge account and start buying.",
+  description: "Almost there! Verify your email address to activate your Debridger account and start buying.",
 
   openGraph: {
     url: "/verify-email",
-    title: "Verify Email | AgroBridge",
+    title: "Verify Email | Debridger",
     description: "One click to activate your account and access verified suppliers.",
   },
 
   twitter: {
-    title: "Verify Email | AgroBridge",
+    title: "Verify Email | Debridger",
     description: "One click to activate your account and access verified suppliers.",
   },
 

@@ -12,7 +12,7 @@ export const ratelimit = redis
   ? new Ratelimit({
       redis,
       limiter: Ratelimit.slidingWindow(5, "10 m"), // 5 requests per 10 minutes
-      prefix: "agrobridge:ratelimit",
+      prefix: "Debridger:ratelimit",
     })
   : null;
 

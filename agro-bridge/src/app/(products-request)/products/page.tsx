@@ -226,7 +226,7 @@ export default function ProductsPage() {
                 </Button>
               </div>
             ) : (
-              <div className="grid gap-8 grid-cols-[repeat(auto-fill,minmax(230px,1fr))]">
+              <div className="grid gap-8 grid-cols-[repeat(auto-fit,minmax(230px,1fr))]">
                 {filteredProducts.map(p => (
                   <ProductCard
                     key={p.slug}

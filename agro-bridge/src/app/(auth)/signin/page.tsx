@@ -15,21 +15,21 @@ import { z } from "zod";
 
 const metadata = {
   title: "Sign In to Your Account",
-  description: "Log in to AgroBridge to access verified Nigerian agricultural products and manage your orders.",
+  description: "Log in to Debridger to access verified Nigerian agricultural products and manage your orders.",
 
   keywords: [
-    "agrobridge login", "signin", "buyer login",
+    "Debridger login", "signin", "buyer login",
     "agricultural marketplace login"
   ],
 
   openGraph: {
     url: "/signin",
-    title: "Sign In to Your Account | AgroBridge",
+    title: "Sign In to Your Account | Debridger",
     description: "Access your buyer dashboard and start sourcing premium crops.",
   },
 
   twitter: {
-    title: "Sign In to Your Account | AgroBridge",
+    title: "Sign In to Your Account | Debridger",
     description: "Access your buyer dashboard and start sourcing premium crops.",
   },
 
@@ -117,10 +117,10 @@ export default function SignInPage() {
 
           {/* Heading, App Logo and Title*/}
           <div className="flex flex-col items-center w-full h-full gap-6">
-            <div className="flex items-center gap-4">
-              <AppLogo className="w-8 h-8" />
-              <span className="text-xl text-(--agro-green-dark) font-semibold">AgroBridge</span>              
-            </div>
+            <Link href="/" className="flex items-center gap-2">
+              <AppLogo className="w-8 h-8 text-(--agro-green-light)" />
+              <span className="text-xl text-(--agro-green-dark) font-semibold">Debridger</span> 
+            </Link>
 
             <div className="text-xl text-(--heading-colour) font-semibold">Sign In</div>
           </div>
@@ -136,16 +136,6 @@ export default function SignInPage() {
               <Chrome className="w-5 h-5 mr-3" />
               Continue with Google
             </Button>
-
-            {/* <Button
-              type="button"
-              variant="outline"
-              className="w-full text-base h-10 font-medium hover:border-(--agro-green-dark) border-(--border-gray) hover:cursor-pointer duration-300 ease-in-out transition-all"
-              onClick={() => handleOAuth("github")}
-            >
-              <Github className="w-5 h-5 mr-3" />
-              Continue with GitHub
-            </Button> */}
           </div>
 
           {/* Divider */}

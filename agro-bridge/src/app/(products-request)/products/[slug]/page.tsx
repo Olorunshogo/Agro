@@ -17,13 +17,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
   if (!product) {
     return {
-      title: "Product Not Found | AgroBridge",
+      title: "Product Not Found | Debridger",
       description: "The requested product does not exist.",
     };
   }
 
   return {
-    title: `${product.name} | AgroBridge`,
+    title: `${product.name} | Debridger`,
     description: product.seoDescription || product.description,
   };
 }

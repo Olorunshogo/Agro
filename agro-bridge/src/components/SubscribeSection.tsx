@@ -54,7 +54,7 @@ export default function SubscribeSection() {
           <div className="flex items-center justify-center p-8">
             <Image
               src="/landing/home-subscribe.png"
-              alt="Stay updated with AgroBridge"
+              alt="Stay updated with Debridger"
               width={500}
               height={400}
               className="object-contain w-full max-w-md -mt-12 lg:-mt-20"

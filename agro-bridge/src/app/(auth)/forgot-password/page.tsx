@@ -9,21 +9,21 @@ import { toast } from "sonner";
 
 const metadata = {
   title: "Forgot Password – Reset Securely",
-  description: "Reset your AgroBridge password securely. We’ll send a reset link to your email.",
+  description: "Reset your Debridger password securely. We’ll send a reset link to your email.",
 
   keywords: [
     "forgot password", "password reset", "recover account",
-    "agrobridge password"
+    "Debridger password"
   ],
 
   openGraph: {
     url: "/forgotten-password",
-    title: "Forgot Password – Reset Securely | AgroBridge",
+    title: "Forgot Password – Reset Securely | Debridger",
     description: "Get back into your account in seconds.",
   },
 
   twitter: {
-    title: "Forgot Password – Reset Securely | AgroBridge",
+    title: "Forgot Password – Reset Securely | Debridger",
     description: "Get back into your account in seconds.",
   },
 
