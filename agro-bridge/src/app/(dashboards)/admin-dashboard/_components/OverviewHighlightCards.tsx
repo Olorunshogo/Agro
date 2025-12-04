@@ -28,7 +28,7 @@ export default function OverviewHighlightCards({ adminHighlights }: Props) {
         return (
           <div
             key={highlight.heading}
-            className="flex flex-col gap-2 p-6 transition-all border rounded-md shadow-md hover:shadow-lg"
+            className="flex flex-col gap-4 p-6 transition-all border rounded-md shadow-md hover:shadow-lg"
           >
             <div className="flex items-center gap-2">
               <span className="p-2 bg-green-100 rounded-full">

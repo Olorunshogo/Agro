@@ -45,14 +45,6 @@ export default function DashboardSidebar() {
     router.push("/signin");
     router.refresh();
   }
-
-  // const navItems = [
-  //   { icon: Home, label: "Overview", href: "/dashboard" },
-  //   { icon: Package, label: "Analytics", href: "/dashboard/analytics" },
-  //   { icon: ShoppingCart, label: "Products", href: "/dashboard/products" },
-  //   { icon: Users, label: "Quote Requests", href: "/dashboard/quote-requests" },
-  //   { icon: Settings, label: "Settings", href: "/dashboard/settings" },
-  // ];
   
   return (
     <>

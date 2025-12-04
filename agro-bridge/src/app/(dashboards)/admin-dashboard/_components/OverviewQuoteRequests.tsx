@@ -44,7 +44,7 @@ export default function OverviewQuoteRequests({ quoteRequests }: Props) {
                   <td className="py-3">{request.buyer}</td>
                   <td className="py-3 capitalize">{request.status.replace("_", " ")}</td>
                   <td className="py-3">{request.assignedTo}</td>
-                  <td className="py-3 text-right">
+                  <td className="py-3">
                     <Button size="sm" variant="secondary" onClick={() => setSelectedQuote(request)}>
                       View
                     </Button>

@@ -2,10 +2,11 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { submitContactForm } from "~/actions/contactForm";
 
 import HeroSection from "~/components/HeroSection";
 import { Button } from "~/components/ui/button";
-import { Toaster, toast } from "sonner";
+import { toast } from "sonner";
 
 import { TextInput } from "~/components/input-fields/TextInput";
 import { EmailInput } from "~/components/input-fields/EmailInput";
@@ -13,6 +14,8 @@ import { MessageInput } from "~/components/input-fields/MessageInput";
 import { z } from "zod";
 
 import { Phone, Mail, Clock } from "lucide-react";
+import ContactMap from "~/components/ContactMap";
+
 
 // Static metadata
 const metadata = {
@@ -86,18 +89,13 @@ export default function ContactPage() {
     setLoading(true);
 
     try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
+      const res = await submitContactForm(form);
 
       if (res.ok) {
         toast.success("Thank you! We’ll get back to you soon.");
         setForm({ fullName: "", email: "", message: "" });
       } else {
-        const data = await res.json();
-        toast.error(data.message || "Something went wrong");
+        toast.error(res.error || "Something went wrong");
       }
     } catch (err) {
       toast.error("Network error. Please try again.");
@@ -108,7 +106,6 @@ export default function ContactPage() {
 
   const sitemapUrl:string = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.952412683761!2d3.342567!3d6.596429!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8b2ae68280c1%3A0xdc9e87a367c3d9cb!2sLagos!5e0!3m2!1sen!2sng!4v1703123456789";
   
-
   return (
     <main className="relative font-openSans">
       <div className="flex flex-col gap-12 w-full h-full bg-(--primary-bg-light) dark:bg-black">
@@ -197,7 +194,7 @@ export default function ContactPage() {
                   <Button
                     type="submit"
                     disabled={loading}
-                    className="w-full rounded-full bg-(--agro-green-dark) hover:bg-(--agro-green-light) hover:cursor-pointer text-white py-6 text-lg font-medium duration-300 ease-in-out transition-all"
+                    className="w-full max-w-md mx-auto rounded-full bg-(--agro-green-dark) hover:bg-(--agro-green-light) hover:cursor-pointer text-white py-6 font-medium duration-300 ease-in-out transition-all"
                   >
                     {loading ? "Sending..." : "Send Message"}
                   </Button>
@@ -206,7 +203,7 @@ export default function ContactPage() {
               </div>
 
               {/* Contact Information and Map Area */}
-              <div className="flex flex-col w-full h-full gap-12 lg:gap-20">
+              <div className="flex flex-col w-full h-full gap-8">
 
                 {/* Contact Information */}
                 <div className="flex flex-col w-full gap-4 border-(--agro-green-dark)">
@@ -249,7 +246,7 @@ export default function ContactPage() {
 
                 {/* Map Area */}
                 {/* Use Leaflet to remake this part: https://leafletjs.com/ */}
-                <div className="relative w-full overflow-hidden border border-gray-200 shadow-xl h-96 lg:h-full min-h-96 rounded-xl">
+                {/* <div className="relative w-full overflow-hidden border border-gray-200 shadow-xl h-96 lg:h-full min-h-96 rounded-xl">
                   <iframe
                     src={sitemapUrl}
                     width="100%"
@@ -260,13 +257,46 @@ export default function ContactPage() {
                     referrerPolicy="no-referrer-when-downgrade"
                     className="absolute inset-0"
                   />
+                </div> */}
+
+                {/* Map Area - Interactive Leaflet Map */}
+                <div className="relative w-full overflow-hidden border border-gray-200 shadow-xl h-96 lg:h-full min-h-96 rounded-xl">
+                  {/* Location for barnawa Market road */}
+                  <ContactMap lat={10.4831} lng={7.4324} zoom={15} />
+
+                  {/* 
+                    Barnawa — neighborhood center (general reference)
+                    Decimal: 10.48342, 7.43488                    
+                    DMS: 10°29′0.3″ N, 7°26′5.6″ E.
+                    
+                    Federal Neuro-Psychiatric Hospital, Kaduna (FNPH — Barnawa)                    
+                    Decimal: 10.46468, 7.43100                    
+                    DMS: 10°27′52″ N, 7°25′51″ E.
+                    
+                    Source: Wikipedia / Mindat entries for the hospital. 
+                    Wikipedia                    
+                    Graceland Hagwop Hospital (Barnawa)                    
+                    Decimal: 10.4828762, 7.4385206
+                    
+                    Barnawa / Barnawa Market Road (approx — Market area reference)
+                    Decimal (approx): 10.4831, 7.4324
+                    
+                    CoLab (No. 4 Barnawa Close — local workspace / training point)                    
+                    Decimal: 10.4822884, 7.4279777                    
+                    
+                    Medium-Income Housing Estate, Barnawa (example residential complex)                    
+                    Decimal: 10.4653125, 7.4387944
+                  */}
+
+                  <div className="absolute z-10 px-3 py-1 text-xs text-gray-600 bg-white rounded shadow bottom-2 right-2">
+                    Map powered by Leaflet © OpenStreetMap
+                  </div>
                 </div>
 
               </div>
-              
-            </div>
 
-            
+              
+            </div>            
             
           </div>
         </section>   

@@ -106,7 +106,7 @@ export default function UserPersona() {
             ref={scrollRef}
             className="flex items-center gap-8 overflow-x-hidden scroll-smooth"
           >
-            <div className="absolute translate-y-1/2 left-4">
+            <div className="absolute translate-y-1/2 left-3">
               <Flower className="w-6 h-6 text-(--agro-green-dark)" />
             </div>
 
@@ -114,7 +114,7 @@ export default function UserPersona() {
               <PersonaCard key={index} persona={persona} />
             ))}
 
-            <div className="absolute flex justify-end -translate-y-1/2 left-4 right-4">
+            <div className="absolute flex justify-end translate-y-1/2 right-3">
               <Flower className="w-6 h-6 text-(--agro-green-dark)" />
             </div>
             
