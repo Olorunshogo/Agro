@@ -2,6 +2,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import dynamic from "next/dynamic";
 import { submitContactForm } from "~/actions/contactForm";
 
 import HeroSection from "~/components/HeroSection";
@@ -14,7 +15,8 @@ import { MessageInput } from "~/components/input-fields/MessageInput";
 import { z } from "zod";
 
 import { Phone, Mail, Clock } from "lucide-react";
-import ContactMap from "~/components/ContactMap";
+// import ContactMap from "~/components/ContactMap";
+
 
 
 // Static metadata
@@ -103,6 +105,16 @@ export default function ContactPage() {
       setLoading(false);
     }
   };
+
+  // Dynamically import ContactMap - NO SSR;
+  const ContactMap = dynamic(() => import('~/components/ContactMap'), {
+    loading: (() =>    
+      <div className="flex items-center justify-center w-full bg-gray-200 border-2 border-gray-300 border-dashed h-96 lg:h-full min-h-96 rounded-xl">
+        <p className="text-gray-500">Loading map...</p>
+      </div>
+    ),
+    ssr: false,
+  });
 
   const sitemapUrl:string = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.952412683761!2d3.342567!3d6.596429!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8b2ae68280c1%3A0xdc9e87a367c3d9cb!2sLagos!5e0!3m2!1sen!2sng!4v1703123456789";
   
