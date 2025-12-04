@@ -1,7 +1,4 @@
 
-
-import { inter, openSans } from "~/app/fonts";
-
 import Header from "~/components/Header";
 import SubscribeSection from "~/components/SubscribeSection";
 import Footer from "~/components/Footer";
@@ -65,11 +62,8 @@ const metadata = {
   },
 };
 
-export default function MainLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function MainLayout({ children, }: Readonly<{ children: React.ReactNode; }>) {
+  
   return (
     <>
       <Header />

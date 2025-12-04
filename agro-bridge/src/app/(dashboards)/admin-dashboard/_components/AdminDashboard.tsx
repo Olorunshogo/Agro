@@ -24,7 +24,7 @@ export default async function AdminDashboard({
 }: Props) {
 
   return (
-    <div className="relative flex flex-col w-full h-full gap-12 p-6">
+    <div className="relative flex flex-col w-full h-full gap-12 p-2">
       <OverviewHighlightCards adminHighlights={highlights} />
 
       <div className="grid w-full h-full grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-6">

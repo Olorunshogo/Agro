@@ -200,6 +200,7 @@ export default function Header() {
                 onClick={(e) => e.stopPropagation()}
               >
                 <div className="flex flex-col h-full gap-4">
+                  {/* Header */}
                   <div className="flex items-center justify-between w-full p-3 gap-4 shadow-md backdrop-blur-sm h-(--navbar-h)">
                     <div className="flex items-center">
                       <Link
@@ -227,6 +228,7 @@ export default function Header() {
                     </Button>
                   </div>
 
+                  {/* Navigation Links */}
                   <nav className="w-full p-4">
                     <ul className="grid w-full gap-2">
                       {sideNavLinks.map(({ label, href, icon: Icon }) => {

@@ -5,7 +5,7 @@ import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
 import { Dialog, DialogHeader, DialogTitle, DialogContent } from "~/components/ui/dialog";
 
-import { PlusIcon, Loader2 } from "lucide-react";
+import { PlusIcon, Loader2, PenLine, Trash2 } from "lucide-react";
 import { Button } from "~/components/ui/button";
 import { TextInput } from "~/components/input-fields/TextInput";
 import { NumberInput } from "~/components/input-fields/NumberInput";
@@ -59,22 +59,6 @@ export default function OverviewProductManagement({ initialProducts }: Props) {
     setLoading(true);
 
     try {
-      // await mockApiSave(currentProduct, productModalMode);
-
-      // if (productModalMode === "add") {
-      //   setProductsInfo((prev) => [...prev, currentProduct]);
-      // }
-
-      // if (productModalMode === "edit") {
-      //   setProductsInfo((prev) =>
-      //     prev.map((p) => (p.id === currentProduct.id ? currentProduct : p))
-      //   );
-      // }
-
-      // if (productModalMode === "delete") {
-      //   setProductsInfo((prev) => prev.filter((p) => p.id !== currentProduct.id));
-      // }
-
       if (productModalMode === "delete") {
         await deleteProduct(currentProduct.id);
         setProductsInfo((prev) => prev.filter((p) => p.id !== currentProduct.id));
@@ -95,13 +79,6 @@ export default function OverviewProductManagement({ initialProducts }: Props) {
       setLoading(false);
     }
   }
-
-  /* ==== MOCK API ==== */
-  // async function mockApiSave(product: ProductInformation, type: Mode) {
-  //   console.log("Mock API Call:", { product, type });
-  //   return new Promise((resolve) => setTimeout(resolve, 600));
-  // }
-
   
   return (
     <>
@@ -109,7 +86,7 @@ export default function OverviewProductManagement({ initialProducts }: Props) {
       <div className="w-full h-full">
         <Card>
           <CardHeader>
-            <CardTitle className="flex items-center justify-between">
+            <CardTitle className="flex flex-wrap items-center justify-between gap-4">
               Product Management
               <Button onClick={openAddModal} variant="outline">
                 <PlusIcon className="w-4 h-4" />
@@ -121,22 +98,36 @@ export default function OverviewProductManagement({ initialProducts }: Props) {
           <CardContent>
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr className="border-b border-(--border-gray) text-sm">
-                  <th className="py-2">Product Name</th>
-                  <th className="py-2">Stock</th>
-                  <th className="py-2 text-right">Actions</th>
+                <tr className="border-b border-(--border-gray) text-sm grid grid-cols-[2fr_1fr_1fr] sm:grid-cols-[3fr_1fr_1fr] gap-4 *:py-3">
+                  <th>
+                    <span className="flex sm:hidden">Name</span>
+                    <span className="hidden sm:flex">Product Name</span>
+                  </th>
+                  
+                  <th className="text-center">Stock</th>
+                  <th className="text-center">Actions</th>
                 </tr>
               </thead>
 
               <tbody>
                 {productsInfo.map((product) => (
-                  <tr key={product.id} className="border-b border-(--border-gray)">
-                    <td className="py-3">{product.name}</td>
-                    <td className="py-3">{product.stock}</td>
+                  <tr 
+                    key={product.id} 
+                    className="border-b border-(--border-gray) grid-cols-[2fr_1fr_1fr] sm:grid-cols-[3fr_1fr_1fr] grid gap-4 *:py-3 items-center w-full"
+                  >
+                    <td className="text-sm lg:text-base">{product.name}</td>
+                    <td className="text-sm text-center lg:text-base">{product.stock}</td>
 
-                    <td className="py-3 space-x-2 text-right">
-                      <Button size="sm" variant="secondary" onClick={() => openEditModal(product.id)}>
-                        Edit
+                    <td className="flex items-center justify-center gap-2 mx-auto">
+                      <Button 
+                        size="sm" 
+                        variant="secondary" 
+                        onClick={() => openEditModal(product.id)}
+                      >
+                        <span className="flex sm:hidden">
+                          <PenLine className="w-5 h-5" />
+                        </span>
+                        <span className="hidden sm:flex">Edit</span>
                       </Button>
 
                       <Button
@@ -144,12 +135,16 @@ export default function OverviewProductManagement({ initialProducts }: Props) {
                         variant="destructive"
                         onClick={() => openDeleteModal(product.id)}
                       >
-                        Delete
+                        <span className="flex sm:hidden">
+                          <Trash2 className="w-5 h-5" />
+                        </span>
+                        <span className="hidden sm:flex">Delete</span>
                       </Button>
                     </td>
                   </tr>
                 ))}
               </tbody>
+              
             </table>
           </CardContent>
         </Card>

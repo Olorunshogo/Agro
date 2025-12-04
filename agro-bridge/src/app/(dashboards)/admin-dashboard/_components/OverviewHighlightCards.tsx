@@ -32,11 +32,11 @@ export default function OverviewHighlightCards({ adminHighlights }: Props) {
           >
             <div className="flex items-center gap-2">
               <span className="p-2 bg-green-100 rounded-full">
-                {Icon && <Icon className="w-5 h-5 text-green-700" />}
+                {Icon && <Icon className="w-5 h-5 text-(--agro-green-dark)" />}
               </span>
-              <span className="text-xl font-bold">{highlight.value}</span>
+              <span className="text-xl font-bold lg:text-2xl">{highlight.value}</span>
             </div>
-            <div className="text-sm text-gray-600">{highlight.heading}</div>
+            <div className="text-sm text-(--text-colour)">{highlight.heading}</div>
           </div>
         );
       })}

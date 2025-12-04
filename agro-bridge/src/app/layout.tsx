@@ -1,5 +1,4 @@
 
-
 import { inter, openSans } from "./fonts";
 import "./globals.css";
 import { Toaster } from "sonner";
@@ -64,11 +63,8 @@ const metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children, }: Readonly<{ children: React.ReactNode; }>) {
+
   return (
     <html lang="en">
       <body className={`${inter.variable} ${openSans.variable} antialiased`}>
